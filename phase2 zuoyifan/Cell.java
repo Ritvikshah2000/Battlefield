@@ -39,4 +39,13 @@ public abstract class Cell
 	{
 		return this.contents;
 	}
+
+	// onHit
+	public void onHit(Hero hero) {}
+
+	// will be override
+	public void Move(Cell[][] board, Direction d) {}
+
+	// will be override
+	public void addKeys() {}
 }

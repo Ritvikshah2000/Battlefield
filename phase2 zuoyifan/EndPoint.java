@@ -1,24 +1,25 @@
 public class EndPoint extends Cell 
 {
-	private boolean locked;
-
 	// Constructor
 	public EndPoint(int x, int y)
 	{
-		this.locked = true;
+		//this.locked = true;
 		super.setOccupied(false);
 		super.setPosition(x,y);
 		super.setContents("EndPoint");
 		System.out.println("The end point has been set in location: (" + x + ", " + y +")");
 	}
 
-	public boolean isLocked()
+	public void onHit(Hero hero)
 	{
-		return this.locked;
-	}
-
-	public void unlock()
-	{
-		this.locked = false;
+		if (hero.getKeys() == 5)
+		{
+			System.out.println("Game over, you win!");	// trigger end of game
+			System.out.println("Your score: " + hero.getScore());
+		} 
+		else
+		{
+			System.out.println("You have't collect all keys");
+		}
 	}
 }

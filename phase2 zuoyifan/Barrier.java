@@ -17,4 +17,10 @@ public class Barrier extends Cell
 	{
 		return this.isBarrier;
 	}
+
+	public void onHit(Hero hero) 
+	{
+		// do nothing
+		System.out.println("Hit a Barrier, position won't change");
+	}
 }

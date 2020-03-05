@@ -8,4 +8,10 @@ public class RegularCell extends Cell
 		super.setContents("RegularCell");
 		System.out.println("A regular cell has been set in location: (" + x + ", " + y +")");
 	}
+
+	public void onHit(Hero hero) 
+	{
+		// do nothing
+		System.out.println("Hit a Regular cell, position change");
+	}
 }
