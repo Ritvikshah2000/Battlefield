@@ -11,10 +11,9 @@ public class Health extends Reward{
     //getting methods from reward and overriding them
     
     public void onHit(){
-        if(hero.getHealth() == 0){
-            System.out.println("You have died!");
-        }else{
-            reduceHealth();
+        if(Reward.getId() == ID.Health){
+            healthValue++;
+            System.out.println("You gained a heart!") 
         }
     }
 

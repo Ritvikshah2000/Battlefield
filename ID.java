@@ -1,6 +1,6 @@
 //controls which kinds of object it is
 public enum ID{
-    Heart(),
+    Health(),
     Freeze(),
     Key();
 }
