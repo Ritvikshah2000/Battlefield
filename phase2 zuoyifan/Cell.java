@@ -1,20 +1,15 @@
 public abstract class Cell
 {
 	//attributes
-	private boolean occupied;
 	private int[] position;				// position[0] = x, position[1] = y
 	private String contents;
 
-	//Occupied
-	public boolean isOccupied()
-	{
-		return occupied;
-	}
 
-	public void setOccupied(boolean b)
-	{
-		this.occupied = b;
-	}
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------Setter, Getter, Remover--------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------------------*/
 
 	//Position
 	public void setPosition(int x, int y)
@@ -40,6 +35,9 @@ public abstract class Cell
 		return this.contents;
 	}
 
+	/*-----------------------------------------------------------------------------------------------------------------*/
+
+
 	// onHit
 	public void onHit(Hero hero) {}
 
@@ -48,4 +46,24 @@ public abstract class Cell
 
 	// will be override
 	public void addKeys() {}
+
+	public void removeHero() {}
+
+	public void removeEnemy() {}
+
+	public void removeHealthbomb() {}
+
+	public void removeScorebomb() {}
+
+
+
+
+
+
+
+
+
+
+
+
 }

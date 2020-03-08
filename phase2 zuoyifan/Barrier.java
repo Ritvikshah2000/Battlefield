@@ -1,26 +1,23 @@
 public class Barrier extends Cell 
 {
-	private boolean isBarrier;
-
 	// Constructor
 	public Barrier(int x, int y)
 	{
-		super.setOccupied(true);
 		super.setPosition(x,y);		
-		super.setContents("Barrier");	
-		this.isBarrier = true;			
+		super.setContents("Barrier");			
 		System.out.println("A barrier has been set in location: (" + x + ", " + y +")");
 	}
 
-	//Barrier checker
-	public boolean isBarrier()
-	{
-		return this.isBarrier;
-	}
-
+	// Hero hit a barrier
 	public void onHit(Hero hero) 
 	{
 		// do nothing
-		System.out.println("Hit a Barrier, position won't change");
+		System.out.println("Hero hit a Barrier, position won't change");
+	}
+
+	public void onHit(Enemy enemy) 
+	{
+		// do nothing
+		System.out.println("enmey hit a Barrier, position won't change");
 	}
 }
