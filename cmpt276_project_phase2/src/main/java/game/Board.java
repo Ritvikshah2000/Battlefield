@@ -15,7 +15,8 @@ import reward.Key;
 public class Board
 {
     private Cell[][] board;
-    public Hero hero;
+    private Enemy[] enemylist;
+    private int n = 10;
 
     public Board()
     {
@@ -64,7 +65,7 @@ public class Board
 
         /*---------------------------Startpoint---------------------------*/
 
-        this.hero = new Hero(this.board[n-2][n-2]);
+        //this.hero = new Hero(this.board[n-2][n-2]);
 
         /*-----------------------------Barrier----------------------------*/
 
@@ -93,7 +94,7 @@ public class Board
         Key key1 = new Key(this.board[1][4]);
         Key key2 = new Key(this.board[5][5]);
         Key key3 = new Key(this.board[8][1]);
-        Key key4 = new Key(this.board[8][5]);
+        Key key4 = new Key(this.board[8][6]);
         Key key5 = new Key(this.board[1][8]);
 
         //Health
@@ -117,10 +118,26 @@ public class Board
         Enemy enemy1 = new Enemy(this.board[8][2]);
         Enemy enemy2 = new Enemy(this.board[2][1]);
         Enemy enemy3 = new Enemy(this.board[1][6]);
+        enemylist = new Enemy[3];
+        enemylist[0] = enemy1;
+        enemylist[1] = enemy2;
+        enemylist[2] = enemy3;
     }
 
-    public void moveHero(Direction d)
+    public Cell getHerocell()
     {
-        this.hero.Move(this.board, d);
+        return board[n-2][n-2];
     }
+
+    public Cell[][] getCell()
+    {
+        return this.board;
+    }
+
+    public Enemy[] getEnemylist()
+    {
+        return this.enemylist;
+    }
+
+
 }
