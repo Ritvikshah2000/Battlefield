@@ -1,3 +1,9 @@
+package actor;
+
+import cell.Cell;
+import cell.EndPoint;
+import cell.ID;
+import game.GameOver;
 
 import java.lang.Math;
 
@@ -31,7 +37,7 @@ public class Enemy extends Actor
         GameOver gameover = new GameOver(hero, new EndPoint());
     }
 
-    public void doAction(Cell currentcell, Cell nextcell)       // Base on the hero move to the next cell do action.
+    public void doAction(Cell currentcell, Cell nextcell)		// Base on the hero move to the next cell do action.
     {
         int[] cellposition = nextcell.getPosition();
         ID cellid = nextcell.getId();
@@ -124,16 +130,3 @@ public class Enemy extends Actor
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

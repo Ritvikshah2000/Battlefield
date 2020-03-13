@@ -1,3 +1,7 @@
+package actor;
+
+import cell.Cell;
+import content.Cellcontent;
 
 public abstract class Actor implements Cellcontent
 {

@@ -1,3 +1,9 @@
+package cell;
+
+import actor.Enemy;
+import actor.Hero;
+import game.GameOver;
+
 public class EndPoint extends Cell
 {
     private Hero hero;

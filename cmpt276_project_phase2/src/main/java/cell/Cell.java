@@ -1,3 +1,15 @@
+package cell;
+
+import actor.Direction;
+import actor.Enemy;
+import actor.Hero;
+import hazard.HealthBomb;
+import hazard.ScoreBomb;
+import reward.Freeze;
+import reward.Health;
+import reward.Key;
+
+
 public abstract class Cell {
     //attributes
     private int[] position;                // position[0] = x, position[1] = y

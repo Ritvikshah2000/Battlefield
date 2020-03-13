@@ -1,3 +1,9 @@
+package actor;
+
+import cell.Cell;
+import cell.EndPoint;
+import cell.ID;
+import game.GameOver;
 
 public class Hero extends Actor
 {
@@ -82,7 +88,7 @@ public class Hero extends Actor
 
     /*-----------------------------------------------------------------------------------------------------------------*/
 
-    public void doAction(Cell currentcell, Cell nextcell)       // Base on the hero move to the next cell do action.
+    public void doAction(Cell currentcell, Cell nextcell)		// Base on the hero move to the next cell do action.
     {
         int[] cellposition = nextcell.getPosition();
         ID cellid = nextcell.getId();
@@ -130,15 +136,3 @@ public class Hero extends Actor
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,7 @@
+package game;
+
+import actor.Hero;
+import cell.EndPoint;
 
 public class GameOver
 {

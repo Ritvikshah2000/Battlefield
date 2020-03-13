@@ -1,3 +1,7 @@
+package reward;
+
+import actor.Hero;
+import cell.Cell;
 
 public class Freeze extends Reward
 {

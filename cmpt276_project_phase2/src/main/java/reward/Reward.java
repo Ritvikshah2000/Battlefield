@@ -1,3 +1,8 @@
+package reward;
+
+import actor.Hero;
+import cell.Cell;
+import content.Cellcontent;
 
 //this class is a skeleton class for all rewards
 public abstract class Reward implements Cellcontent

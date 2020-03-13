@@ -1,3 +1,6 @@
+package content;
+
+import cell.Cell;
 
 public interface Cellcontent
 {

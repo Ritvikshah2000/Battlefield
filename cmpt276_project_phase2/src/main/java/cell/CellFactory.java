@@ -1,4 +1,6 @@
-public class CellFactory    // To create a cell
+package cell;
+
+public class CellFactory		// To create a cell
 {
     public Cell getCell(String cell, int x, int y)
     {

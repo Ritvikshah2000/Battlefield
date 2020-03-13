@@ -1,3 +1,14 @@
+package cell;
+
+import actor.Enemy;
+import actor.Hero;
+import game.GameOver;
+import hazard.HealthBomb;
+import hazard.ScoreBomb;
+import reward.Freeze;
+import reward.Health;
+import reward.Key;
+
 public class RegularCell extends Cell
 {
     private Hero hero;
@@ -17,9 +28,9 @@ public class RegularCell extends Cell
         this.scorebomb = null;
         this.healthbomb = null;
         this.enemy = null;
-        this.heart = null;
-        this.key = null;
-        this.freeze = null;
+		this.heart = null;
+		this.key = null;
+		this.freeze = null;
 
         System.out.println("A regular cell has been set in location: (" + x + ", " + y +")");
     }
@@ -63,7 +74,7 @@ public class RegularCell extends Cell
     // Enemy
     public void setEnemy(Enemy enemy)
     {
-        this.enemy = enemy;         // we could have enmey overlap
+        this.enemy = enemy;			// we could have enmey overlap
     }
 
     public Enemy getEnemy()
@@ -128,97 +139,97 @@ public class RegularCell extends Cell
         }
     }
 
-    // Heart
-    public void setHealth(Health heart)
-    {
-        if (this.heart == null) { this.heart = heart; }
-        else
-        {
-            System.out.println("Error, heart has been set already");
-            System.exit(0);
-        }
-    }
+	// Heart
+	public void setHealth(Health heart)
+	{
+		if (this.heart == null) { this.heart = heart; }
+		else
+		{
+			System.out.println("Error, heart has been set already");
+			System.exit(0);
+		}
+	}
 
-    public Health getHealth()
-    {
-        return this.heart;
-    }
+	public Health getHealth()
+	{
+		return this.heart;
+	}
 
-    public void removeHealth()
-    {
-        if (this.heart != null) { this.heart = null; }
-        else
-        {
-            System.out.println("Error, no heart to remove");
-            System.exit(0);
-        }
-    }
+	public void removeHealth()
+	{
+		if (this.heart != null) { this.heart = null; }
+		else
+		{
+			System.out.println("Error, no heart to remove");
+			System.exit(0);
+		}
+	}
 
-    // Key
-    public void setKey(Key key)
-    {
-        if (this.key == null) { this.key = key; }
-        else
-        {
-            System.out.println("Error, key has been set already");
-            System.exit(0);
-        }
-    }
+	// Key
+	public void setKey(Key key)
+	{
+		if (this.key == null) { this.key = key; }
+		else
+		{
+			System.out.println("Error, key has been set already");
+			System.exit(0);
+		}
+	}
 
-    public Key getKey()
-    {
-        return this.key;
-    }
+	public Key getKey()
+	{
+		return this.key;
+	}
 
-    public void removeKey()
-    {
-        if (this.key != null) { this.key = null; }
-        else
-        {
-            System.out.println("Error, no key to remove");
-            System.exit(0);
-        }
-    }
+	public void removeKey()
+	{
+		if (this.key != null) { this.key = null; }
+		else
+		{
+			System.out.println("Error, no key to remove");
+			System.exit(0);
+		}
+	}
 
-    // Freeze
-    public void setFreeze(Freeze freeze)
-    {
-        if (this.freeze == null) { this.freeze = freeze; }
-        else
-        {
-            System.out.println("Error, freeze has been set already");
-            System.exit(0);
-        }
-    }
+	// Freeze
+	public void setFreeze(Freeze freeze)
+	{
+		if (this.freeze == null) { this.freeze = freeze; }
+		else
+		{
+			System.out.println("Error, freeze has been set already");
+			System.exit(0);
+		}
+	}
 
-    public Freeze getFreeze()
-    {
-        return this.freeze;
-    }
+	public Freeze getFreeze()
+	{
+		return this.freeze;
+	}
 
-    public void removeFreeze()
-    {
-        if (this.freeze != null) { this.freeze = null; }
-        else
-        {
-            System.out.println("Error, no freeze to remove");
-            System.exit(0);
-        }
-    }
+	public void removeFreeze()
+	{
+		if (this.freeze != null) { this.freeze = null; }
+		else
+		{
+			System.out.println("Error, no freeze to remove");
+			System.exit(0);
+		}
+	}
 
     /*-----------------------------------------------------------------------------------------------------------------*/
 
 
     public void onHit(Hero hero)
     {
-        this.setHero(hero);                 // Hero in the regular cell now
-        if (this.getEnemy() != null)        // Hero hit a enmey with first priority
+        this.setHero(hero);					// Hero in the regular cell now
+        if (this.getEnemy() != null)		// Hero hit a enmey with first priority
         {
-            this.enemy.onHit(hero);         // Game over no need to remove enemy
+            this.enemy.onHit(hero);			// Game over no need to remove enemy
             this.removeEnemy();
         }
 
-        if (this.getHealthbomb() != null)   // Hero hit a Healthbomb, health reduce by one
+        if (this.getHealthbomb() != null)	// Hero hit a Healthbomb, health reduce by one
         {
             this.healthbomb.onHit(hero);
             this.removeHealthbomb();
@@ -230,34 +241,28 @@ public class RegularCell extends Cell
             this.removeScorebomb();
         }
 
-        if (this.getHealth() != null)
-        {
-            this.heart.onHit(hero);
-            this.removeHealth();
-        }
+		if (this.getHealth() != null)
+		{
+			this.heart.onHit(hero);
+			this.removeHealth();
+		}
 
-        if (this.getKey() != null)
-        {
-            this.key.onHit(hero);
-            this.removeKey();
-        }
+		if (this.getKey() != null)
+		{
+			this.key.onHit(hero);
+			this.removeKey();
+		}
 
-        if (this.getFreeze() != null)
-        {
-            this.freeze.onHit(hero);
-            this.removeFreeze();
-        }
+		if (this.getFreeze() != null)
+		{
+			this.freeze.onHit(hero);
+			this.removeFreeze();
+		}
     }
 
     public void onHit(Enemy enemy)
     {
-        System.out.println("on here");
-        this.setEnemy(enemy);                   // enemy in the regular cell now
-        if (this.getHero() != null)
-        {
-            this.hero.reduceHealth(this.hero.getHealth());
-            GameOver gameover = new GameOver(this.hero, new EndPoint());
-        }
+        this.setEnemy(enemy);					// enemy in the regular cell now
         // no need to check if hero in the cell, because we let enemy move first hero move second
     }
 
@@ -300,4 +305,3 @@ public class RegularCell extends Cell
             System.out.println("In regular cell the freeze: true");
     }
 }
-

@@ -1,3 +1,6 @@
+package hazard;
+
+import cell.Cell;
 
 public class HealthBomb extends Hazard
 {

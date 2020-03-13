@@ -1,3 +1,6 @@
+package hazard;
+
+import cell.Cell;
 
 public class ScoreBomb extends Hazard
 {

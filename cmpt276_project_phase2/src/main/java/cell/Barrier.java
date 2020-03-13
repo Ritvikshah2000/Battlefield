@@ -1,3 +1,8 @@
+package cell;
+
+import actor.Enemy;
+import actor.Hero;
+
 public class Barrier extends Cell
 {
     // Constructor

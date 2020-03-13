@@ -1,3 +1,17 @@
+package game;
+
+import actor.Direction;
+import actor.Enemy;
+import actor.Hero;
+import cell.Cell;
+import cell.CellFactory;
+import cell.EndPoint;
+import hazard.HealthBomb;
+import hazard.ScoreBomb;
+import reward.Freeze;
+import reward.Health;
+import reward.Key;
+
 public class Board
 {
     private Cell[][] board;

@@ -1,3 +1,10 @@
+package hazard;
+
+import cell.Cell;
+import content.Cellcontent;
+import actor.Hero;
+import game.GameOver;
+import cell.EndPoint;
 
 public abstract class Hazard implements Cellcontent
 {

@@ -1,3 +1,7 @@
+package reward;
+
+import actor.Hero;
+import cell.Cell;
 
 public class Health extends Reward{
     private int health;
