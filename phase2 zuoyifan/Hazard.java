@@ -1,47 +1,40 @@
-public class Hazard 
+
+public abstract class Hazard implements Cellcontent
 {
-	private int[] position;
-	private String contents;
-	protected int HealthReduceValue;
-	protected int ScoreReduceValue;
+    private int[] position;
+    protected int HealthReduceValue;
+    protected int ScoreReduceValue;
 
-	public void setPosition(int x, int y)
-	{
-		this.position = new int[2];
-		this.position[0] = x;
-		this.position[1] = y;
-	}
 
-	public int[] getPosition()
-	{
-		return this.position;
-	}
+    public void setPosition(int x, int y)
+    {
+        this.position = new int[2];
+        this.position[0] = x;
+        this.position[1] = y;
+    }
 
-	// Contents
-	public void setContents(String contents)
-	{
-		this.contents = contents;
-	}
+    public int[] getPosition()
+    {
+        return this.position;
+    }
 
-	public String getContents()
-	{
-		return this.contents;
-	}
+    public void setContent(Object content, Cell regularcell) {}
+    public void removeContent(Cell regularcell) {}
 
-	public int getHealthReduceValue()
-	{
-		return this.HealthReduceValue;
-	}
+    public int getHealthReduceValue()
+    {
+        return this.HealthReduceValue;
+    }
 
-	public int getScoreReduceValue()
-	{
-		return this.ScoreReduceValue;
-	}
+    public int getScoreReduceValue()
+    {
+        return this.ScoreReduceValue;
+    }
 
-	public void onHit(Hero hero) 
-	{
-		hero.reduceScore(getScoreReduceValue());
-		hero.reduceHealth(getHealthReduceValue());
-		GameOver gameover = new GameOver(hero, new EndPoint()); 
-	}
+    public void onHit(Hero hero)
+    {
+        hero.reduceScore(getScoreReduceValue());
+        hero.reduceHealth(getHealthReduceValue());
+        GameOver gameover = new GameOver(hero, new EndPoint());
+    }
 }
