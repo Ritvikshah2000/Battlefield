@@ -3,10 +3,6 @@ package game;
 import actor.Direction;
 import actor.Enemy;
 import actor.Hero;
-import cell.Cell;
-import cell.ID;
-import cell.RegularCell;
-import hazard.ScoreBomb;
 
 public class PlayGame
 {
@@ -24,10 +20,11 @@ public class PlayGame
     {
         Board board = new Board();
         Hero hero = new Hero(board.getHerocell());
-        Enemy[] enemies = board.getEnemylist();
         System.out.println(" ");
+        Enemy[] enemies = board.getEnemylist();
         for (int i=0; i<3; i+=1)
         {
+            System.out.println(i + " tick of the game");
             for (int j=0; j<3; j+=1)		// all enemies chasing hero
             {
                 enemies[j].chasing(board.getCell(), hero);
@@ -38,7 +35,6 @@ public class PlayGame
             }
             hero.Move(board.getCell(), Direction.left);       // hero move
             printHero(hero);
-            System.out.println(" ");
             System.out.println(" ");
         }
         // continue implement
