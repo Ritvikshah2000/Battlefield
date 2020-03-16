@@ -1,24 +1,39 @@
-public class Key extends Reward{
+package main;
 
-    private int score;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-    //constructor
-    public Key(int x, int y, ID id){
-        super(x,y,id);
-    }
+public class Key implements KeyListener {
+	
+	public Key() {
+		
+	}
 
-    //getting methods from reward and overriding them
-    
-    public void onHit(){
-        if(Reward.getId() == ID.Key){
-            score += 10;
-            System.out.println("You have picked up a key!")
-        }
-    }
+	//pretty self explanatory
 
-    public void tick(){
+	public void keyPressed(KeyEvent e) {
+		int k = e.getKeyCode();
+		
+		if(k == e.VK_LEFT) Player.movingLeft = true;
+		if(k == e.VK_RIGHT) Player.movingRight = true;
+		if(k == e.VK_UP) Player.movingUp = true;
+		if(k == e.VK_DOWN) Player.movingDown = true;
+		
+	}
 
-    }
+	@Override
+	public void keyReleased(KeyEvent e) {
+		int k = e.getKeyCode();
+		
+		if(k == e.VK_LEFT) Player.movingLeft = false;
+		if(k == e.VK_RIGHT) Player.movingRight = false;
+		if(k == e.VK_UP) Player.movingUp = false;
+		if(k == e.VK_DOWN) Player.movingDown = false;
+	}
 
-
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -1,29 +1,14 @@
-public class Health extends Reward{
+package main;
 
-    private int healthValue;
-    private int lifeTime;
+import java.awt.Color;
+import java.awt.Graphics2D;
 
-    //constructor
-    public Health(int x, int y, ID id){
-        super(x,y, id);
-    }
-
-    //getting methods from reward and overriding them
-    
-    public void onHit(){
-        if(Reward.getId() == ID.Health){
-            healthValue++;
-            System.out.println("You gained a heart!") 
-        }
-    }
-
-    public void decLifeTime(){
-    
-    }
-
-    public void tick(){
-
-    }
-
-
+public class Health {
+	public int hp = 100;
+	
+	public void update(Graphics2D g) {
+		g.setColor(Color.PINK);
+		g.fillRect(25, 25, hp*2, 50);
 }
+	}
+
