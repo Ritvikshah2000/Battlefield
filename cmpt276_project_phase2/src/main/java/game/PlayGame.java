@@ -4,6 +4,8 @@ import actor.Direction;
 import actor.Enemy;
 import actor.Hero;
 
+import java.util.ArrayList;
+
 public class PlayGame
 {
     public static void printHero(Hero hero)
@@ -21,14 +23,14 @@ public class PlayGame
         Board board = new Board();
         Hero hero = new Hero(board.getHerocell());
         System.out.println(" ");
-        Enemy[] enemies = board.getEnemylist();
+        ArrayList<Enemy> enemies = board.getEnemylist();
         for (int i=0; i<3; i+=1)
         {
             System.out.println(i + " tick of the game");
             for (int j=0; j<3; j+=1)		// all enemies chasing hero
             {
-                enemies[j].chasing(board.getCell(), hero);
-                int[] posi = enemies[j].getPosition();
+                enemies.get(j).chasing(board.getCell(), hero);
+                int[] posi = enemies.get(j).getPosition();
                 int x = posi[0];
                 int y = posi[1];
                 System.out.println("The Enemy " + j + " is now in location: (" + posi[0] + ", " + posi[1] +")");
