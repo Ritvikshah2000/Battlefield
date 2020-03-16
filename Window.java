@@ -1,23 +1,31 @@
+package main;
+
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-public class Window{
-
-    private JFrame frame;
-
-	public Window(int width, int height, String title, Game game) {  //constructor of window takes in dimensions
-        
+public class Window {
+//all general window details
+	public Window(Dimension size, Main main) {
+		main.setPreferredSize(size);
+		main.setMinimumSize(size);
+		main.setMaximumSize(size);
 		
-		frame.setPreferredSize(new Dimension(width,height)); //set dimensions
-		frame.setMaximumSize(new Dimension(width,height));
-		frame.setMinimumSize(new Dimension(width,height));
-        
-        setTitle("Game");
-		frame.add(game); //adds game class to the frame
+		JFrame frame = new JFrame("Game");
+		
+		frame.setVisible(true);
+		frame.setLayout(new BorderLayout());
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //ensures that the game stops running when window is closed
-		frame.setLocationRelativeTo(null); //ensures that window is in center of screen when the game is launched
-		frame.setVisible(true); //ensures that frame can be seen
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		
+		frame.add(main, BorderLayout.CENTER);
+		frame.addKeyListener(new Key());
+		
+		frame.pack();
+		
+		frame.setLocationRelativeTo(null);
+		
+		main.start();
 	}
 }
