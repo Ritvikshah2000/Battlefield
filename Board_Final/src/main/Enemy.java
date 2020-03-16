@@ -4,18 +4,17 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class Player {
-	public static float x,y; //position
-	// Fix speeds, only need just one.
+public class Enemy {
+
+	public int x,y;
+	public float velX, velY;
+	public float speed = 1.5f;
+	public boolean canUp, canDown, canRight, canLeft;
 	public static final int SIZE = 32;
-	public float leftSpeed = 4.0f;
-	public float rightSpeed = 4.0f;
-	public float upSpeed = 4.0f;
-	public float downSpeed = 4.0f; //rate at which player moves
 
-	public static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
+	public static int damage = 50;
 
-	public Player(float x, float y) {
+	public Enemy(int x, int y) {
 		this.x = x;
 		this.y = y;
 		canUp = true;
@@ -24,10 +23,31 @@ public class Player {
 		canRight = true;
 	}
 
-	public Rectangle getBounds(){
+	public  Rectangle getBounds(){
 		return new Rectangle((int)x, (int)y, SIZE, SIZE);
 	}
 
+	public void update(Graphics2D g) {
+		g.drawImage(Images.testEnemy, (int)x, (int)y, SIZE, SIZE, null);
+
+		if(Player.x > x && canRight) {
+			x += speed;
+		}
+		if(Player.y > y && canDown) {
+			y += speed;
+		}
+		if(Player.x < x && canLeft) {
+			x -= speed;
+		}
+		if(Player.y < y && canUp) {
+			y -= speed;
+		}
+
+		//x += velX;
+		//y += velY;
+
+		collision();
+	}
 
 	public void collision(){
 		int left = (int)(x/Tile.TILESIZE);
@@ -38,11 +58,6 @@ public class Player {
 		int dy = (int)(y/Tile.TILESIZE);
 		//System.out.println("l: " + left + "\nr: " + right + "\nu: " + up + "\nd: " + down);
 
-		for(int i = 0; i < Main.enemies.size(); i++){
-			if(Main.enemies.get(i).getBounds().intersects(this.getBounds())){
-				Health.hp -= 10;
-			}
-		}
 		if(TestLevel.tiles[left][dy].isBarrier()){
 			canLeft = false;
 		}else{
@@ -65,15 +80,4 @@ public class Player {
 		}
 	}
 
-	public void update(Graphics2D g) {
-		g.drawImage(Images.testPlayer, (int)x, (int)y, SIZE, SIZE, null);
-
-		//update player movement based on user input
-		if(movingLeft && canLeft) x -= leftSpeed;
-		if(movingRight && canRight) x+= rightSpeed;
-		if(movingUp && canUp) y -= upSpeed;
-		if(movingDown && canDown) y += downSpeed;
-
-		collision();
-	}
 }

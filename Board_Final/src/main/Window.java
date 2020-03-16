@@ -1,4 +1,4 @@
-package main;
+//package main;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,21 +11,21 @@ public class Window {
 		main.setPreferredSize(size);
 		main.setMinimumSize(size);
 		main.setMaximumSize(size);
-		
+
 		JFrame frame = new JFrame("Game");
-		
+
 		frame.setVisible(true);
 		frame.setLayout(new BorderLayout());
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-		
+
 		frame.add(main, BorderLayout.CENTER);
-		frame.addKeyListener(new Key());
-		
+		//frame.addKeyListener(new Key());
+
 		frame.pack();
-		
+
 		frame.setLocationRelativeTo(null);
-		
+
 		main.start();
 	}
 }
