@@ -51,7 +51,7 @@ public class Main extends Canvas implements Runnable {
 		Health.bar.add(new HealthBar(64,0));
 		enemies.add(new Enemy(100, 100));
 		enemies.add(new Enemy(300, 500));
-		enemies.add(new Enemy(900, 600));
+		enemies.add(new Enemy(600, 600));
 		//bombs = new ArrayList<Bomb>();
 		//bombs.add(new HealthBomb(300, 250));
 		//enemy1 = new Enemy(100, 100);

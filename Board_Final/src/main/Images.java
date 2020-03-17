@@ -26,12 +26,12 @@ public class Images {
 
 	public Images() {
 		try {
-			tilesheet = ImageIO.read(getClass().getResource("/resources/bomb_party_v3.png"));
-
-			tiles[0] = fromSpriteSheet(tilesheet,2,1); //col, row
-			tiles[1] = fromSpriteSheet(tilesheet,6,5);
-			tiles[2] = fromSpriteSheet(tilesheet,7,2);
-			tiles[3] = fromSpriteSheet(tilesheet,7,4);
+			// tilesheet = ImageIO.read(getClass().getResource("/resources/bomb_party_v3.png"));
+			//
+			// tiles[0] = fromSpriteSheet(tilesheet,2,1); //col, row
+			// tiles[1] = fromSpriteSheet(tilesheet,6,5);
+			// tiles[2] = fromSpriteSheet(tilesheet,7,2);
+			// tiles[3] = fromSpriteSheet(tilesheet,7,4);
 			testWall = ImageIO.read(getClass().getResource("/resources/wall1.png"));
 			testGrass = ImageIO.read(getClass().getResource("/resources/grass.png"));
 			testPlayer = ImageIO.read(getClass().getResource("/resources/player.png"));

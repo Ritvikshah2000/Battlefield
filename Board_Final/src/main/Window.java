@@ -16,7 +16,7 @@ public class Window {
 
 		frame.setVisible(true);
 		frame.setLayout(new BorderLayout());
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
 		frame.add(main, BorderLayout.CENTER);

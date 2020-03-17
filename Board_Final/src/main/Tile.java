@@ -11,7 +11,7 @@ public class Tile<T> extends Rectangle {
 	public T item;
 
 
-	public static final int GRIDSIZE = 30; //contains 60 tiles
+	public static final int GRIDSIZE = 20; //contains 60 tiles
 	public static final int TILESIZE = 32; //becasue every image in the spritesheet is 16x16
 
 	public Tile(int id, Rectangle boundaries, boolean barrier, T contents) {

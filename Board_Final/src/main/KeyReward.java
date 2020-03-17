@@ -12,7 +12,7 @@ public class KeyReward extends Reward {
 		Player.keyCount++;
 		TestLevel.addGrass(getX(), getY());
 		Main.rewards.remove(this);
-		KeyBar.kBar.add(new KeyReward( 20 + KeyBar.collected++, 0));
+		KeyBar.kBar.add(new KeyReward( 10 + KeyBar.collected++, 0));
 	}
 
 	@Override

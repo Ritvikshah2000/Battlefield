@@ -12,29 +12,29 @@ public class TestLevel {
 	public TestLevel() {
 		populateField();
 		barrierRow(0, 0, 30);
-		barrierRow(29, 0, 30);
+		barrierRow(19, 0, 30);
 		barrierColumn(0, 0, 30);
-		barrierColumn(29, 0, 30);
+		barrierColumn(19, 0, 30);
 		barrierRow(10, 10, 20);
 		barrierRow(9, 10, 20);
 		barrierRow(9, 10, 20);
 		//barrierColumn(10, 11, 20);
-		addBomb(15, 20, new HealthBomb(15, 20));
+		addBomb(15, 16, new HealthBomb(15, 16));
 		//addBomb(35, 15, new HealthBomb(35,15));
-		addReward(25, 15, new Freeze(25, 15));
-		addReward(27, 7, new HealthReward(27, 7));
-		addReward(17, 27, new HealthReward(17, 27));
-		addReward(5, 20, new HealthReward(5, 20));
+		addReward(18, 15, new Freeze(18, 15));
+		addReward(14, 7, new HealthReward(14, 7));
+		addReward(17, 17, new HealthReward(17, 17));
+		addReward(5, 18, new HealthReward(5, 18));
 
 		for(int i=0;i<10;i++) {
-			int x_rand = (int) (Math.random()*(28-2+1)+2);//generates random numbers between 2 and 28
-			int y_rand = (int) (Math.random()*(28-2+1)+2);//generates random numbers between 2 and 28
+			int x_rand = (int) (Math.random()*(17-2+1)+2);//generates random numbers between 2 and 28
+			int y_rand = (int) (Math.random()*(17-2+1)+2);//generates random numbers between 2 and 28
 
 		addReward(x_rand, y_rand, new KeyReward(x_rand,y_rand));
 		}
 
 
-		setEndPoint(28, 1, new EndPoint());
+		setEndPoint(18, 18, new EndPoint());
 
 
 		//barrierColumn();
