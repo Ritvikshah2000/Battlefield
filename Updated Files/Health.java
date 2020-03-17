@@ -14,8 +14,7 @@ public class Health {
 
     if(hp <= 0) {//GAMEOVER IF HEALTH ZERO
         g.drawString("GAME OVER", 500, 500);// NOT WORKING FOR SOME REASON
-
-    	Main.stop();//  (METHOD STATIC)
+       // Main.running= false;
     }
   }
 }

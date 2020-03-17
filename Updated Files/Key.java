@@ -15,7 +15,6 @@ public class Key implements KeyListener {
 	//pretty self explanatory
 
 	public void keyPressed(KeyEvent e) {
-		System.out.println("Key Press");
 		int id = e.getKeyCode();
 		if(id == KeyEvent.VK_ESCAPE){
 			System.out.println("Program Exited by User");

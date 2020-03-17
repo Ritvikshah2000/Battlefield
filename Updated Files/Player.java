@@ -12,6 +12,7 @@ public class Player {
 	public float rightSpeed = 4.0f;
 	public float upSpeed = 4.0f;
 	public float downSpeed = 4.0f; //rate at which player moves
+	public static int keyCounter =0;
 
 	public static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
 
@@ -30,9 +31,9 @@ public class Player {
 
 
 	public void collision(){
-		int left = (int)(x/Tile.TILESIZE);
+		int left = (int)((x - 1)/Tile.TILESIZE);
 		int right = (int)((x + SIZE)/Tile.TILESIZE);
-		int up = (int)(y/Tile.TILESIZE);
+		int up = (int)((y  - 1)/Tile.TILESIZE);
 		int down = (int)((y + SIZE)/Tile.TILESIZE);
 		int dx = (int)(x/Tile.TILESIZE);
 		int dy = (int)(y/Tile.TILESIZE);
@@ -43,6 +44,20 @@ public class Player {
 				Health.hp -= 10;
 			}
 		}
+		if(TestLevel.tiles[dx][dy].hasContents()){
+			//System.out.println(dx + " " + dy);
+			//System.out.println("We've made it this far");
+			if(TestLevel.tiles[dx][dy].getContents() instanceof Bomb){
+					//System.out.println("We have a bomb");
+					Bomb b = (Bomb)TestLevel.tiles[dx][dy].getContents();
+					b.onHit();
+			}else if(TestLevel.tiles[dx][dy].getContents() instanceof Freeze){
+					//System.out.println("We have a bomb");
+					Freeze f = (Freeze)TestLevel.tiles[dx][dy].getContents();
+					f.onHit();
+			}
+		}
+
 		if(TestLevel.tiles[left][dy].isBarrier()){
 			canLeft = false;
 		}else{
