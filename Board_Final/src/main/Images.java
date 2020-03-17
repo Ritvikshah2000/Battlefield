@@ -8,7 +8,10 @@ import javax.imageio.ImageIO;
 public class Images {
 	public static BufferedImage tilesheet;
 	public static BufferedImage testEnemy;
-	public static BufferedImage testPlayer;;
+	public static BufferedImage testPlayer;
+	public static BufferedImage testBomb;
+	public static BufferedImage testBomb2;
+	public static BufferedImage testFreeze;
 	public static BufferedImage[] tiles = new BufferedImage[4]; //based on how many tiles you have
 	public static final int COL = 6;
 	public static final int ROW = 5;
@@ -24,6 +27,9 @@ public class Images {
 			tiles[3] = fromSpriteSheet(tilesheet,7,4);
 			testPlayer = fromSpriteSheet(tilesheet,4,5);
 			testEnemy = fromSpriteSheet(tilesheet,4,2);
+			testBomb = fromSpriteSheet(tilesheet,5,3);
+			testBomb2 = fromSpriteSheet(tilesheet,5,3);
+			testFreeze = ImageIO.read(getClass().getResource("/freeze.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,8 +37,8 @@ public class Images {
 	}
 
 	public BufferedImage fromSpriteSheet(BufferedImage img, int column, int row) {
-		img = img.getSubimage(column * Tile.TILESIZE - Tile.TILESIZE, row * Tile.TILESIZE - Tile.TILESIZE, Tile.TILESIZE, Tile.TILESIZE); //gets a portion of spritesheet
-		//img = img.getSubimage(COL, ROW, Tile.TILESIZE, Tile.TILESIZE); //gets a portion of spritesheet
+		img = img.getSubimage(column * (Tile.TILESIZE/2) - (Tile.TILESIZE/2), row * (Tile.TILESIZE/2) - (Tile.TILESIZE/2), Tile.TILESIZE/2, Tile.TILESIZE/2); //gets a portion of spritesheet
+		//img = img.getSubimage(column, row, Tile.TILESIZE/2, Tile.TILESIZE/2); //gets a portion of spritesheet
 		return img;
 	}
 }

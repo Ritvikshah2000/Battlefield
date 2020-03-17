@@ -19,7 +19,7 @@ public class Main extends Canvas implements Runnable {
 	public static int width = WIDTH * HOR_SCALE;
 	public static int height = HEIGHT * VERT_SCALE;
 
-	private Thread thread; //thread object
+	private Thread mainThread; //thread object
 
 	public static boolean running = false; //used for thread
 
@@ -29,7 +29,9 @@ public class Main extends Canvas implements Runnable {
 	public TestLevel level; //sample level (our game will only be a single level)
 	public Images imgs; //image object
 	public Health healthBar;
-	public static ArrayList<Enemy> enemies;
+	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+	public static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
+	public static ArrayList<Reward> rewards = new ArrayList<Reward>();
 	// public Enemy enemy1;
 	// public Enemy enemy2;
 	// public Enemy enemy3;
@@ -44,10 +46,11 @@ public class Main extends Canvas implements Runnable {
 		level = new TestLevel(); //instantiate
 		imgs = new Images();
 		healthBar = new Health();
-		enemies = new ArrayList<Enemy>();
 		enemies.add(new Enemy(100, 100));
 		enemies.add(new Enemy(300, 500));
 		enemies.add(new Enemy(900, 600));
+		//bombs = new ArrayList<Bomb>();
+		//bombs.add(new HealthBomb(300, 250));
 		//enemy1 = new Enemy(100, 100);
 		//enemy2 = new Enemy(500, 500);
 		//enemy3 = new Enemy(900, 600);
@@ -60,14 +63,14 @@ public class Main extends Canvas implements Runnable {
 	}
 
 	public synchronized void start() { //start thread
-		thread = new Thread(this);
-		thread.start();
+		mainThread = new Thread(this);
+		mainThread.start();
 
 		running = true;
 	}
 	public synchronized void stop() { //stop thread
 		try {
-			thread.join();
+			mainThread.join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,7 +81,7 @@ public class Main extends Canvas implements Runnable {
 		long timer = System.currentTimeMillis();
 		while(running) {
 			try {
-				thread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
+				mainThread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -111,6 +114,8 @@ public class Main extends Canvas implements Runnable {
 		player.update(g);
 		healthBar.update(g);
 		enemies.forEach((e) -> e.update(g));
+		bombs.forEach((b) -> b.update(g));
+		rewards.forEach((r) -> r.update(g));
 		// enemy1.update(g);
 		// enemy2.update(g);
 		// enemy3.update(g);

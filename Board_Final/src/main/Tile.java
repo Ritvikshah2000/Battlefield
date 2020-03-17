@@ -4,18 +4,30 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class Tile extends Rectangle {
+public class Tile<T> extends Rectangle {
 
 	public int id;
 	public boolean barrier;
+	public T item;
 
-	public static final int GRIDSIZE = 60; //contains 60 tiles
-	public static final int TILESIZE = 16; //becasue every image in the spritesheet is 16x16
 
-	public Tile(int id, Rectangle boundaries, boolean barrier) {
+	public static final int GRIDSIZE = 30; //contains 60 tiles
+	public static final int TILESIZE = 32; //becasue every image in the spritesheet is 16x16
+
+	public Tile(int id, Rectangle boundaries, boolean barrier, T contents) {
 		setBounds(boundaries);
 		this.id = id;
 		this.barrier = barrier;
+		item = contents;
+	}
+
+	public boolean hasContents(){
+		return item != null;
+		//return item != null;
+	}
+
+	public T getContents(){
+		return item;
 	}
 
 	public boolean isBarrier() {return barrier; };
