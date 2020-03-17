@@ -62,6 +62,10 @@ public class Player {
 					//System.out.println("We have a bomb");
 					Freeze f = (Freeze)TestLevel.tiles[dx][dy].getContents();
 					f.onHit();
+			}else if(TestLevel.tiles[dx][dy].getContents() instanceof HealthReward){
+					//System.out.println("We have a bomb");
+					HealthReward hr = (HealthReward)TestLevel.tiles[dx][dy].getContents();
+					hr.onHit();
 			}else if(TestLevel.tiles[dx][dy].getContents() instanceof EndPoint){
 					//System.out.println("We have a bomb");
 					EndPoint e = (EndPoint)TestLevel.tiles[dx][dy].getContents();

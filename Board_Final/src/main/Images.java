@@ -18,6 +18,7 @@ public class Images {
 	public static BufferedImage testWall;
 	public static BufferedImage testEndPoint;
 	public static BufferedImage testHearts;
+	public static BufferedImage testKeys;
 	public static BufferedImage[] tiles = new BufferedImage[4]; //based on how many tiles you have
 	public static final int COL = 6;
 	public static final int ROW = 5;
@@ -42,6 +43,7 @@ public class Images {
 			testFreeze = ImageIO.read(getClass().getResource("/resources/freeze power.png"));
 			testEndPoint = ImageIO.read(getClass().getResource("/resources/exit cell.png"));
 			testHearts = ImageIO.read(getClass().getResource("/resources/heart.png"));
+			testKeys = ImageIO.read(getClass().getResource("/resources/key.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

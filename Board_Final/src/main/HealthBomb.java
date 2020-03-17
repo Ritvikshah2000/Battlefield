@@ -15,7 +15,7 @@ public class HealthBomb extends Bomb {
 	@Override
 	public void onHit() {
 		Health.bar.remove(Health.index);//health minus
-		TestLevel.tiles[this.getX()][this.getY()] = new Tile<Void>(1, new Rectangle( x * (Tile.TILESIZE/2), y * (Tile.TILESIZE/2), Tile.TILESIZE/2, Tile.TILESIZE/2), false, null);
+		TestLevel.addGrass(getX(), getY());
 		Main.bombs.remove(this);
 
 		/*	g.drawImage(Images.testBomb3, x,y,32,32,null);   //IGNORE!!

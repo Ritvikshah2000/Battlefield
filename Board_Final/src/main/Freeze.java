@@ -4,6 +4,7 @@ import java.awt.*;
 public class Freeze extends Reward
 {
     private int freezetime = 90;
+    private int timeLeft = 500;
 
 
     public Freeze(int x, int y)
@@ -16,13 +17,17 @@ public class Freeze extends Reward
 
     public void onHit(){
       Main.enemies.forEach((e) -> e.frozenTimer = freezetime);
-  		TestLevel.tiles[this.getX()][this.getY()] = new Tile<Void>(1, new Rectangle( x * Tile.TILESIZE, y * Tile.TILESIZE, Tile.TILESIZE, Tile.TILESIZE), false, null);
+  		TestLevel.addGrass(getX(), getY());
       Main.rewards.remove(this);
-
     }
 
     public void update(Graphics2D g){
-      g.drawImage(Images.testFreeze, x, y, 32, 32, null);
+      if(timeLeft > 0){
+        g.drawImage(Images.testFreeze, x, y, 32, 32, null);
+        timeLeft -= 1;
+      }else{
+        TestLevel.addGrass(getX(), getY());
+      }
     }
 
 

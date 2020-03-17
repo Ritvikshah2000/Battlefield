@@ -22,7 +22,12 @@ public class TestLevel {
 		addBomb(15, 20, new HealthBomb(15, 20));
 		//addBomb(35, 15, new HealthBomb(35,15));
 		addReward(25, 15, new Freeze(25, 15));
+		addReward(27, 7, new HealthReward(27, 7));
+		addReward(27, 7, new HealthReward(17, 27));
+		addReward(27, 7, new HealthReward(5, 20));
+
 		setEndPoint(28, 1, new EndPoint());
+
 
 		//barrierColumn();
 		// for(int x = 0; x < tiles.length; x++) for(int y = 0; y < tiles[0].length;y++) {
@@ -88,6 +93,10 @@ public class TestLevel {
 		for(int x = 0; x < tiles.length; x++) for(int y = 0; y < tiles[0].length; y++){
 			tiles[x][y] = new Tile<Void>(1, new Rectangle( x * TILESIZE, y * TILESIZE, TILESIZE, TILESIZE), false, null);
 		}
+	}
+
+	public static void addGrass(int x, int y){
+		TestLevel.tiles[x][y] = new Tile<Void>(1, new Rectangle( x * Tile.TILESIZE, y * Tile.TILESIZE, Tile.TILESIZE, Tile.TILESIZE), false, null);
 	}
 
 	public void setEndPoint(int x, int y, EndPoint e){
