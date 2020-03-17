@@ -8,6 +8,7 @@ public class Player {
 	public static float x,y; //position
 	// Fix speeds, only need just one.
 	public static final int SIZE = 32;
+	public static int keyCount = 0;
 	public float leftSpeed = 4.0f;
 	public float rightSpeed = 4.0f;
 	public float upSpeed = 4.0f;
@@ -40,7 +41,14 @@ public class Player {
 
 		for(int i = 0; i < Main.enemies.size(); i++){
 			if(Main.enemies.get(i).getBounds().intersects(this.getBounds())){
-				Health.hp -= 10;
+				if(Health.hp % 30 == 0){
+					Health.bar.remove(Health.index);
+					Health.hp -= 1;
+				}else{
+					Health.hp -= Enemy.damage;
+				}
+				System.out.println(Health.hp + " " + Health.index);
+				//have an hp value and only remove if the value drops to a certain amount
 			}
 		}
 		if(TestLevel.tiles[dx][dy].hasContents()){
@@ -54,6 +62,10 @@ public class Player {
 					//System.out.println("We have a bomb");
 					Freeze f = (Freeze)TestLevel.tiles[dx][dy].getContents();
 					f.onHit();
+			}else if(TestLevel.tiles[dx][dy].getContents() instanceof EndPoint){
+					//System.out.println("We have a bomb");
+					EndPoint e = (EndPoint)TestLevel.tiles[dx][dy].getContents();
+					e.onHit();
 			}
 		}
 

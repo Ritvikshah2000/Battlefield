@@ -14,7 +14,7 @@ public class Enemy{
 	public int frozenTimer;
 	public static final int SIZE = 32;
 
-	public static int damage = 50;
+	public static int damage = 1;
 
 	public Enemy(int x, int y) {
 		this.x = x;
@@ -34,7 +34,6 @@ public class Enemy{
 	public void update(Graphics2D g) {
 		g.drawImage(Images.testEnemy, (int)x, (int)y, SIZE, SIZE, null);
 
-		System.out.println("frozenTimer = " + frozenTimer);
 		if(frozenTimer != 0){
 			isFrozen = true;
 			frozenTimer -= 1;

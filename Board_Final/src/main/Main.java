@@ -28,10 +28,11 @@ public class Main extends Canvas implements Runnable {
 	public Player player; //player object (can be reprogrammed to fit needs)
 	public TestLevel level; //sample level (our game will only be a single level)
 	public Images imgs; //image object
-	public Health healthBar;
+	//public Health health;
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
 	public static ArrayList<Reward> rewards = new ArrayList<Reward>();
+	public static ArrayList<HealthBar> hpBar = new ArrayList<HealthBar>();
 	// public Enemy enemy1;
 	// public Enemy enemy2;
 	// public Enemy enemy3;
@@ -45,7 +46,9 @@ public class Main extends Canvas implements Runnable {
 		player = new Player(480,480); //starting position(x,y)
 		level = new TestLevel(); //instantiate
 		imgs = new Images();
-		healthBar = new Health();
+		Health.bar.add(new HealthBar(0,0));
+		Health.bar.add(new HealthBar(32,0));
+		Health.bar.add(new HealthBar(64,0));
 		enemies.add(new Enemy(100, 100));
 		enemies.add(new Enemy(300, 500));
 		enemies.add(new Enemy(900, 600));
@@ -91,13 +94,14 @@ public class Main extends Canvas implements Runnable {
 
 			if(System.currentTimeMillis() - timer >= 1000) {
 				timer += 1000;
-				//System.out.println("FPS: " + frames);
+				System.out.println("FPS: " + frames);
 				frames = 0;
 			}
 		}
 	}
 
 	public void update() { //this function basically upadtes all graphics of the game
+		if(Health.bar.isEmpty()) { System.exit(0) ;};
 		BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
 		if(bs == null) { //null by default
 			createBufferStrategy(3); //prevents image tearing
@@ -111,11 +115,11 @@ public class Main extends Canvas implements Runnable {
 
 
 		level.update(g);
-		player.update(g);
-		healthBar.update(g);
+		Health.update(g);
 		enemies.forEach((e) -> e.update(g));
 		bombs.forEach((b) -> b.update(g));
 		rewards.forEach((r) -> r.update(g));
+		player.update(g);
 		// enemy1.update(g);
 		// enemy2.update(g);
 		// enemy3.update(g);

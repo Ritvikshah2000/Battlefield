@@ -8,10 +8,16 @@ import javax.imageio.ImageIO;
 public class Images {
 	public static BufferedImage tilesheet;
 	public static BufferedImage testEnemy;
+	public static BufferedImage testEnemy2;
+	public static BufferedImage testEnemy3;
 	public static BufferedImage testPlayer;
 	public static BufferedImage testBomb;
 	public static BufferedImage testBomb2;
 	public static BufferedImage testFreeze;
+	public static BufferedImage testGrass;
+	public static BufferedImage testWall;
+	public static BufferedImage testEndPoint;
+	public static BufferedImage testHearts;
 	public static BufferedImage[] tiles = new BufferedImage[4]; //based on how many tiles you have
 	public static final int COL = 6;
 	public static final int ROW = 5;
@@ -25,11 +31,17 @@ public class Images {
 			tiles[1] = fromSpriteSheet(tilesheet,6,5);
 			tiles[2] = fromSpriteSheet(tilesheet,7,2);
 			tiles[3] = fromSpriteSheet(tilesheet,7,4);
-			testPlayer = fromSpriteSheet(tilesheet,4,5);
-			testEnemy = fromSpriteSheet(tilesheet,4,2);
-			testBomb = fromSpriteSheet(tilesheet,5,3);
-			testBomb2 = fromSpriteSheet(tilesheet,5,3);
-			testFreeze = ImageIO.read(getClass().getResource("/freeze.png"));
+			testWall = ImageIO.read(getClass().getResource("/resources/wall1.png"));
+			testGrass = ImageIO.read(getClass().getResource("/resources/grass.png"));
+			testPlayer = ImageIO.read(getClass().getResource("/resources/player.png"));
+			testEnemy = ImageIO.read(getClass().getResource("/resources/enemy 1.png"));
+			testEnemy2 = ImageIO.read(getClass().getResource("/resources/enemy 2.png"));
+			testEnemy3 = ImageIO.read(getClass().getResource("/resources/enemy 3.png"));
+			testBomb = ImageIO.read(getClass().getResource("/resources/healthhazard.png"));
+			testBomb2 = ImageIO.read(getClass().getResource("/resources/score hazard.png"));
+			testFreeze = ImageIO.read(getClass().getResource("/resources/freeze power.png"));
+			testEndPoint = ImageIO.read(getClass().getResource("/resources/exit cell.png"));
+			testHearts = ImageIO.read(getClass().getResource("/resources/heart.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

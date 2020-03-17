@@ -39,16 +39,16 @@ public class Tile<T> extends Rectangle {
 			g.fillRect(x, y, width, height);
 			break;
 		case 0: //base textures
-			g.drawImage(Images.tilesheet,  x,  y,  width,  height,  null);
+			g.drawImage(Images.testEndPoint,  x,  y,  width,  height,  null);
 			break;
 		case 1:
-			g.drawImage(Images.tiles[0],  x,  y,  width,  height,  null);
+			g.drawImage(Images.testGrass,  x,  y,  width,  height,  null);
 			break;
 		case 2:
-			g.drawImage(Images.tiles[1],  x,  y,  width,  height,  null);
+			g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
 			break;
 		case 3:
-			g.drawImage(Images.tiles[2],  x,  y,  width,  height,  null);
+			g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
 			break;
 		default:
 			break;

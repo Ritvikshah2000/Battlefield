@@ -16,8 +16,8 @@ public class Freeze extends Reward
 
     public void onHit(){
       Main.enemies.forEach((e) -> e.frozenTimer = freezetime);
-      Main.rewards.remove(this);
   		TestLevel.tiles[this.getX()][this.getY()] = new Tile<Void>(1, new Rectangle( x * Tile.TILESIZE, y * Tile.TILESIZE, Tile.TILESIZE, Tile.TILESIZE), false, null);
+      Main.rewards.remove(this);
 
     }
 

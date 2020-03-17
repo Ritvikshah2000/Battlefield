@@ -15,11 +15,14 @@ public class TestLevel {
 		barrierRow(29, 0, 30);
 		barrierColumn(0, 0, 30);
 		barrierColumn(29, 0, 30);
-		//barrierRow(20, 20, 20);
-		//barrierColumn(20, 21, 20);
+		barrierRow(10, 10, 20);
+		barrierRow(9, 10, 20);
+		barrierRow(9, 10, 20);
+		//barrierColumn(10, 11, 20);
 		addBomb(15, 20, new HealthBomb(15, 20));
 		//addBomb(35, 15, new HealthBomb(35,15));
 		addReward(25, 15, new Freeze(25, 15));
+		setEndPoint(28, 1, new EndPoint());
 
 		//barrierColumn();
 		// for(int x = 0; x < tiles.length; x++) for(int y = 0; y < tiles[0].length;y++) {
@@ -87,5 +90,8 @@ public class TestLevel {
 		}
 	}
 
+	public void setEndPoint(int x, int y, EndPoint e){
+		tiles[x][y] = new Tile<EndPoint>(0, new Rectangle( x * TILESIZE, y * TILESIZE, TILESIZE, TILESIZE), false, e);
+	}
 
 }
