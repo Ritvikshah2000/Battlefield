@@ -17,4 +17,7 @@ public abstract class Reward
     public void update(Graphics2D g){
 
     };
+
+    public int getX(){ return (int)(x / 32); };
+  	public int getY(){ return (int)(y / 32); };
 }

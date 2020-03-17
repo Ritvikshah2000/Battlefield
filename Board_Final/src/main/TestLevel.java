@@ -23,8 +23,16 @@ public class TestLevel {
 		//addBomb(35, 15, new HealthBomb(35,15));
 		addReward(25, 15, new Freeze(25, 15));
 		addReward(27, 7, new HealthReward(27, 7));
-		addReward(27, 7, new HealthReward(17, 27));
-		addReward(27, 7, new HealthReward(5, 20));
+		addReward(17, 27, new HealthReward(17, 27));
+		addReward(5, 20, new HealthReward(5, 20));
+
+		for(int i=0;i<10;i++) {
+			int x_rand = (int) (Math.random()*(28-2+1)+2);//generates random numbers between 2 and 28
+			int y_rand = (int) (Math.random()*(28-2+1)+2);//generates random numbers between 2 and 28
+
+		addReward(x_rand, y_rand, new KeyReward(x_rand,y_rand));
+		}
+
 
 		setEndPoint(28, 1, new EndPoint());
 

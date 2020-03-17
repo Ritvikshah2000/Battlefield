@@ -94,7 +94,7 @@ public class Main extends Canvas implements Runnable {
 
 			if(System.currentTimeMillis() - timer >= 1000) {
 				timer += 1000;
-				System.out.println("FPS: " + frames);
+				//System.out.println("FPS: " + frames);
 				frames = 0;
 			}
 		}
@@ -119,6 +119,7 @@ public class Main extends Canvas implements Runnable {
 		enemies.forEach((e) -> e.update(g));
 		bombs.forEach((b) -> b.update(g));
 		rewards.forEach((r) -> r.update(g));
+		KeyBar.update(g);
 		player.update(g);
 		// enemy1.update(g);
 		// enemy2.update(g);

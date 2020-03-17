@@ -10,6 +10,9 @@ public class KeyReward extends Reward {
 	@Override
 	public void onHit() {
 		Player.keyCount++;
+		TestLevel.addGrass(getX(), getY());
+		Main.rewards.remove(this);
+		KeyBar.kBar.add(new KeyReward( 20 + KeyBar.collected++, 0));
 	}
 
 	@Override

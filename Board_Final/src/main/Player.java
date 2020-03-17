@@ -44,10 +44,11 @@ public class Player {
 				if(Health.hp % 30 == 0){
 					Health.bar.remove(Health.index);
 					Health.hp -= 1;
+					Health.heartsLeft--;
 				}else{
 					Health.hp -= Enemy.damage;
 				}
-				System.out.println(Health.hp + " " + Health.index);
+				System.out.println("HP: " + Health.hp + " Index: " + Health.index + " Left: " + Health.heartsLeft);
 				//have an hp value and only remove if the value drops to a certain amount
 			}
 		}
@@ -66,6 +67,10 @@ public class Player {
 					//System.out.println("We have a bomb");
 					HealthReward hr = (HealthReward)TestLevel.tiles[dx][dy].getContents();
 					hr.onHit();
+			}else if(TestLevel.tiles[dx][dy].getContents() instanceof KeyReward){
+					//System.out.println("We have a bomb");
+					KeyReward kr = (KeyReward)TestLevel.tiles[dx][dy].getContents();
+					kr.onHit();
 			}else if(TestLevel.tiles[dx][dy].getContents() instanceof EndPoint){
 					//System.out.println("We have a bomb");
 					EndPoint e = (EndPoint)TestLevel.tiles[dx][dy].getContents();

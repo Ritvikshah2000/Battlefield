@@ -12,9 +12,6 @@ public class Freeze extends Reward
         super(x * 32, y * 32);
     }
 
-    public int getX(){ return (int)(x / 32); };
-    public int getY(){ return (int)(y / 32); };
-
     public void onHit(){
       Main.enemies.forEach((e) -> e.frozenTimer = freezetime);
   		TestLevel.addGrass(getX(), getY());

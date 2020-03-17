@@ -10,7 +10,7 @@ public class Health{
   public static int heartsLeft;
 
   public static void update(Graphics2D g){
-    int heartsLeft = bar.size();
+    heartsLeft = bar.size();
     //g.setColor(Color.pink);
     //g.fillRect(25, 25, hp*2, 50);
     bar.forEach((h) -> h.update(g));

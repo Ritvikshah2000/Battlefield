@@ -26,7 +26,7 @@ public class Images {
 
 	public Images() {
 		try {
-			tilesheet = ImageIO.read(getClass().getResource("/bomb_party_v3.png"));
+			tilesheet = ImageIO.read(getClass().getResource("/resources/bomb_party_v3.png"));
 
 			tiles[0] = fromSpriteSheet(tilesheet,2,1); //col, row
 			tiles[1] = fromSpriteSheet(tilesheet,6,5);
