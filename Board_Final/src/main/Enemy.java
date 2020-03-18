@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package main;
+=======
+//package main;
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -31,6 +35,7 @@ public class Enemy{
 		return new Rectangle((int)x, (int)y, SIZE, SIZE);
 	}
 
+<<<<<<< HEAD
     public void update(Graphics2D g) {
 
         if(frozenTimer != 0){
@@ -65,6 +70,38 @@ public class Enemy{
 
         collision();
     }
+=======
+	public void update(Graphics2D g) {
+		g.drawImage(Images.testEnemy, (int)x, (int)y, SIZE, SIZE, null);
+
+		if(frozenTimer != 0){
+			isFrozen = true;
+			frozenTimer -= 1;
+		}else{
+			isFrozen = false;
+		}
+
+		if(!isFrozen){
+			if(Player.x > x && canRight) {
+				x += speed;
+			}
+			if(Player.y > y && canDown) {
+				y += speed;
+			}
+			if(Player.x < x && canLeft) {
+				x -= speed;
+			}
+			if(Player.y < y && canUp) {
+				y -= speed;
+			}
+		}
+
+		//x += velX;
+		//y += velY;
+
+		collision();
+	}
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 
 	public void collision(){
 		int left = (int)(x/Tile.TILESIZE);

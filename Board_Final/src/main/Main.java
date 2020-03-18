@@ -1,4 +1,4 @@
-package main;
+//package main;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -7,7 +7,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import javax.swing.*;
+=======
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 
 public class Main extends Canvas implements Runnable {
 
@@ -21,11 +24,16 @@ public class Main extends Canvas implements Runnable {
 	public static int height = HEIGHT * VERT_SCALE;
 
 	private Thread mainThread; //thread object
+<<<<<<< HEAD
 	private static Window window;
 
 	public static boolean running = false; //used for thread
 	
 	public static boolean pause = false;
+=======
+
+	public static boolean running = false; //used for thread
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 
 	private int frames = 0; //a console frame counter to check the efficiency of the code
 
@@ -87,6 +95,7 @@ public class Main extends Canvas implements Runnable {
 	}
 
 	public void run() { //when thread is running
+<<<<<<< HEAD
         long timer = System.currentTimeMillis();
         while(running)
         {
@@ -125,6 +134,30 @@ public class Main extends Canvas implements Runnable {
             running = false;
             new GameOverMenu();
         }		BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
+=======
+		long timer = System.currentTimeMillis();
+		while(running) {
+			try {
+				mainThread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			frames++;
+
+			update();
+
+			if(System.currentTimeMillis() - timer >= 1000) {
+				timer += 1000;
+				//System.out.println("FPS: " + frames);
+				frames = 0;
+			}
+		}
+	}
+
+	public void update() { //this function basically upadtes all graphics of the game
+		if(Health.bar.isEmpty()) { System.exit(0) ;};
+		BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 		if(bs == null) { //null by default
 			createBufferStrategy(3); //prevents image tearing
 			return;

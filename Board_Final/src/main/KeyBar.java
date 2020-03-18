@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 package main;
+=======
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 import java.util.ArrayList;
 import java.awt.Graphics2D;
 

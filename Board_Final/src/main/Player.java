@@ -1,4 +1,4 @@
-package main;
+//package main;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -10,10 +10,17 @@ public class Player {
 	public static final int SIZE = 32;
 	public static int score = 0;
 	public static int keyCount = 0;
+<<<<<<< HEAD
 	public float leftSpeed = 2.0f;
 	public float rightSpeed = 2.0f;
 	public float upSpeed = 2.0f;
 	public float downSpeed = 2.0f; //rate at which player moves
+=======
+	public float leftSpeed = 4.0f;
+	public float rightSpeed = 4.0f;
+	public float upSpeed = 4.0f;
+	public float downSpeed = 4.0f; //rate at which player moves
+>>>>>>> 9e71ed87c99fe336f79dcf3d235c1347eec2d5aa
 
 	public static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
 
