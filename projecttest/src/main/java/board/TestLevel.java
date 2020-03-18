@@ -2,6 +2,7 @@ package board;
 
 import hazard.Bomb;
 import hazard.HealthBomb;
+import hazard.ScoreBomb;
 import playgame.Main;
 import reward.Freeze;
 import reward.HealthReward;
@@ -19,29 +20,36 @@ public class TestLevel {
 
     public TestLevel() {
         populateField();
-        barrierRow(0, 0, 30);
-        barrierRow(29, 0, 30);
-        barrierColumn(0, 0, 30);
-        barrierColumn(29, 0, 30);
-        barrierRow(10, 10, 20);
-        barrierRow(9, 10, 20);
-        barrierRow(9, 10, 20);
-        //barrierColumn(10, 11, 20);
-        addBomb(15, 20, new HealthBomb(15, 20));
-        //addBomb(35, 15, new HealthBomb(35,15));
-        addReward(25, 15, new Freeze(25, 15));
-        addReward(27, 7, new HealthReward(27, 7));
-        addReward(17, 27, new HealthReward(17, 27));
-        addReward(5, 20, new HealthReward(5, 20));
 
-        for(int i=0;i<10;i++) {
-            int x_rand = (int) (Math.random()*(28-2+1)+2);//generates random numbers between 2 and 28
-            int y_rand = (int) (Math.random()*(28-2+1)+2);//generates random numbers between 2 and 28
+        barrierRow(0, 0, 19);
+        barrierRow(19, 0, 19);
+        barrierColumn(0, 0, 19);
+        barrierColumn(19, 0, 19);
 
-            addReward(x_rand, y_rand, new KeyReward(x_rand,y_rand));
-        }
-
-
+        //set up horizontal barriers
+        barrierRow(7, 1, 5);
+        barrierRow(12, 5, 13);
+        barrierRow(7, 13, 17);
+        //set up vertical barriers
+        barrierColumn(5, 5, 7);
+        barrierColumn(5, 12, 17);
+        barrierColumn(10, 8, 12);
+        barrierColumn(13, 1, 7);
+        //populate Rewards
+        addReward(3, 4, new KeyReward(3, 4));
+        addReward(8, 4, new KeyReward(8, 4));
+        addReward(3, 11, new KeyReward(3, 11));
+        addReward(11, 15, new KeyReward(11, 15));
+        addReward(18, 4, new KeyReward(18, 4));
+        //populate Bonus Rewards
+        addReward(3, 16, new Freeze(3, 16));
+        addReward(15, 4, new HealthReward(15, 4));
+        addReward(9, 15, new HealthReward(9, 15));
+        //populate Hazards
+        addBomb(8, 10, new HealthBomb(8, 10));
+        addBomb(15, 15, new HealthBomb(15, 15));
+        addBomb(11, 3, new ScoreBomb(11, 3));
+        addBomb(17, 11, new ScoreBomb(17, 11));
         setEndPoint(28, 1, new EndPoint());
 
     }
@@ -62,30 +70,20 @@ public class TestLevel {
         Main.rewards.add(reward);
     }
 
-    public void barrierRow(int y, int start, int num){
-        int length;
-        if(start + num > tiles.length){
-            length = tiles.length;
-        }else{
-            length = start + num;
-        }
-        for(int x = start; x < length; x++){
+    public void barrierRow(int y, int start, int end){
+        for(int x = start; x <= end; x++){
             tiles[x][y] = new Tile<Void>(2, new Rectangle( x * TILESIZE, y * TILESIZE, TILESIZE, TILESIZE), true, null);
         }
     }
+
     //redid teh definitions add start to COlumns
 
-    public void barrierColumn(int x, int start, int num){
-        int length;
-        if(start + num > tiles.length){
-            length = tiles[0].length;
-        }else{
-            length = start + num;
-        }
-        for(int y = start; y < length; y++){
+    public void barrierColumn(int x, int start, int end){
+        for(int y = start; y < end; y++){
             tiles[x][y] = new Tile<Void>(3, new Rectangle( x * TILESIZE, y * TILESIZE, TILESIZE, TILESIZE), true, null);
         }
     }
+
 
     public void populateField(){
         for(int x = 0; x < tiles.length; x++) for(int y = 0; y < tiles[0].length; y++){

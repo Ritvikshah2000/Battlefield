@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class MainMenu extends JFrame
 {
+
     public MainMenu()
     {
         setTitle("Main Menu");
@@ -30,6 +31,7 @@ public class MainMenu extends JFrame
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 new Main();
+                System.gc();
             }
         });
 

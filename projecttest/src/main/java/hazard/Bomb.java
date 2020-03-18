@@ -1,6 +1,6 @@
 package hazard;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 
 public abstract class Bomb {
 
@@ -11,9 +11,13 @@ public abstract class Bomb {
         this.y =y;
     }
 
+    public int getX(){ return x / 32; };
+    public int getY(){ return y / 32; };
+
     public abstract void onHit();
 
     public abstract void update(Graphics2D g);
 
 }
+
 

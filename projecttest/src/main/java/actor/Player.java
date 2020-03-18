@@ -4,6 +4,7 @@ import board.EndPoint;
 import board.TestLevel;
 import board.Tile;
 import hazard.Bomb;
+import hazard.ScoreBomb;
 import image.Images;
 import playgame.Main;
 import reward.Freeze;
@@ -16,9 +17,11 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 public class Player {
+    public Main main;
     public static float x,y; //position
     // Fix speeds, only need just one.
     public static final int SIZE = 32;
+    public static int score = 0;
     public static int keyCount = 0;
     public float leftSpeed = 4.0f;
     public float rightSpeed = 4.0f;
@@ -27,7 +30,8 @@ public class Player {
 
     public static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
 
-    public Player(float x, float y) {
+    public Player(float x, float y, Main main) {
+        this.main = main;
         this.x = x;
         this.y = y;
         canUp = true;
@@ -63,28 +67,28 @@ public class Player {
             }
         }
         if(TestLevel.tiles[dx][dy].hasContents()){
-            //System.out.println(dx + " " + dy);
-            //System.out.println("We've made it this far");
             if(TestLevel.tiles[dx][dy].getContents() instanceof Bomb){
-                //System.out.println("We have a bomb");
                 Bomb b = (Bomb)TestLevel.tiles[dx][dy].getContents();
                 b.onHit();
             }else if(TestLevel.tiles[dx][dy].getContents() instanceof Freeze){
-                //System.out.println("We have a bomb");
                 Freeze f = (Freeze)TestLevel.tiles[dx][dy].getContents();
                 f.onHit();
             }else if(TestLevel.tiles[dx][dy].getContents() instanceof HealthReward){
-                //System.out.println("We have a bomb");
                 HealthReward hr = (HealthReward)TestLevel.tiles[dx][dy].getContents();
                 hr.onHit();
-            }else if(TestLevel.tiles[dx][dy].getContents() instanceof KeyReward){
-                //System.out.println("We have a bomb");
+            }
+            else if(TestLevel.tiles[dx][dy].getContents() instanceof KeyReward)
+            {
                 KeyReward kr = (KeyReward)TestLevel.tiles[dx][dy].getContents();
                 kr.onHit();
+            }
+            else if(TestLevel.tiles[dx][dy].getContents() instanceof ScoreBomb)
+            {
+                ScoreBomb sb = (ScoreBomb)TestLevel.tiles[dx][dy].getContents();
+                sb.onHit();
             }else if(TestLevel.tiles[dx][dy].getContents() instanceof EndPoint){
-                //System.out.println("We have a bomb");
                 EndPoint e = (EndPoint)TestLevel.tiles[dx][dy].getContents();
-                e.onHit();
+                e.onHit(main);
             }
         }
 

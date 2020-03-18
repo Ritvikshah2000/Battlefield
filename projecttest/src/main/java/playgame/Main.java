@@ -6,6 +6,7 @@ import board.Tile;
 import hazard.Bomb;
 import image.Images;
 import reward.Reward;
+import window.GameOverMenu;
 import window.MainMenu;
 import window.Window;
 
@@ -30,9 +31,10 @@ public class Main extends Canvas implements Runnable {
     public static int width = WIDTH * HOR_SCALE;
     public static int height = HEIGHT * VERT_SCALE;
 
-    private static Thread mainThread; //thread object
+    public static Thread mainThread; //thread object
 
     private static Window window;
+    //public static MainMenu mainmenu;
 
     public static boolean running = false; //used for thread
 
@@ -58,7 +60,7 @@ public class Main extends Canvas implements Runnable {
 
 
     public Main() {
-        player = new Player(32,32); //starting position(x,y)
+        player = new Player(32,32, this); //starting position(x,y)
         level = new TestLevel(); //instantiate
         imgs = new Images();
         Health.bar.add(new HealthBar(0,0));
@@ -73,10 +75,10 @@ public class Main extends Canvas implements Runnable {
         addKeyListener(new Key()); //keylistener to get user input
     }
 
-    public static Thread getMainThread()
+    /*public static Thread getMainThread()
     {
         return mainThread;
-    }
+    }*/
 
     public static  Window getWindow()
     {
@@ -113,7 +115,6 @@ public class Main extends Canvas implements Runnable {
                 }
             }
 
-
             try {
                 mainThread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
             } catch (InterruptedException e) {
@@ -132,7 +133,12 @@ public class Main extends Canvas implements Runnable {
     }
 
     public void update() { //this function basically upadtes all graphics of the game
-        if(Health.bar.isEmpty()) { System.exit(0) ;};
+        if(Health.bar.isEmpty())
+        {
+            Main.getWindow().dispose();
+            running = false;
+            new GameOverMenu();
+        }
         BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
         if(bs == null) { //null by default
             createBufferStrategy(3); //prevents image tearing

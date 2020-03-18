@@ -1,12 +1,13 @@
 package window;
 
+import actor.Score;
 import playgame.Key;
 import playgame.Main;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class Window extends JFrame{
 
@@ -17,7 +18,7 @@ public class Window extends JFrame{
         main.setMinimumSize(size);
         main.setMaximumSize(size);
 
-        //JFrame frame = new JFrame("Game");
+        JPanel panel = Score.getPanel();
         this.setTitle("game");
 
         this.setVisible(true);
@@ -26,12 +27,19 @@ public class Window extends JFrame{
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
         this.add(main, BorderLayout.CENTER);
+        this.add(panel);
         this.addKeyListener(new Key());
 
         this.pack();
 
         this.setLocationRelativeTo(null);
 
-        main.start();
+        if(main.mainThread == null)
+            main.start();
+        else
+        {
+            main.mainThread.stop();
+            main.start();
+        }
     }
 }

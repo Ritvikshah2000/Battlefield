@@ -11,8 +11,8 @@ import java.awt.Rectangle;
 public class Enemy{
 
     public int x,y;
-    public float velX, velY;
-    public float speed = 1.5f;
+    //public float velX, velY;
+    public float speed = 1.0f;
     public boolean canUp, canDown, canRight, canLeft;
     public static boolean isFrozen;
     public int frozenTimer;
@@ -77,7 +77,6 @@ public class Enemy{
         int down = (int)((y + SIZE)/Tile.TILESIZE);
         int dx = (int)(x/Tile.TILESIZE);
         int dy = (int)(y/Tile.TILESIZE);
-        //System.out.println("l: " + left + "\nr: " + right + "\nu: " + up + "\nd: " + down);
 
         if(TestLevel.tiles[left][dy].isBarrier()){
             canLeft = false;

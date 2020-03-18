@@ -34,16 +34,26 @@ public class GameOverMenu extends JFrame
         score.setBounds(180, 150, 200, 50);
         c.add(score);
 
-        // return to the mainmenu
-        final JButton mainmenu = new JButton("Return");
+        /*// return to the mainmenu
+        JButton mainmenu = new JButton("Return");
         mainmenu.setFont(font2);
         mainmenu.setBounds(140, 200, 200, 50);
         c.add(mainmenu);
         mainmenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new window.MainMenu();
-                Main.getMainThread().stop();
+                new MainMenu();
+            }
+        });*/
+
+        // exit
+        JButton exit = new JButton("Exit");
+        exit.setFont(font2);
+        exit.setBounds(140, 200, 200, 50);
+        c.add(exit);
+        exit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
             }
         });
     }
