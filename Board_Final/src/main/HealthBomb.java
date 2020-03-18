@@ -9,8 +9,6 @@ public class HealthBomb extends Bomb {
 		super(x * 32, y * 32);
 	}
 
-	public int getX(){ return x / 32; };
-	public int getY(){ return y / 32; };
 
 	@Override
 	public void onHit() {
@@ -28,7 +26,7 @@ public class HealthBomb extends Bomb {
 
 	@Override
 	public void update(Graphics2D g){
-		g.drawImage(Images.testBomb, x, y, 32, 32, null);
+		g.drawImage(Images.testHealthBomb, x, y, 32, 32, null);
 	}
 
 }

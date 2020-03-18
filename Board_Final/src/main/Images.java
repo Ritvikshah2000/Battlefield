@@ -11,8 +11,8 @@ public class Images {
 	public static BufferedImage testEnemy2;
 	public static BufferedImage testEnemy3;
 	public static BufferedImage testPlayer;
-	public static BufferedImage testBomb;
-	public static BufferedImage testBomb2;
+	public static BufferedImage testHealthBomb;
+	public static BufferedImage testScoreBomb;
 	public static BufferedImage testFreeze;
 	public static BufferedImage testGrass;
 	public static BufferedImage testWall;
@@ -38,8 +38,8 @@ public class Images {
 			testEnemy = ImageIO.read(getClass().getResource("/resources/enemy 1.png"));
 			testEnemy2 = ImageIO.read(getClass().getResource("/resources/enemy 2.png"));
 			testEnemy3 = ImageIO.read(getClass().getResource("/resources/enemy 3.png"));
-			testBomb = ImageIO.read(getClass().getResource("/resources/healthhazard.png"));
-			testBomb2 = ImageIO.read(getClass().getResource("/resources/score hazard.png"));
+			testHealthBomb = ImageIO.read(getClass().getResource("/resources/healthhazard.png"));
+			testScoreBomb = ImageIO.read(getClass().getResource("/resources/score hazard.png"));
 			testFreeze = ImageIO.read(getClass().getResource("/resources/freeze power.png"));
 			testEndPoint = ImageIO.read(getClass().getResource("/resources/exit cell.png"));
 			testHearts = ImageIO.read(getClass().getResource("/resources/heart.png"));

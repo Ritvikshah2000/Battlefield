@@ -43,20 +43,16 @@ public class Main extends Canvas implements Runnable {
 
 
 	public Main() {
-		player = new Player(480,480); //starting position(x,y)
+		player = new Player(32,32); //starting position(x,y)
 		level = new TestLevel(); //instantiate
 		imgs = new Images();
 		Health.bar.add(new HealthBar(0,0));
 		Health.bar.add(new HealthBar(32,0));
 		Health.bar.add(new HealthBar(64,0));
-		enemies.add(new Enemy(100, 100));
-		enemies.add(new Enemy(300, 500));
-		enemies.add(new Enemy(600, 600));
-		//bombs = new ArrayList<Bomb>();
-		//bombs.add(new HealthBomb(300, 250));
-		//enemy1 = new Enemy(100, 100);
-		//enemy2 = new Enemy(500, 500);
-		//enemy3 = new Enemy(900, 600);
+		enemies.add(new Enemy(64, 448));
+		enemies.add(new Enemy(224, 480));
+		enemies.add(new Enemy(512, 96));
+		
 		new Window(size, this);
 
 		addKeyListener(new Key()); //keylistener to get user input

@@ -8,6 +8,7 @@ public class Player {
 	public static float x,y; //position
 	// Fix speeds, only need just one.
 	public static final int SIZE = 32;
+	public static int score = 0;
 	public static int keyCount = 0;
 	public float leftSpeed = 4.0f;
 	public float rightSpeed = 4.0f;
@@ -71,6 +72,10 @@ public class Player {
 					//System.out.println("We have a bomb");
 					KeyReward kr = (KeyReward)TestLevel.tiles[dx][dy].getContents();
 					kr.onHit();
+			}else if(TestLevel.tiles[dx][dy].getContents() instanceof ScoreBomb){
+					//System.out.println("We have a bomb");
+					ScoreBomb sb = (ScoreBomb)TestLevel.tiles[dx][dy].getContents();
+					sb.onHit();
 			}else if(TestLevel.tiles[dx][dy].getContents() instanceof EndPoint){
 					//System.out.println("We have a bomb");
 					EndPoint e = (EndPoint)TestLevel.tiles[dx][dy].getContents();

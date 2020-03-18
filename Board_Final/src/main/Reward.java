@@ -2,7 +2,7 @@ import java.awt.*;
 
 public abstract class Reward
 {
-    public int x, y;      // position
+    public int x, y, value;     // position
 
     public Reward(int x, int y)
     {

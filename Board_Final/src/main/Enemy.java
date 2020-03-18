@@ -8,7 +8,7 @@ public class Enemy{
 
 	public int x,y;
 	public float velX, velY;
-	public float speed = 1.5f;
+	public float speed = 1.0f;
 	public boolean canUp, canDown, canRight, canLeft;
 	public static boolean isFrozen;
 	public int frozenTimer;
