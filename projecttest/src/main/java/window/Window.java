@@ -1,5 +1,6 @@
 package window;
 
+import playgame.Key;
 import playgame.Main;
 
 import java.awt.BorderLayout;
@@ -7,26 +8,29 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-public class Window {
+public class Window extends JFrame{
+
+
     //all general window details
     public Window(Dimension size, Main main) {
         main.setPreferredSize(size);
         main.setMinimumSize(size);
         main.setMaximumSize(size);
 
-        JFrame frame = new JFrame("Game");
+        //JFrame frame = new JFrame("Game");
+        this.setTitle("game");
 
-        frame.setVisible(true);
-        frame.setLayout(new BorderLayout());
-        frame.setResizable(false);
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.setLayout(new BorderLayout());
+        //frame.setResizable(false);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
-        frame.add(main, BorderLayout.CENTER);
-        //frame.addKeyListener(new Key());
+        this.add(main, BorderLayout.CENTER);
+        this.addKeyListener(new Key());
 
-        frame.pack();
+        this.pack();
 
-        frame.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
 
         main.start();
     }

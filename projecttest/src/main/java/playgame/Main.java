@@ -1,13 +1,12 @@
 package playgame;
 
-import actor.Enemy;
-import actor.Health;
-import actor.Player;
+import actor.*;
 import board.TestLevel;
 import board.Tile;
+import hazard.Bomb;
 import image.Images;
-import reward.Freeze;
 import reward.Reward;
+import window.MainMenu;
 import window.Window;
 
 import java.awt.Canvas;
@@ -17,6 +16,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+
+
 
 public class Main extends Canvas implements Runnable {
 
@@ -29,18 +30,27 @@ public class Main extends Canvas implements Runnable {
     public static int width = WIDTH * HOR_SCALE;
     public static int height = HEIGHT * VERT_SCALE;
 
-    private Thread thread; //thread object
+    private static Thread mainThread; //thread object
+
+    private static Window window;
 
     public static boolean running = false; //used for thread
+
+    public static boolean pause = false;
 
     private int frames = 0; //a console frame counter to check the efficiency of the code
 
     public Player player; //player object (can be reprogrammed to fit needs)
     public TestLevel level; //sample level (our game will only be a single level)
     public Images imgs; //image object
-    public Health healthBar;
-    public Reward freeze;
-    public static ArrayList<Enemy> enemies;
+    //public Health health;
+    public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    public static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
+    public static ArrayList<Reward> rewards = new ArrayList<Reward>();
+    public static ArrayList<HealthBar> hpBar = new ArrayList<HealthBar>();
+    // public Enemy enemy1;
+    // public Enemy enemy2;
+    // public Enemy enemy3;
 
 
     public Dimension size = new Dimension(width, height);
@@ -48,43 +58,64 @@ public class Main extends Canvas implements Runnable {
 
 
     public Main() {
-        player = new Player(480,480); //starting position(x,y)
+        player = new Player(32,32); //starting position(x,y)
         level = new TestLevel(); //instantiate
         imgs = new Images();
-        healthBar = new Health();
-        enemies = new ArrayList<Enemy>();
-        enemies.add(new Enemy(100, 100));
-        enemies.add(new Enemy(300, 500));
-        enemies.add(new Enemy(900, 600));
-        freeze = new Freeze(400, 400, 32,32);
+        Health.bar.add(new HealthBar(0,0));
+        Health.bar.add(new HealthBar(32,0));
+        Health.bar.add(new HealthBar(64,0));
+        enemies.add(new Enemy(64, 448));
+        enemies.add(new Enemy(224, 480));
+        enemies.add(new Enemy(512, 96));
 
-        new Window(size, this);
+        this.window = new Window(size, this);
 
         addKeyListener(new Key()); //keylistener to get user input
     }
-    public static void main(String[] args) {
-        new Main();
+
+    public static Thread getMainThread()
+    {
+        return mainThread;
     }
 
+    public static  Window getWindow()
+    {
+        return window;
+    }
+
+
     public synchronized void start() { //start thread
-        thread = new Thread(this);
-        thread.start();
+        mainThread = new Thread(this);
+        mainThread.start();
 
         running = true;
     }
-    public synchronized void stop() { //stop thread
+    /*public synchronized void stop() { //stop thread
         try {
-            thread.join();
+            mainThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void run() { //when thread is running
         long timer = System.currentTimeMillis();
-        while(running) {
+        while(running)
+        {
+            while(pause)
+            {
+                System.out.println("Now the game is pausing");
+                try {
+                    mainThread.sleep(1000);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
             try {
-                thread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
+                mainThread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -101,6 +132,7 @@ public class Main extends Canvas implements Runnable {
     }
 
     public void update() { //this function basically upadtes all graphics of the game
+        if(Health.bar.isEmpty()) { System.exit(0) ;};
         BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
         if(bs == null) { //null by default
             createBufferStrategy(3); //prevents image tearing
@@ -114,16 +146,22 @@ public class Main extends Canvas implements Runnable {
 
 
         level.update(g);
-        player.update(g);
-        healthBar.update(g);
-        freeze.update(g);
+        Health.update(g);
         enemies.forEach((e) -> e.update(g));
-
+        bombs.forEach((b) -> b.update(g));
+        rewards.forEach((r) -> r.update(g));
+        KeyBar.update(g);
+        player.update(g);
         g.dispose();
         bs.show();
     }
 
-
+    public static void main(String[] args) {
+        new MainMenu();
+    }
 
 }//end class
+
+
+
 

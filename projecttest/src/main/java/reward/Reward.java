@@ -2,22 +2,27 @@ package reward;
 
 import java.awt.*;
 
+
 public abstract class Reward
 {
-    public float x, y;      // position
-    private int width, height = 16;
-    public Image img;
+    public int x, y;      // position
 
-    public Reward(int x, int y, int width, int height)
+    public Reward(int x, int y)
     {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
     }
 
-    public void update(Graphics2D g)
-    {
-        g.drawImage(img, (int)x, (int)y, width, height, null);
-    }
+    public void onHit(){
+
+    };
+
+    public void update(Graphics2D g){
+
+    };
+
+    public int getX(){ return (int)(x / 32); };
+    public int getY(){ return (int)(y / 32); };
 }
+
+
