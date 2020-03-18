@@ -4,17 +4,33 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class Tile extends Rectangle {
-	
+public class Tile<T> extends Rectangle {
+
 	public int id;
-	
-	public static final int GRIDSIZE = 60; //contains 60 tiles
-	public static final int TILESIZE = 16; //becasue every image in the spritesheet is 16x16
-	
-	public Tile(int id, Rectangle boundaries) {
+	public boolean barrier;
+	public T item;
+
+
+	public static final int GRIDSIZE = 20; //contains 60 tiles
+	public static final int TILESIZE = 32; //becasue every image in the spritesheet is 16x16
+
+	public Tile(int id, Rectangle boundaries, boolean barrier, T contents) {
 		setBounds(boundaries);
 		this.id = id;
+		this.barrier = barrier;
+		item = contents;
 	}
+
+	public boolean hasContents(){
+		return item != null;
+		//return item != null;
+	}
+
+	public T getContents(){
+		return item;
+	}
+
+	public boolean isBarrier() {return barrier; };
 	//the switch case is in order to have separate levels, but we can adjust it to our needs
 	public void update(Graphics2D g) {
 		switch(id) {
@@ -23,20 +39,20 @@ public class Tile extends Rectangle {
 			g.fillRect(x, y, width, height);
 			break;
 		case 0: //base textures
-			g.drawImage(Images.tilesheet,  x,  y,  width,  height,  null);
+			g.drawImage(Images.testEndPoint,  x,  y,  width,  height,  null);
 			break;
 		case 1:
-			g.drawImage(Images.tiles[0],  x,  y,  width,  height,  null);
+			g.drawImage(Images.testGrass,  x,  y,  width,  height,  null);
 			break;
 		case 2:
-			g.drawImage(Images.tiles[1],  x,  y,  width,  height,  null);
+			g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
 			break;
 		case 3:
-			g.drawImage(Images.tiles[2],  x,  y,  width,  height,  null);
+			g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
 			break;
 		default:
 			break;
 		}
-		
+
 		}
 }
