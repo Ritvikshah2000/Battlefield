@@ -6,7 +6,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Images {
-    public static BufferedImage tilesheet;
     public static BufferedImage testEnemy;
     public static BufferedImage testEnemy2;
     public static BufferedImage testEnemy3;
@@ -20,9 +19,6 @@ public class Images {
     public static BufferedImage testHearts;
     public static BufferedImage testKeys;
     public static BufferedImage testEnemyFrozen;
-    public static BufferedImage[] tiles = new BufferedImage[4]; //based on how many tiles you have
-    public static final int COL = 6;
-    public static final int ROW = 5;
 
 
     public Images() {
@@ -40,14 +36,6 @@ public class Images {
             testHearts = ImageIO.read(getClass().getResource("/heart.png"));
             testKeys = ImageIO.read(getClass().getResource("/key.png"));
             testEnemyFrozen = ImageIO.read(getClass().getResource("/freeze_enemy.png"));
-
-
-            // tilesheet = ImageIO.read(getClass().getResource("/resources/bomb_party_v3.png"));
-            //
-            // tiles[0] = fromSpriteSheet(tilesheet,2,1); //col, row
-            // tiles[1] = fromSpriteSheet(tilesheet,6,5);
-            // tiles[2] = fromSpriteSheet(tilesheet,7,2);
-            // tiles[3] = fromSpriteSheet(tilesheet,7,4);
             testWall = ImageIO.read(getClass().getResource("/wall1.png"));
             testGrass = ImageIO.read(getClass().getResource("/grass.png"));
             testPlayer = ImageIO.read(getClass().getResource("/player.png"));
@@ -62,14 +50,7 @@ public class Images {
             testKeys = ImageIO.read(getClass().getResource("/key.png"));
             testEnemyFrozen = ImageIO.read(getClass().getResource("/freeze_enemy.png"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-    public BufferedImage fromSpriteSheet(BufferedImage img, int column, int row) {
-        img = img.getSubimage(column * (Tile.TILESIZE/2) - (Tile.TILESIZE/2), row * (Tile.TILESIZE/2) - (Tile.TILESIZE/2), Tile.TILESIZE/2, Tile.TILESIZE/2); //gets a portion of spritesheet
-        //img = img.getSubimage(column, row, Tile.TILESIZE/2, Tile.TILESIZE/2); //gets a portion of spritesheet
-        return img;
     }
 }

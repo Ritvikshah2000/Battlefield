@@ -3,15 +3,13 @@ package actor;
 import board.TestLevel;
 import board.Tile;
 import image.Images;
-
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+
 
 public class Enemy{
 
     public int x,y;
-    public float velX, velY;
     public float speed = 1.0f;
     public boolean canUp, canDown, canRight, canLeft;
     public static boolean isFrozen;
@@ -64,40 +62,60 @@ public class Enemy{
             g.drawImage(Images.testEnemyFrozen, (int)x, (int)y, SIZE, SIZE, null);
         }
 
-        //x += velX;
-        //y += velY;
-
         collision();
     }
 
     public void collision(){
-        int left = (int)(x/Tile.TILESIZE);
-        int right = (int)((x + SIZE)/Tile.TILESIZE);
-        int up = (int)(y/Tile.TILESIZE);
-        int down = (int)((y + SIZE)/Tile.TILESIZE);
-        int dx = (int)(x/Tile.TILESIZE);
-        int dy = (int)(y/Tile.TILESIZE);
-        //System.out.println("l: " + left + "\nr: " + right + "\nu: " + up + "\nd: " + down);
 
-        if(TestLevel.tiles[left][dy].isBarrier()){
-            canLeft = false;
-        }else{
-            canLeft = true;
+        Rectangle herorect = this.getBounds();
+        Rectangle barrierrect = null;
+
+        // check can left
+        canLeft = true;
+        for (int i=0; i<TestLevel.barrierList.size(); i++)
+        {
+            Tile barrier = TestLevel.barrierList.get(i);
+            barrierrect = new Rectangle(barrier.x+2, barrier.y, barrier.width, barrier.height);
+            if (herorect.intersects(barrierrect)) {
+                canLeft = false;
+                break;
+            }
         }
-        if(TestLevel.tiles[right][dy].isBarrier()){
-            canRight = false;
-        }else{
-            canRight = true;
+
+        // check can right
+        canRight = true;
+        for (int i=0; i<TestLevel.barrierList.size(); i++)
+        {
+            Tile barrier = TestLevel.barrierList.get(i);
+            barrierrect = new Rectangle(barrier.x-2, barrier.y, barrier.width, barrier.height);
+            if (herorect.intersects(barrierrect)) {
+                canRight = false;
+                break;
+            }
         }
-        if(TestLevel.tiles[dx][up].isBarrier()){
-            canUp = false;
-        }else{
-            canUp = true;
+
+        // check can up
+        canUp = true;
+        for (int i=0; i<TestLevel.barrierList.size(); i++)
+        {
+            Tile barrier = TestLevel.barrierList.get(i);
+            barrierrect = new Rectangle(barrier.x, barrier.y+2, barrier.width, barrier.height);
+            if (herorect.intersects(barrierrect)) {
+                canUp = false;
+                break;
+            }
         }
-        if(TestLevel.tiles[dx][down].isBarrier()){
-            canDown = false;
-        }else{
-            canDown = true;
+
+        // check can down
+        canDown = true;
+        for (int i=0; i<TestLevel.barrierList.size(); i++)
+        {
+            Tile barrier = TestLevel.barrierList.get(i);
+            barrierrect = new Rectangle(barrier.x, barrier.y-2, barrier.width, barrier.height);
+            if (herorect.intersects(barrierrect)) {
+                canDown = false;
+                break;
+            }
         }
     }
 

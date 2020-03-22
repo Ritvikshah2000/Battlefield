@@ -3,7 +3,6 @@ package reward;
 import actor.Player;
 import actor.Score;
 import board.TestLevel;
-import board.Tile;
 import image.Images;
 import music.FreezeSound;
 import playgame.Main;

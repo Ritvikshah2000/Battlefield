@@ -17,7 +17,6 @@ public class ScoreBomb extends Bomb{
         super(x * 32, y * 32);
     }
 
-    @Override
     public void onHit() {
         this.boom = new Boom();
         Player.score -= scoreDamage;
@@ -26,9 +25,7 @@ public class ScoreBomb extends Bomb{
         Main.bombs.remove(this);
     }
 
-    @Override
     public void update(Graphics2D g) {
-        // TODO Auto-generated method stub
         g.drawImage(Images.testScoreBomb, x,y,32,32,null);
     }
 

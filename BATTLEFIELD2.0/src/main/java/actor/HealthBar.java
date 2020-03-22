@@ -14,7 +14,6 @@ public class HealthBar{
         this.y = y;
     }
 
-
     public void update(Graphics2D g){
         g.drawImage(Images.testHearts, x, y, 32, 32,null);
     }

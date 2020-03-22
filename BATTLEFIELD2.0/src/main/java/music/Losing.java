@@ -12,7 +12,7 @@ public class Losing {
         try
         {
             this.LosingSound = AudioSystem.getClip();   //音乐盒
-            InputStream is = Losing.class.getClassLoader().getResourceAsStream("losegame.wav");
+            InputStream is = Losing.class.getClassLoader().getResourceAsStream("sound/losegame.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.LosingSound.open(ais);
             this.LosingSound.start();

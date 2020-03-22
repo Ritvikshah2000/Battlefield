@@ -1,12 +1,9 @@
 package window;
 
 import actor.Score;
-import playgame.Key;
 import playgame.Main;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.*;
 
 public class Window extends JFrame{

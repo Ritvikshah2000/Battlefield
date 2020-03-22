@@ -1,7 +1,6 @@
 package window;
 
 import playgame.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

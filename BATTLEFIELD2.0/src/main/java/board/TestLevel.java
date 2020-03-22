@@ -8,7 +8,6 @@ import reward.Freeze;
 import reward.HealthReward;
 import reward.KeyReward;
 import reward.Reward;
-
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;

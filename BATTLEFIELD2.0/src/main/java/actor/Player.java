@@ -10,9 +10,6 @@ import playgame.Main;
 import reward.Freeze;
 import reward.HealthReward;
 import reward.KeyReward;
-import window.Window;
-
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -49,10 +46,6 @@ public class Player {
 
 
     public void collision(){
-        /*int left = (int)((x - 1)/ TILESIZE);
-        int right = (int)((x + 1)/ TILESIZE);
-        int up = (int)((y - 1)/ TILESIZE);
-        int down = (int)((y + 1)/ TILESIZE);*/
 
         int dx; // hero current tile x index
         if (x - (int)(x/ TILESIZE)*TILESIZE >= 16)
@@ -79,6 +72,7 @@ public class Player {
                 //have an hp value and only remove if the value drops to a certain amount
             }
         }
+
         if(TestLevel.tiles[dx][dy].hasContents())
         {
             if(TestLevel.tiles[dx][dy].getContents() instanceof Bomb) {
@@ -152,27 +146,6 @@ public class Player {
                 break;
             }
         }
-
-        /*if(TestLevel.tiles[left][dy].isBarrier()){
-            canLeft = false;
-        }else{
-            canLeft = true;
-        }
-        if(TestLevel.tiles[right][dy].isBarrier()){
-            canRight = false;
-        }else{
-            canRight = true;
-        }
-        if(TestLevel.tiles[dx][up].isBarrier()){
-            canUp = false;
-        }else{
-            canUp = true;
-        }
-        if(TestLevel.tiles[dx][down].isBarrier()){
-            canDown = false;
-        }else{
-            canDown = true;
-        }*/
     }
 
     public void update(Graphics2D g) {

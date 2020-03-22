@@ -12,7 +12,7 @@ public class Winning {
         try
         {
             this.WinningSound = AudioSystem.getClip();   //音乐盒
-            InputStream is = Winning.class.getClassLoader().getResourceAsStream("wingame.wav");
+            InputStream is = Winning.class.getClassLoader().getResourceAsStream("sound/wingame.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.WinningSound.open(ais);
             this.WinningSound.start();

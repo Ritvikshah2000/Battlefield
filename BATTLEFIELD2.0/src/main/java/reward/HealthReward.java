@@ -20,7 +20,6 @@ public class HealthReward extends Reward {
     }
 
 
-    @Override
     public void onHit() {
         Health.hp = (Health.heartsLeft + 1) * 30;
         Health.bar.add(new HealthBar((32 * Health.heartsLeft), 0));
@@ -30,7 +29,6 @@ public class HealthReward extends Reward {
         Main.rewards.remove(this);
     }
 
-    @Override
     public void update(Graphics2D g) {
         g.drawImage(Images.testHearts, x, y, 32, 32, null);
     }

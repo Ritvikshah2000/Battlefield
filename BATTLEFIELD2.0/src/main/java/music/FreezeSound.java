@@ -12,7 +12,7 @@ public class FreezeSound {
         try
         {
             this.freezesound = AudioSystem.getClip();   //音乐盒
-            InputStream is = FreezeSound.class.getClassLoader().getResourceAsStream("freezesound.wav");
+            InputStream is = FreezeSound.class.getClassLoader().getResourceAsStream("sound/freezesound.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.freezesound.open(ais);
             this.freezesound.start();

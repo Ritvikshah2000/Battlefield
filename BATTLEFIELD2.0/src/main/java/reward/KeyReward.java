@@ -18,7 +18,6 @@ public class KeyReward extends Reward {
         value = 100;
     }
 
-    @Override
     public void onHit() {
         this.keysound = new KeySound();
         Player.keyCount++;
@@ -29,7 +28,6 @@ public class KeyReward extends Reward {
         KeyBar.kBar.add(new KeyReward(15 + KeyBar.collected++, 0));
     }
 
-    @Override
     public void update(Graphics2D g) {
         g.drawImage(Images.testKeys,x,y, 32, 32, null);
     }

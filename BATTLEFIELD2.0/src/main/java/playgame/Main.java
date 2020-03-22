@@ -23,41 +23,33 @@ import java.util.ArrayList;
 
 
 public class Main extends Canvas implements Runnable {
-
+    // size
     public static final int WIDTH = Tile.TILESIZE;
     public static final int HEIGHT = Tile.TILESIZE;
-
     public static int HOR_SCALE = Tile.GRIDSIZE;
     public static int VERT_SCALE = Tile.GRIDSIZE;
-
     public static int width = WIDTH * HOR_SCALE;
     public static int height = HEIGHT * VERT_SCALE;
+    public Dimension size = new Dimension(width, height);
 
+    // functional
     public static Thread mainThread; //thread object
-
     private static Window window;
+    public static boolean running = false; //used for thread
+    public static boolean pause = false;
+    public Images imgs; //image object
 
+    // music
     public static BGM bgm;
     public static Losing losingsound;
 
-    public static boolean running = false; //used for thread
-
-    public static boolean pause = false;
-
-    private int frames = 0; //a console frame counter to check the efficiency of the code
-
+    // game component
     public Player player; //player object (can be reprogrammed to fit needs)
     public TestLevel level; //sample level (our game will only be a single level)
-    public Images imgs; //image object
-
     public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     public static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
     public static ArrayList<Reward> rewards = new ArrayList<Reward>();
     public static ArrayList<HealthBar> hpBar = new ArrayList<HealthBar>();
-
-
-    public Dimension size = new Dimension(width, height);
-
 
 
     public Main() {
@@ -70,11 +62,8 @@ public class Main extends Canvas implements Runnable {
         enemies.add(new Enemy(64, 448));
         enemies.add(new Enemy(224, 480));
         enemies.add(new Enemy(512, 96));
-
         this.window = new Window(size, this);
-
         this.bgm = new BGM();       // start bgm;
-
         addKeyListener(new Key()); //keylistener to get user input
     }
 
@@ -88,16 +77,13 @@ public class Main extends Canvas implements Runnable {
     public synchronized void start() { //start thread
         mainThread = new Thread(this);
         mainThread.start();
-
         running = true;
     }
 
     public void run() { //when thread is running
         long timer = System.currentTimeMillis();
-        while(running)
-        {
-            while(pause)
-            {
+        while(running) {
+            while(pause) {
                 try {
                     mainThread.sleep(1000);
                 }
@@ -111,14 +97,11 @@ public class Main extends Canvas implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            frames++;
 
             update();
 
             if(System.currentTimeMillis() - timer >= 1000) {
                 timer += 1000;
-                //System.out.println("FPS: " + frames);
-                frames = 0;
             }
         }
     }
@@ -141,7 +124,6 @@ public class Main extends Canvas implements Runnable {
 
         g.setColor(new Color(0,0,0)); //r,g,b only goes upto 255
         g.fillRect(0, 0, width, height);
-
 
         level.update(g);
         Health.update(g);

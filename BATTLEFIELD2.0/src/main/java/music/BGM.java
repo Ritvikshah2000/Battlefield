@@ -11,8 +11,8 @@ public class BGM {
     {
         try
         {
-            this.bgm = AudioSystem.getClip();   // music box
-            InputStream is = BGM.class.getClassLoader().getResourceAsStream("bgm.wav");
+            this.bgm = AudioSystem.getClip();   //音乐盒
+            InputStream is = Losing.class.getClassLoader().getResourceAsStream("sound/bgm.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.bgm.open(ais);
             this.bgm.loop(Clip.LOOP_CONTINUOUSLY);    // play music continuously

@@ -12,7 +12,7 @@ public class Boom {
         try
         {
             this.boom = AudioSystem.getClip();   //音乐盒
-            InputStream is = Boom.class.getClassLoader().getResourceAsStream("boom.wav");
+            InputStream is = Boom.class.getClassLoader().getResourceAsStream("sound/boom.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.boom.open(ais);
             this.boom.start();
