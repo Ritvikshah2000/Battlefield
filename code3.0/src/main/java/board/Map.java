@@ -1,6 +1,5 @@
 package board;
 
-// used for Testlevel 
 public class Map {
     private int[][] map;
 
