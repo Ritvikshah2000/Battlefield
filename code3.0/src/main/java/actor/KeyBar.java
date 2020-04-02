@@ -13,8 +13,6 @@ public class KeyBar{
     public static void update(Graphics2D g){
         kBar.forEach((k) -> k.update(g));
     }
-
-
 }
 
 

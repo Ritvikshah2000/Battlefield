@@ -9,7 +9,6 @@ import java.awt.Graphics2D;
 
 public class HealthBomb extends Bomb {
 
-    public int healthDamage = 10;
     public Boom boom;
 
     public HealthBomb(int x, int y) {

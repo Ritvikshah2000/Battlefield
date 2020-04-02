@@ -30,21 +30,24 @@ public class Enemy{
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y, SIZE, SIZE);
+        return new Rectangle(x, y, SIZE, SIZE);
     }
 
-    public void update(Graphics2D g) {
-        collision();
-
+    public void checkFrozen()
+    {
         if(frozenTimer != 0){
             isFrozen = true;
             frozenTimer -= 1;
         }else{
             isFrozen = false;
         }
+    }
 
+    public void chasingHero(Graphics2D g)
+    {
         if(!isFrozen){  // chasing hero
-            g.drawImage(Images.testEnemy, (int)x, (int)y, SIZE, SIZE, null);
+            if (g != null)
+                g.drawImage(Images.testEnemy, x, y, SIZE, SIZE, null);
             if(Player.x > this.x && canRight) {
                 x += speed;
             }
@@ -60,7 +63,8 @@ public class Enemy{
         }
         else
         {
-            g.drawImage(Images.testEnemyFrozen, (int)x, (int)y, SIZE, SIZE, null);
+            if (g != null)
+                g.drawImage(Images.testEnemyFrozen, (int)x, (int)y, SIZE, SIZE, null);
         }
     }
 
@@ -118,6 +122,11 @@ public class Enemy{
         }
     }
 
+    public void update(Graphics2D g) {
+        collision();
+        checkFrozen();
+        chasingHero(g);
+    }
 }
 
 

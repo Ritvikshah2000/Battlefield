@@ -38,6 +38,7 @@ public class Main extends Canvas implements Runnable {
     public static boolean running = false; //used for thread
     public static boolean pause = false;
     public Images imgs; //image object
+    public static Graphics2D g;
 
     // music
     public static BGM bgm;
@@ -49,37 +50,39 @@ public class Main extends Canvas implements Runnable {
     public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     public static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
     public static ArrayList<Reward> rewards = new ArrayList<Reward>();
-    //public static ArrayList<HealthBar> hpBar = new ArrayList<HealthBar>();
+    //public static Health health;
 
 
     public Main(int mapindex){
-        if (mapindex == 1) {
+        if (mapindex == 1) {    // first map
             player = new Player(1 * Tile.TILESIZE, 1 * Tile.TILESIZE); //starting position(x,y)
             level = new TestLevel(mapindex); //instantiate
             imgs = new Images();
-            Health.bar.add(new HealthBar(0, 0));
-            Health.bar.add(new HealthBar(32, 0));
-            Health.bar.add(new HealthBar(64, 0));
+
+            Health health = new Health();
+
             enemies.add(new Enemy(2 * Tile.TILESIZE, 14 * Tile.TILESIZE));
             enemies.add(new Enemy(7 * Tile.TILESIZE, 15 * Tile.TILESIZE));
-            enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE));
-            this.window = new Window(size, this);
-            this.bgm = new BGM();       // start bgm;
+            enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE));  // 3 enemies on the board
+
+            window = new Window(size, this);
+            bgm = new BGM();       // start bgm;
             addKeyListener(new Key()); //keylistener to get user input
         }
-        else if(mapindex == 2)
+        else if(mapindex == 2)  // second map
         {
             player = new Player(1 * Tile.TILESIZE, 1 * Tile.TILESIZE);
             level = new TestLevel(mapindex); //instantiate
             imgs = new Images();
-            Health.bar.add(new HealthBar(0, 0));
-            Health.bar.add(new HealthBar(32, 0));
-            Health.bar.add(new HealthBar(64, 0));
+
+            Health health = new Health();
+
             enemies.add(new Enemy(18 * Tile.TILESIZE, 7 * Tile.TILESIZE));
             enemies.add(new Enemy(9 * Tile.TILESIZE, 11 * Tile.TILESIZE));
             enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE));
-            this.window = new Window(size, this);
-            this.bgm = new BGM();       // start bgm;
+
+            window = new Window(size, this);
+            bgm = new BGM();       // start bgm;
             addKeyListener(new Key()); //keylistener to get user input
         }
     }
@@ -102,7 +105,7 @@ public class Main extends Canvas implements Runnable {
         while(running) {
             while(pause) {
                 try {
-                    mainThread.sleep(1000);
+                    Thread.sleep(1000);
                 }
                 catch (InterruptedException e) {
                     e.printStackTrace();
@@ -110,7 +113,7 @@ public class Main extends Canvas implements Runnable {
             }
 
             try {
-                mainThread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
+                Thread.sleep(7); //caues thread to suspend execution for a specificed period. an efficient means of making processor time for other threads
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -124,21 +127,22 @@ public class Main extends Canvas implements Runnable {
     }
 
     public void update() { //this function basically upadtes all graphics of the game
-        if(Health.bar.isEmpty())
+
+        if(Health.bar.isEmpty())        // check the hero health is empty or not
         {
             Main.getWindow().dispose();
             running = false;
-            this.losingsound = new Losing();
+            losingsound = new Losing();
             new GameOverMenu();
         }
+
         BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
-        if(bs == null) { //null by default
+        if(bs == null) {
             createBufferStrategy(3); //prevents image tearing
             return;
         }
         Graphics graphics = bs.getDrawGraphics();
-        Graphics2D g = (Graphics2D) graphics;
-
+        g = (Graphics2D) graphics;
         g.setColor(new Color(0,0,0)); //r,g,b only goes upto 255
         g.fillRect(0, 0, width, height);
 

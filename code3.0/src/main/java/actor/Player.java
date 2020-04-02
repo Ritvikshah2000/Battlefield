@@ -44,37 +44,41 @@ public class Player {
         return new Rectangle((int)x, (int)y, SIZE, SIZE);
     }
 
-
-    public void collision(){
-
-        int dx; // hero current tile x index
+    public int[] currentTile()  //hero current tile
+    {
+        int[] currentTile = new int[2];
+        int dx;
         if (x - (int)(x/ TILESIZE)*TILESIZE >= 16)
             dx = (int)(x/ TILESIZE)+1;
         else
             dx = (int)(x/ TILESIZE);
 
-        int dy; // hero current tile y index
+        int dy;
         if (y - (int)(y/ TILESIZE)*TILESIZE >= 16)
             dy = (int)(y/ TILESIZE)+1;
         else
             dy = (int)(y/ TILESIZE);
 
+        currentTile[0] = dx;
+        currentTile[1] = dy;
+        return currentTile;
+    }
 
-        // collide with enemy
-        for(int i = 0; i < Main.enemies.size(); i++){
+    public void collideEnemy()  // collide with enemy
+    {
+        for(int i = 0; i < Main.enemies.size(); i++)
             if(Main.enemies.get(i).getBounds().intersects(this.getBounds())){
-                if(Health.hp % 30 == 0){
+                if(Health.hp % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
                     Health.bar.remove(Health.index);
                     Health.hp -= Enemy.damage;
-                    Health.heartsLeft--;
-                }else{
+                    Health.heartsLeft--;    // heart bar index -1
+                }else
                     Health.hp -= Enemy.damage;
-                }
-                //have an hp value and only remove if the value drops to a certain amount
             }
-        }
+    }
 
-
+    public void collideContent(int dx, int dy)      // hit a content
+    {
         if(TestLevel.tiles[dx][dy].hasContents())
         {
             if(TestLevel.tiles[dx][dy].getContents() instanceof Bomb) {
@@ -89,19 +93,17 @@ public class Player {
             }else if(TestLevel.tiles[dx][dy].getContents() instanceof KeyReward){
                 KeyReward kr = (KeyReward)TestLevel.tiles[dx][dy].getContents();
                 kr.onHit();
-            }else if(TestLevel.tiles[dx][dy].getContents() instanceof ScoreBomb){
-                ScoreBomb sb = (ScoreBomb)TestLevel.tiles[dx][dy].getContents();
-                sb.onHit();
             }else if(TestLevel.tiles[dx][dy].getContents() instanceof EndPoint){
                 EndPoint e = (EndPoint)TestLevel.tiles[dx][dy].getContents();
                 e.onHit();
             }
         }
+    }
 
-
+    public void checkMove()
+    {
         Rectangle herorect = this.getBounds();
         Rectangle barrierrect = null;
-
         // check can left
         canLeft = true;
         for (int i=0; i<TestLevel.barrierList.size(); i++)
@@ -151,10 +153,23 @@ public class Player {
         }
     }
 
+    public void collision(){
+
+        int[] currentTile = currentTile();
+        int dx = currentTile[0]; // hero current tile x index
+        int dy = currentTile[1]; // hero current tile y index
+
+        collideEnemy();
+
+        collideContent(dx, dy);
+
+        checkMove();
+    }
+
     public void update(Graphics2D g) {
         collision();
-
-        g.drawImage(Images.testPlayer, (int)x, (int)y, SIZE, SIZE, null);
+        if (g != null)
+            g.drawImage(Images.testPlayer, (int)x, (int)y, SIZE, SIZE, null);
         //update player movement based on user input
         if(movingLeft && canLeft)
             x -= leftSpeed;
