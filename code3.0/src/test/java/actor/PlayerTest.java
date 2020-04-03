@@ -101,7 +101,7 @@ public class PlayerTest {
         Assert.assertEquals(1, health.index);
     }*/
 
-    @Test
+    /*@Test
     public void testCollideHealthBomb()
     {
         Player player = new Player(8*32,10*32);
@@ -202,7 +202,7 @@ public class PlayerTest {
         Assert.assertEquals(0, player.keyCount);
         player.keyCount += 5;
         Assert.assertFalse(Main.running);
-    }
+    }*/
 
     @Test
     public void testCheckMoveCanLeft()

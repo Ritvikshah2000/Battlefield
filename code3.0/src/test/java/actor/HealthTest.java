@@ -7,7 +7,15 @@ import org.junit.Test;
 import playgame.Main;
 
 public class HealthTest {
+
     @Test
+    public void testHealthConstructor()
+    {
+        Health health = new Health();
+        Assert.assertEquals(3, health.bar.size());
+    }
+
+    /*@Test
     public void testUpdateHealth()
     {
         Health health = new Health();
@@ -27,5 +35,5 @@ public class HealthTest {
         health.update(null);
         Assert.assertEquals(3, health.heartsLeft);
         Assert.assertEquals(2, health.index);
-    }
+    }*/
 }
