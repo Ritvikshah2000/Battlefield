@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb9f91df-86ce-4d77-91c3-dd41af5b2d5b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+    <option name="SCHEME" value="Project" />
+  </component>
+  <component name="ProjectId" id="1ZuN6P8Cs4JQbdQcejzFrfEwyz4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="reward" />
+      <recent name="hazard" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.KeyRewardTest.onHit">
+    <configuration name="FreezeTest.onHit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BATTLEFIELD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="reward" />
+      <option name="MAIN_CLASS_NAME" value="reward.FreezeTest" />
+      <option name="METHOD_NAME" value="onHit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthRewardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BATTLEFIELD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="reward" />
+      <option name="MAIN_CLASS_NAME" value="reward.HealthRewardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthRewardTest.onHit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BATTLEFIELD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="reward" />
+      <option name="MAIN_CLASS_NAME" value="reward.HealthRewardTest" />
+      <option name="METHOD_NAME" value="onHit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthRewardTest.testHealthRewardConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BATTLEFIELD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="reward" />
+      <option name="MAIN_CLASS_NAME" value="reward.HealthRewardTest" />
+      <option name="METHOD_NAME" value="testHealthRewardConstructor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeyRewardTest.onHit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BATTLEFIELD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="reward" />
+      <option name="MAIN_CLASS_NAME" value="reward.KeyRewardTest" />
+      <option name="METHOD_NAME" value="onHit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.KeyRewardTest.onHit" />
+        <item itemvalue="JUnit.HealthRewardTest.onHit" />
+        <item itemvalue="JUnit.HealthRewardTest" />
+        <item itemvalue="JUnit.FreezeTest.onHit" />
+        <item itemvalue="JUnit.HealthRewardTest.testHealthRewardConstructor" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb9f91df-86ce-4d77-91c3-dd41af5b2d5b" name="Default Changelist" comment="" />
+      <created>1585684843060</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585684843060</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2468" y="177" key="#Project_Structure" timestamp="1585705167769">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2468" y="177" key="#Project_Structure/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585705167769" />
+    <state x="2020" y="100" width="1720" height="832" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1585787852088">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2020" y="100" width="1720" height="832" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585787852088" />
+    <state x="2472" y="205" width="806" height="620" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1585705083360">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2472" y="205" width="806" height="620" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585705083360" />
+    <state width="1870" height="270" key="GridCell.Tab.0.bottom" timestamp="1585886797255">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585801273198" />
+    <state width="1870" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585792906924" />
+    <state width="1870" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1585886797255" />
+    <state width="1870" height="270" key="GridCell.Tab.0.center" timestamp="1585886797254">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="270" key="GridCell.Tab.0.center/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585801273198" />
+    <state width="1870" height="270" key="GridCell.Tab.0.center/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585792906924" />
+    <state width="1870" height="270" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1585886797254" />
+    <state width="1870" height="270" key="GridCell.Tab.0.left" timestamp="1585886797253">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="270" key="GridCell.Tab.0.left/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585801273198" />
+    <state width="1870" height="270" key="GridCell.Tab.0.left/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585792906924" />
+    <state width="1870" height="270" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1585886797253" />
+    <state width="1870" height="270" key="GridCell.Tab.0.right" timestamp="1585886797254">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="270" key="GridCell.Tab.0.right/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585801273198" />
+    <state width="1870" height="270" key="GridCell.Tab.0.right/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585792906924" />
+    <state width="1870" height="270" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1585886797254" />
+    <state width="1870" height="334" key="GridCell.Tab.1.bottom" timestamp="1585685803289">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="334" key="GridCell.Tab.1.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1585685803289" />
+    <state width="1870" height="334" key="GridCell.Tab.1.center" timestamp="1585685803289">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="334" key="GridCell.Tab.1.center/0.0.1920.1032@0.0.1920.1032" timestamp="1585685803289" />
+    <state width="1870" height="334" key="GridCell.Tab.1.left" timestamp="1585685803289">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="334" key="GridCell.Tab.1.left/0.0.1920.1032@0.0.1920.1032" timestamp="1585685803289" />
+    <state width="1870" height="334" key="GridCell.Tab.1.right" timestamp="1585685803289">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1870" height="334" key="GridCell.Tab.1.right/0.0.1920.1032@0.0.1920.1032" timestamp="1585685803289" />
+    <state x="2363" y="93" width="1024" height="843" key="SettingsEditor" timestamp="1585705255272">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2363" y="93" width="1024" height="843" key="SettingsEditor/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585705255272" />
+    <state x="589" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1585884723398">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="2509" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585783459556" />
+    <state x="589" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1585884723398" />
+    <state x="753" y="217" width="487" height="563" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1585800707574">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="753" y="217" width="487" height="563" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1585800707574" />
+    <state x="2673" y="227" width="487" height="596" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1585783572647" />
+  </component>
+</project>
