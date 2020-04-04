@@ -30,24 +30,53 @@ public class TestLevelTest {
     public void testAddBomb(){
         TestLevel test = new TestLevel(1);
         HealthBomb hb = new HealthBomb(1, 1);
+        ScoreBomb sb = new ScoreBomb(16, 4);
         test.addBomb(1,1, hb);
+        test.addBomb(16,4, sb);
+
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(hb,TestLevel.tiles[1][1].getContents());
         Assert.assertFalse(TestLevel.tiles[1][1].barrier);
         Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
 
+        Assert.assertTrue(TestLevel.tiles[16][4].hasContents());
+        Assert.assertEquals(sb, TestLevel.tiles[16][4].getContents());
+        Assert.assertFalse(TestLevel.tiles[16][4].barrier);
+        Assert.assertEquals( 1, TestLevel.tiles[16][4].id);
+
+        Assert.assertTrue(Main.bombs.contains(hb));
+        Assert.assertTrue(Main.bombs.contains(sb));
     }
 
     @Test
     public void testAddReward(){
         TestLevel test = new TestLevel(1);
         KeyReward key = new KeyReward(1, 1);
+        Freeze fz = new Freeze(1,1);
+        HealthReward hp = new HealthReward(1,1);
         test.addReward(1,1, key);
+        test.addReward(3,4, fz);
+        test.addReward(5,10, hp);
+
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(key,TestLevel.tiles[1][1].getContents());
         Assert.assertFalse(TestLevel.tiles[1][1].barrier);
         Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
 
+        Assert.assertTrue(TestLevel.tiles[3][4].hasContents());
+        Assert.assertEquals(fz, TestLevel.tiles[3][4].getContents());
+        Assert.assertFalse(TestLevel.tiles[3][4].barrier);
+        Assert.assertEquals( 1, TestLevel.tiles[3][4].id);
+
+        Assert.assertTrue(TestLevel.tiles[5][10].hasContents());
+        Assert.assertEquals(hp, TestLevel.tiles[5][10].getContents());
+        Assert.assertFalse(TestLevel.tiles[5][10].barrier);
+        Assert.assertEquals( 1, TestLevel.tiles[5][10].id);
+
+
+        Assert.assertTrue(Main.rewards.contains(key));
+        Assert.assertTrue(Main.rewards.contains(fz));
+        Assert.assertTrue(Main.rewards.contains(hp));
     }
 
     @Test
