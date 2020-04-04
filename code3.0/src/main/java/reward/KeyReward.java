@@ -20,12 +20,12 @@ public class KeyReward extends Reward {
 
     public void onHit() {
         this.keysound = new KeySound();
-        Player.keyCount++;
-        Player.score += value;
+        Player.IncreaseKeyCount();
+        Player.setScore(value);
         Score.update();
         TestLevel.addGrass(getX(), getY());
-        Main.rewards.remove(this);
-        KeyBar.kBar.add(new KeyReward(15 + KeyBar.collected++, 0));
+        Main.getRewards().remove(this);
+        KeyBar.getKbar().add(new KeyReward(15 + KeyBar.increaseCollected(), 0));
     }
 
     public void update(Graphics2D g) {

@@ -10,9 +10,9 @@ public class EndPoint{
     public Winning winsound;
 
     public void onHit(){
-        if(Player.keyCount >= REQUIREDKEYS){
+        if(Player.getKeyCount() >= REQUIREDKEYS){
             Main.getWindow().dispose();
-            Main.running = false;
+            Main.setRunning(false);
             this.winsound = new Winning();
             new GameOverMenu();
         }

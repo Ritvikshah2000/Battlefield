@@ -12,7 +12,7 @@ public class HealthTest {
     public void testHealthConstructor()
     {
         Health health = new Health();
-        Assert.assertEquals(3, health.bar.size());
+        Assert.assertEquals(3, health.getBar().size());
     }
 
     /*@Test

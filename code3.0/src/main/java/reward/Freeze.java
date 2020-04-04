@@ -23,11 +23,11 @@ public class Freeze extends Reward
 
     public void onHit(){
         this.freezesound = new FreezeSound();
-        Main.enemies.forEach((e) -> e.frozenTimer = freezetime);
-        Player.score += value;
+        Main.getEnemy().forEach((e) -> e.frozenTimer = freezetime);
+        Player.setScore(value);
         Score.update();
         TestLevel.addGrass(getX(), getY());
-        Main.rewards.remove(this);
+        Main.getRewards().remove(this);
     }
 
     public void update(Graphics2D g){

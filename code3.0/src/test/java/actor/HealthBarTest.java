@@ -9,7 +9,7 @@ public class HealthBarTest {
     public void testHealthBarConstructor()
     {
         HealthBar healthbar = new HealthBar(32,16);
-        Assert.assertEquals(32,healthbar.x);
-        Assert.assertEquals(16,healthbar.y);
+        Assert.assertEquals(32,healthbar.getX());
+        Assert.assertEquals(16,healthbar.getY());
     }
 }

@@ -21,12 +21,12 @@ public class HealthReward extends Reward {
 
 
     public void onHit() {
-        Health.hp = (Health.heartsLeft + 1) * 30;
-        Health.bar.add(new HealthBar((32 * Health.heartsLeft), 0));
-        Player.score += value;
+        Health.increaseHp((Health.getHeartsLeft() + 1) * 30);
+        Health.getBar().add(new HealthBar((32 * Health.getHeartsLeft()), 0));
+        Player.setScore(value);
         Score.update();
         TestLevel.addGrass(getX(), getY());
-        Main.rewards.remove(this);
+        Main.getRewards().remove(this);
     }
 
     public void update(Graphics2D g) {

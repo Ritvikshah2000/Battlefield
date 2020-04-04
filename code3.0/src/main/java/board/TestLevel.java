@@ -60,12 +60,12 @@ public class TestLevel {
 
     public void addBomb(int x, int y, Bomb bomb){
         tiles[x][y] = new Tile<Bomb>(1, new Rectangle( x * TILESIZE, y * TILESIZE, TILESIZE, TILESIZE), false, bomb);
-        Main.bombs.add(bomb);
+        Main.getBomb().add(bomb);
     }
 
     public void addReward(int x, int y, Reward reward){
         tiles[x][y] = new Tile<Reward>(1, new Rectangle( x * TILESIZE, y * TILESIZE, TILESIZE, TILESIZE), false, reward);
-        Main.rewards.add(reward);
+        Main.getRewards().add(reward);
     }
 
     public void setEndPoint(int x, int y, EndPoint e){

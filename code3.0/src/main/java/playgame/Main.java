@@ -33,24 +33,24 @@ public class Main extends Canvas implements Runnable {
     public Dimension size = new Dimension(width, height);
 
     // functional
-    public static Thread mainThread; //thread object
+    private static Thread mainThread; //thread object
     private static Window window;
-    public static boolean running = false; //used for thread
-    public static boolean pause = false;
-    public Images imgs; //image object
-    public static Graphics2D g;
+    private static boolean running = false; //used for thread
+    private static boolean pause = false;
+    private Images imgs; //image object
+    private static Graphics2D g;
 
     // music
-    public static BGM bgm;
-    public static Losing losingsound;
+    private static BGM bgm;
+    private static Losing losingsound;
 
     // game component
-    public Player player; //player object (can be reprogrammed to fit needs)
-    public TestLevel level; //sample level (our game will only be a single level)
-    public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-    public static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
-    public static ArrayList<Reward> rewards = new ArrayList<Reward>();
-    //public static Health health;
+    private static Player player; //player object (can be reprogrammed to fit needs)
+    private static TestLevel level; //sample level (our game will only be a single level)
+    private static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    private static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
+    private static ArrayList<Reward> rewards = new ArrayList<Reward>();
+    private static Health health;
 
 
     public Main(int mapindex){
@@ -59,7 +59,7 @@ public class Main extends Canvas implements Runnable {
             level = new TestLevel(mapindex); //instantiate
             imgs = new Images();
 
-            Health health = new Health();
+            health = new Health();
 
             enemies.add(new Enemy(2 * Tile.TILESIZE, 14 * Tile.TILESIZE));
             enemies.add(new Enemy(7 * Tile.TILESIZE, 15 * Tile.TILESIZE));
@@ -75,7 +75,7 @@ public class Main extends Canvas implements Runnable {
             level = new TestLevel(mapindex); //instantiate
             imgs = new Images();
 
-            Health health = new Health();
+            health = new Health();
 
             enemies.add(new Enemy(18 * Tile.TILESIZE, 7 * Tile.TILESIZE));
             enemies.add(new Enemy(9 * Tile.TILESIZE, 11 * Tile.TILESIZE));
@@ -93,6 +93,23 @@ public class Main extends Canvas implements Runnable {
         return window;
     }
 
+    public static Player getPlayer() { return player; }
+
+    public static ArrayList<Enemy> getEnemy() { return enemies; }
+
+    public static ArrayList<Reward> getRewards() { return rewards; }
+
+    public static BGM getBgm() { return bgm; }
+
+    public static Health getHealth() { return health; }
+
+    public static boolean getPause() { return pause; }
+
+    public static ArrayList<Bomb> getBomb() { return bombs; }
+
+    public static void setPause(boolean b) { pause = b; }
+
+    public static void setRunning(boolean b) { running = b; }
 
     public synchronized void start() { //start thread
         mainThread = new Thread(this);
@@ -128,7 +145,7 @@ public class Main extends Canvas implements Runnable {
 
     public void update() { //this function basically upadtes all graphics of the game
 
-        if(Health.bar.isEmpty())        // check the hero health is empty or not
+        if(Health.getBar().isEmpty())        // check the hero health is empty or not
         {
             Main.getWindow().dispose();
             running = false;

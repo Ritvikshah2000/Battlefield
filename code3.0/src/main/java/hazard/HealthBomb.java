@@ -19,9 +19,9 @@ public class HealthBomb extends Bomb {
     @Override
     public void onHit() {
         this.boom = new Boom();
-        Health.bar.remove(Health.index);//health minus
+        Health.getBar().remove(Health.getIndex());//health minus
         TestLevel.addGrass(getX(), getY());
-        Main.bombs.remove(this);
+        Main.getBomb().remove(this);
     }
 
     @Override

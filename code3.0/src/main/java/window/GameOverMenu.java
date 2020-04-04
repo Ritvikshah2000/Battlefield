@@ -11,7 +11,7 @@ public class GameOverMenu extends JFrame
 {
     public GameOverMenu()
     {
-        Main.bgm.stop();
+        Main.getBgm().stop();
 
         setTitle("Pause Menu");
         setBounds(500, 200, 500, 500);
@@ -31,7 +31,7 @@ public class GameOverMenu extends JFrame
         c.add(pause);
 
         JLabel score = new JLabel();
-        String finalscore = Integer.toString(Player.score);
+        String finalscore = Integer.toString(Player.getScore());
         score.setText("Final Score : " + finalscore);
         score.setFont(font2);
         score.setBounds(180, 150, 200, 50);

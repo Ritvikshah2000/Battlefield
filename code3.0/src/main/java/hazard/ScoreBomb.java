@@ -19,10 +19,10 @@ public class ScoreBomb extends Bomb{
 
     public void onHit() {
         this.boom = new Boom();
-        Player.score -= scoreDamage;
+        Player.setScore(-scoreDamage);
         Score.update();
         TestLevel.addGrass(getX(), getY());
-        Main.bombs.remove(this);
+        Main.getBomb().remove(this);
     }
 
     public void update(Graphics2D g) {

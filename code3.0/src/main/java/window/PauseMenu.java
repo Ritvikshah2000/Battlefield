@@ -10,7 +10,7 @@ public class PauseMenu extends JFrame implements Runnable
 {
     public PauseMenu()
     {
-        Main.pause = true;
+        Main.setPause(true);
 
         setTitle("Pause Menu");
         setBounds(500, 200, 500, 500);
@@ -37,7 +37,7 @@ public class PauseMenu extends JFrame implements Runnable
         resume.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Main.pause = false;
+                Main.setPause(false);
             }
         });
 

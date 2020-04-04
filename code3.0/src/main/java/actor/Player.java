@@ -21,14 +21,14 @@ public class Player {
 
     // Fix speeds, only need just one.
     public static final int SIZE = 32;
-    public static int score = 0;
-    public static int keyCount = 0;
-    public int leftSpeed = 2;
-    public int rightSpeed = 2;
-    public int upSpeed = 2;
-    public int downSpeed = 2; //rate at which player moves
+    private static int score = 0;
+    private static int keyCount = 0;
+    private int leftSpeed = 2;
+    private int rightSpeed = 2;
+    private int upSpeed = 2;
+    private int downSpeed = 2; //rate at which player moves
 
-    public static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
+    private static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
 
     public Player(float x, float y) {
         this.x = x;
@@ -43,6 +43,30 @@ public class Player {
     public Rectangle getBounds(){
         return new Rectangle((int)x, (int)y, SIZE, SIZE);
     }
+
+    public static int getKeyCount() { return keyCount; }
+
+    public static int getScore() { return score; }
+
+    public static boolean getCanLeft() { return canLeft; }
+
+    public static boolean getCanRight() { return canRight; }
+
+    public static boolean getCanUp() { return canUp; }
+
+    public static boolean getCanDown() { return canDown; }
+
+    public static void setScore(int amount) { score += amount; }
+
+    public static void IncreaseKeyCount() { keyCount++; }
+
+    public static void setMovingLeft(boolean b) { movingLeft = b; }
+
+    public static void setMovingRight(boolean b) { movingRight = b; }
+
+    public static void setMovingUp(boolean b) { movingUp = b; }
+
+    public static void setMovingDown(boolean b) { movingDown = b; }
 
     public int[] currentTile()  //hero current tile
     {
@@ -66,14 +90,15 @@ public class Player {
 
     public void collideEnemy()  // collide with enemy
     {
-        for(int i = 0; i < Main.enemies.size(); i++)
-            if(Main.enemies.get(i).getBounds().intersects(this.getBounds())){
-                if(Health.hp % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
-                    Health.bar.remove(Health.index);
-                    Health.hp -= Enemy.damage;
-                    Health.heartsLeft--;    // heart bar index -1
-                }else
-                    Health.hp -= Enemy.damage;
+        for(int i = 0; i < Main.getEnemy().size(); i++)
+            if(Main.getEnemy().get(i).getBounds().intersects(this.getBounds())){
+                if(Main.getHealth().getHp() % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
+                    Main.getHealth().getBar().remove(Health.getIndex());
+                    Main.getHealth().increaseHp(-Enemy.damage);
+                    Main.getHealth().decreaseHeartLeft();    // heart bar index -1
+                }else {
+                    Health.increaseHp(-Enemy.damage);
+                }
             }
     }
 

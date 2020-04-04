@@ -15,7 +15,7 @@ public class Score{
     }
 
     public static void update(){
-        textView.setText("" + Player.score);
+        textView.setText("" + Player.getScore());
     }
 }
 
