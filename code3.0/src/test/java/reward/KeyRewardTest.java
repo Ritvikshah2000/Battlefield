@@ -9,7 +9,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class KeyRewardTest {
-
     @Test
     public void testKeyRewardConstructor(){ //checks that ScoreBomb placement works as intended
         KeyReward kr = new KeyReward(32,32);
@@ -26,11 +25,18 @@ public class KeyRewardTest {
         int dy = currentTile[1];
 
 
-        Assert.assertEquals(0,player.getScore());
-        Assert.assertEquals(0, player.getKeyCount());
+        Assert.assertEquals(0, Player.getScore());
+        Assert.assertEquals(0, Player.getKeyCount());
         player.collideContent(dx, dy);
-        Assert.assertEquals(100,player.getScore());
-        Assert.assertEquals(1, player.getKeyCount());
+        Assert.assertEquals(100, Player.getScore());
+        Assert.assertEquals(1, Player.getKeyCount());
+
+
+    }
+
+    @Test
+    public void update() {
     }
 }
+
 

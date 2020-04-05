@@ -1,7 +1,5 @@
 package board;
 
-import board.TestLevel;
-import hazard.Bomb;
 import hazard.HealthBomb;
 import hazard.ScoreBomb;
 import org.junit.Assert;
@@ -9,26 +7,25 @@ import playgame.Main;
 import reward.Freeze;
 import reward.HealthReward;
 import reward.KeyReward;
-import reward.Reward;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import org.junit.Test;
 
 public class TestLevelTest {
 
     @Test
-    public void testAddGrass(){
+    public void addGrass(){
         TestLevel test = new TestLevel(1);
         TestLevel.addGrass(1,1);
+
         Assert.assertFalse(TestLevel.tiles[1][1].hasContents());
+        Assert.assertNull(TestLevel.tiles[1][1].getContents());
         Assert.assertFalse(TestLevel.tiles[1][1].barrier);
         Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
 
     }
 
     @Test
-    public void testAddBomb(){
-        TestLevel test = new TestLevel(1);
+    public void addBombs(){
+        TestLevel test = new TestLevel(2);
         HealthBomb hb = new HealthBomb(1, 1);
         ScoreBomb sb = new ScoreBomb(16, 4);
         test.addBomb(1,1, hb);
@@ -49,7 +46,7 @@ public class TestLevelTest {
     }
 
     @Test
-    public void testAddReward(){
+    public void addRewards(){
         TestLevel test = new TestLevel(1);
         KeyReward key = new KeyReward(1, 1);
         Freeze fz = new Freeze(1,1);
@@ -80,15 +77,15 @@ public class TestLevelTest {
     }
 
     @Test
-    public void testSetEndPoint(){
-        TestLevel test = new TestLevel(1);
+    public void setEndPoint(){
+        TestLevel test = new TestLevel(2);
         EndPoint end = new EndPoint();
         test.setEndPoint(1,1, end);
+
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(end,TestLevel.tiles[1][1].getContents());
         Assert.assertFalse(TestLevel.tiles[1][1].barrier);
         Assert.assertEquals( 0, TestLevel.tiles[1][1].id);
-
     }
 
 

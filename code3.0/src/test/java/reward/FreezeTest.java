@@ -9,7 +9,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FreezeTest {
-
     @Test
     public void testFreezeConstructor(){ //checks that ScoreBomb placement works as intended
         Freeze fr = new Freeze(32,32);
@@ -33,5 +32,11 @@ public class FreezeTest {
         Assert.assertEquals(150,Player.getScore());
 
     }
+
+    @Test
+    public void update() {
+    }
 }
+
+
 

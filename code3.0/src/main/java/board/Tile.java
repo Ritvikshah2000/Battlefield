@@ -54,11 +54,6 @@ public class Tile<T> extends Rectangle {
             case 2:
                 g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
                 break;
-            case 3:
-                g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
-                break;
-            default:
-                break;
         }
 
     }

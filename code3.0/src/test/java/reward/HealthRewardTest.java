@@ -24,17 +24,19 @@ public class HealthRewardTest {
         int dx = currentTile[0];
         int dy = currentTile[1];
 
-        health.update(null);
-        Assert.assertEquals(0,player.getScore());
-        Assert.assertEquals(3, health.getHeartsLeft());
+        Health.update(null);
+        Assert.assertEquals(0, Player.getScore());
+        Assert.assertEquals(3, Health.getHeartsLeft());
         player.collideContent(dx, dy);
-        health.update(null);
-        Assert.assertEquals(4, health.getHeartsLeft());
-        Assert.assertEquals(50,player.getScore());
+        Health.update(null);
+        Assert.assertEquals(4, Health.getHeartsLeft());
+        Assert.assertEquals(50, Player.getScore());
+
     }
 
     @Test
     public void update() {
     }
 }
+
 
