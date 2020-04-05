@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Health{
     private static float hp = 89;
-    private static ArrayList<HealthBar> bar; //= new ArrayList<HealthBar>();
+    private static ArrayList<HealthBar> bar;
     private static int index;
     private static int heartsLeft;
 
@@ -27,8 +27,6 @@ public class Health{
     public static int getHeartsLeft() { return heartsLeft; }
 
     public static void increaseHp(float amount) { hp += amount; }
-
-    public static void setHp(float amount) { hp = amount; }
 
     public static void decreaseHeartLeft() { heartsLeft--; }
 

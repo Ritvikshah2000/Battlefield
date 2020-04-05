@@ -61,45 +61,44 @@ public class PlayerTest {
         Assert.assertEquals(3, currentTile[1]);
     }
 
-    /*@Test
-    public void testCollideEnemy()
-    {
-        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-        enemies.add(new Enemy(32, 32));
-        Player player = new Player(32,32);
+    @Test
+    public void testCollideEnemy() {
+        new Main(1);
+        Main.getEnemy().add(new Enemy(32, 32));
+        Player player = new Player(32, 32);
         Health health = new Health();
 
-        for(int i = 0; i < enemies.size(); i++)
-            if(enemies.get(i).getBounds().intersects(player.getBounds())){
-                if(health.hp % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
-                    health.bar.remove(Health.index);
-                    health.hp -= Enemy.damage;
-                    health.heartsLeft--;    // heart bar index -1
-                }else
-                    health.hp -= Enemy.damage;
-            }
-        health.update(null);
-        Assert.assertEquals(88, (int)health.hp);
-        Assert.assertEquals(3, health.heartsLeft);
-        Assert.assertEquals(2, health.index);
+        Health.update(null);
+        player.collideEnemy();
+        Assert.assertEquals(88, (int) Health.getHp());
+        Assert.assertEquals(3, Health.getHeartsLeft());
+        Assert.assertEquals(2, Health.getIndex());
 
-        for (int k = 0; k < 58; k++)
-        {
-            for(int i = 0; i < enemies.size(); i++)
-                if(enemies.get(i).getBounds().intersects(player.getBounds())){
-                    if(health.hp % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
-                        health.bar.remove(Health.index);
-                        health.hp -= Enemy.damage;
-                        health.heartsLeft--;    // heart bar index -1
-                    }else
-                        health.hp -= Enemy.damage;
-                }
-            health.update(null);
+        Health.update(null);
+        while(Health.getHp() > 30){
+            player.collideEnemy();
         }
-        Assert.assertEquals(59, (int)health.hp);
-        Assert.assertEquals(2, health.heartsLeft);
-        Assert.assertEquals(1, health.index);
-    }*/
+        Assert.assertEquals(30, (int) Health.getHp());
+        Assert.assertEquals(2, Health.getHeartsLeft());
+        Assert.assertEquals(2, Health.getIndex());
+
+        Health.update(null);
+        while(Health.getHp() > 15){
+            player.collideEnemy();
+        }
+        Assert.assertEquals(15, (int) Health.getHp());
+        Assert.assertEquals(1, Health.getHeartsLeft());
+        Assert.assertEquals(1, Health.getIndex());
+
+        Health.update(null);
+        while(Health.getHp() > -1){
+            player.collideEnemy();
+        }
+        Assert.assertEquals(-1, (int) Health.getHp());
+        Assert.assertEquals(0, Health.getHeartsLeft());
+        Assert.assertEquals(0, Health.getIndex());
+
+    }
 
 
     @Test
