@@ -6,12 +6,6 @@ import org.junit.Test;
 
 public class TileTest {
 
-    //public int id;
-    //public boolean barrier;
-    //public T item;
-    //public int x,y;
-    //public int height, width;
-
     @Test
     public void testTileConstructor(){
         Rectangle rec = new Rectangle(10, 20, 30, 35);
