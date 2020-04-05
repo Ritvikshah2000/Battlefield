@@ -12,17 +12,19 @@ import org.junit.Test;
 public class TestLevelTest {
 
     @Test
-    public void testAddGrass(){
+    public void addGrass(){
         TestLevel test = new TestLevel(1);
         TestLevel.addGrass(1,1);
+
         Assert.assertFalse(TestLevel.tiles[1][1].hasContents());
+        Assert.assertNull(TestLevel.tiles[1][1].getContents());
         Assert.assertFalse(TestLevel.tiles[1][1].barrier);
         Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
 
     }
 
     @Test
-    public void testAddBomb(){
+    public void addBombs(){
         TestLevel test = new TestLevel(1);
         HealthBomb hb = new HealthBomb(1, 1);
         ScoreBomb sb = new ScoreBomb(16, 4);
@@ -44,7 +46,7 @@ public class TestLevelTest {
     }
 
     @Test
-    public void testAddReward(){
+    public void addRewards(){
         TestLevel test = new TestLevel(1);
         KeyReward key = new KeyReward(1, 1);
         Freeze fz = new Freeze(1,1);
@@ -75,15 +77,15 @@ public class TestLevelTest {
     }
 
     @Test
-    public void testSetEndPoint(){
+    public void setEndPoint(){
         TestLevel test = new TestLevel(1);
         EndPoint end = new EndPoint();
         test.setEndPoint(1,1, end);
+
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(end,TestLevel.tiles[1][1].getContents());
         Assert.assertFalse(TestLevel.tiles[1][1].barrier);
         Assert.assertEquals( 0, TestLevel.tiles[1][1].id);
-
     }
 
 
