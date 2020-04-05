@@ -25,7 +25,7 @@ public class TestLevelTest {
 
     @Test
     public void addBombs(){
-        TestLevel test = new TestLevel(1);
+        TestLevel test = new TestLevel(2);
         HealthBomb hb = new HealthBomb(1, 1);
         ScoreBomb sb = new ScoreBomb(16, 4);
         test.addBomb(1,1, hb);
@@ -78,7 +78,7 @@ public class TestLevelTest {
 
     @Test
     public void setEndPoint(){
-        TestLevel test = new TestLevel(1);
+        TestLevel test = new TestLevel(2);
         EndPoint end = new EndPoint();
         test.setEndPoint(1,1, end);
 
