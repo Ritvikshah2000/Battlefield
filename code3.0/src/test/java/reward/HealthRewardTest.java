@@ -31,7 +31,6 @@ public class HealthRewardTest {
         health.update(null);
         Assert.assertEquals(4, health.getHeartsLeft());
         Assert.assertEquals(50,player.getScore());
-
     }
 
     @Test

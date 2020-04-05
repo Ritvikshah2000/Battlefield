@@ -59,4 +59,3 @@ public class MainMenu extends JFrame
         c.add(l);
     }
 }
-

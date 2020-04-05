@@ -4,7 +4,6 @@ import board.EndPoint;
 import board.TestLevel;
 import board.Tile;
 import hazard.Bomb;
-import hazard.ScoreBomb;
 import image.Images;
 import playgame.Main;
 import reward.Freeze;
@@ -21,8 +20,8 @@ public class Player {
 
     // Fix speeds, only need just one.
     public static final int SIZE = 32;
-    private static int score = 0;
-    private static int keyCount = 0;
+    private static int score;
+    private static int keyCount;
     private int leftSpeed = 2;
     private int rightSpeed = 2;
     private int upSpeed = 2;
@@ -37,12 +36,13 @@ public class Player {
         canDown = true;
         canLeft = true;
         canRight = true;
+        score = 0;
+        keyCount = 0;
     }
 
-    // get position of hero by rectangle
-    public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y, SIZE, SIZE);
-    }
+    /*---------------------------------getter setter---------------------------------*/
+
+    public Rectangle getBounds(){ return new Rectangle((int)x, (int)y, SIZE, SIZE); }
 
     public static int getKeyCount() { return keyCount; }
 
@@ -67,6 +67,9 @@ public class Player {
     public static void setMovingUp(boolean b) { movingUp = b; }
 
     public static void setMovingDown(boolean b) { movingDown = b; }
+
+    /*-------------------------------------------------------------------------------*/
+
 
     public int[] currentTile()  //hero current tile
     {

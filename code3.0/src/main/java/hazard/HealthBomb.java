@@ -20,6 +20,7 @@ public class HealthBomb extends Bomb {
     public void onHit() {
         this.boom = new Boom();
         Health.getBar().remove(Health.getIndex());//health minus
+        Health.decreaseHeartLeft();
         TestLevel.addGrass(getX(), getY());
         Main.getBomb().remove(this);
     }
