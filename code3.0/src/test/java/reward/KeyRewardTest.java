@@ -25,11 +25,11 @@ public class KeyRewardTest {
         int dy = currentTile[1];
 
 
-        Assert.assertEquals(0,player.getScore());
-        Assert.assertEquals(0, player.getKeyCount());
+        Assert.assertEquals(0, Player.getScore());
+        Assert.assertEquals(0, Player.getKeyCount());
         player.collideContent(dx, dy);
-        Assert.assertEquals(100,player.getScore());
-        Assert.assertEquals(1, player.getKeyCount());
+        Assert.assertEquals(100, Player.getScore());
+        Assert.assertEquals(1, Player.getKeyCount());
 
 
     }

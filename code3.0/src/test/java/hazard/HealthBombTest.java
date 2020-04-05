@@ -18,22 +18,9 @@ public class HealthBombTest {
 
     @Test
     public void onHit() {
-//        HealthBomb hb = new HealthBomb(8,10); //create healthbomb object and place it on the map
-//        TestLevel tl = new TestLevel(1);
-//        Health h = new Health();
-//
-//        Player player = new Player(8*32,10*32);
-//        int[] currentTile = player.currentTile();
-//        int dx = currentTile[0];
-//        int dy = currentTile[1];
-//
-//
-//        player.collideContent(dx,dy);
-//        h.update(null);
-//        Assert.assertEquals(2,h.getHeartsLeft());
         HealthBomb hb = new HealthBomb(8,10);
         Health h = new Health();
-        h.update(null);
+        Health.update(null);
         TestLevel tl = new TestLevel(1);
         tl.addBomb(8, 10, hb);
         Player miss = new Player(10*32, 3*32);
@@ -42,7 +29,7 @@ public class HealthBombTest {
         int dy = currentTile[1];
         miss.collideContent(dx, dy);
         Assert.assertTrue(Main.getBomb().contains(hb));
-        Assert.assertEquals(3, h.getHeartsLeft());
+        Assert.assertEquals(3, Health.getHeartsLeft());
 
         Player hit = new Player(8*32, 10*32);
         currentTile = hit.currentTile();
@@ -50,7 +37,7 @@ public class HealthBombTest {
         dy = currentTile[1];
         hit.collideContent(dx, dy);
         Assert.assertFalse(Main.getBomb().contains(hb));
-        Assert.assertEquals(2, h.getHeartsLeft());
+        Assert.assertEquals(2, Health.getHeartsLeft());
 
 
     }

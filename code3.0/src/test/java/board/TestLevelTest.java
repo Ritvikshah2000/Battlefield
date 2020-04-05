@@ -1,7 +1,5 @@
 package board;
 
-import board.TestLevel;
-import hazard.Bomb;
 import hazard.HealthBomb;
 import hazard.ScoreBomb;
 import org.junit.Assert;
@@ -9,9 +7,6 @@ import playgame.Main;
 import reward.Freeze;
 import reward.HealthReward;
 import reward.KeyReward;
-import reward.Reward;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import org.junit.Test;
 
 public class TestLevelTest {
