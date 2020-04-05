@@ -110,6 +110,7 @@ public class Main extends Canvas implements Runnable {
     public static void setPause(boolean b) { pause = b; }
 
     public static void setRunning(boolean b) { running = b; }
+    public static boolean getRunning() { return running; }
 
     public synchronized void start() { //start thread
         mainThread = new Thread(this);

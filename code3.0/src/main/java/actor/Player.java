@@ -21,8 +21,8 @@ public class Player {
 
     // Fix speeds, only need just one.
     public static final int SIZE = 32;
-    private static int score = 0;
-    private static int keyCount = 0;
+    private static int score;
+    private static int keyCount;
     private int leftSpeed = 2;
     private int rightSpeed = 2;
     private int upSpeed = 2;
@@ -37,6 +37,8 @@ public class Player {
         canDown = true;
         canLeft = true;
         canRight = true;
+        score = 0;
+        keyCount = 0;
     }
 
     // get position of hero by rectangle

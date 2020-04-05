@@ -11,11 +11,12 @@ public class EndPointTest {
     public void testOnHit(){
         new Main(1);
         EndPoint test = new EndPoint();
-        Player.keyCount = 0;
         test.onHit();
-        Assert.assertTrue(Main.running);
-        Player.keyCount = 5;
+        Assert.assertTrue(Main.getRunning());
+        for(int i = 0; i < EndPoint.REQUIREDKEYS; i++) {
+            Player.IncreaseKeyCount();
+        }
         test.onHit();
-        Assert.assertFalse(Main.running);
+        Assert.assertFalse(Main.getRunning());
     }
 }

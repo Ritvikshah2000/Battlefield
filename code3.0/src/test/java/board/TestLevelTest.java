@@ -44,8 +44,8 @@ public class TestLevelTest {
         Assert.assertFalse(TestLevel.tiles[16][4].barrier);
         Assert.assertEquals( 1, TestLevel.tiles[16][4].id);
 
-        Assert.assertTrue(Main.bombs.contains(hb));
-        Assert.assertTrue(Main.bombs.contains(sb));
+        Assert.assertTrue(Main.getBomb().contains(hb));
+        Assert.assertTrue(Main.getBomb().contains(sb));
     }
 
     @Test
@@ -74,9 +74,9 @@ public class TestLevelTest {
         Assert.assertEquals( 1, TestLevel.tiles[5][10].id);
 
 
-        Assert.assertTrue(Main.rewards.contains(key));
-        Assert.assertTrue(Main.rewards.contains(fz));
-        Assert.assertTrue(Main.rewards.contains(hp));
+        Assert.assertTrue(Main.getRewards().contains(key));
+        Assert.assertTrue(Main.getRewards().contains(fz));
+        Assert.assertTrue(Main.getRewards().contains(hp));
     }
 
     @Test

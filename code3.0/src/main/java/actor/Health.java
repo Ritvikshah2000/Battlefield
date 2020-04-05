@@ -6,12 +6,13 @@ import java.util.ArrayList;
 
 public class Health{
     private static float hp = 89;
-    private static ArrayList<HealthBar> bar = new ArrayList<HealthBar>();
+    private static ArrayList<HealthBar> bar; //= new ArrayList<HealthBar>();
     private static int index;
     private static int heartsLeft;
 
     public Health()
     {
+        bar = new ArrayList<HealthBar>();
         bar.add(new HealthBar(0, 0));
         bar.add(new HealthBar(32, 0));
         bar.add(new HealthBar(64, 0));   // player has 3 life
