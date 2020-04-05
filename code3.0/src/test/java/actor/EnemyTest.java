@@ -1,14 +1,11 @@
 package actor;
 
-import actor.Enemy;
-import actor.Player;
+
 import board.TestLevel;
 import org.junit.Assert;
 import org.junit.Test;
-import playgame.Main;
 
 import java.awt.*;
-import java.awt.image.BufferStrategy;
 
 
 public class EnemyTest {

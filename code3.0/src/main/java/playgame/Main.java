@@ -52,7 +52,7 @@ public class Main extends Canvas implements Runnable {
     private static ArrayList<Reward> rewards = new ArrayList<Reward>();
     private static Health health;
 
-
+    // Constructor
     public Main(int mapindex){
         if (mapindex == 1) {    // first map
             player = new Player(1 * Tile.TILESIZE, 1 * Tile.TILESIZE); //starting position(x,y)
@@ -87,15 +87,15 @@ public class Main extends Canvas implements Runnable {
         }
     }
 
+    /*---------------------------------getter setter---------------------------------*/
 
-    public static  Window getWindow()
-    {
-        return window;
-    }
+    public static  Window getWindow() { return window; }
 
     public static Player getPlayer() { return player; }
 
     public static ArrayList<Enemy> getEnemy() { return enemies; }
+
+    public static boolean getRunning() { return running; }
 
     public static ArrayList<Reward> getRewards() { return rewards; }
 
@@ -110,7 +110,8 @@ public class Main extends Canvas implements Runnable {
     public static void setPause(boolean b) { pause = b; }
 
     public static void setRunning(boolean b) { running = b; }
-    public static boolean getRunning() { return running; }
+
+    /*-------------------------------------------------------------------------------*/
 
     public synchronized void start() { //start thread
         mainThread = new Thread(this);

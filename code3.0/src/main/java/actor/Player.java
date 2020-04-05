@@ -4,7 +4,6 @@ import board.EndPoint;
 import board.TestLevel;
 import board.Tile;
 import hazard.Bomb;
-import hazard.ScoreBomb;
 import image.Images;
 import playgame.Main;
 import reward.Freeze;
@@ -41,10 +40,9 @@ public class Player {
         keyCount = 0;
     }
 
-    // get position of hero by rectangle
-    public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y, SIZE, SIZE);
-    }
+    /*---------------------------------getter setter---------------------------------*/
+
+    public Rectangle getBounds(){ return new Rectangle((int)x, (int)y, SIZE, SIZE); }
 
     public static int getKeyCount() { return keyCount; }
 
@@ -69,6 +67,9 @@ public class Player {
     public static void setMovingUp(boolean b) { movingUp = b; }
 
     public static void setMovingDown(boolean b) { movingDown = b; }
+
+    /*-------------------------------------------------------------------------------*/
+
 
     public int[] currentTile()  //hero current tile
     {

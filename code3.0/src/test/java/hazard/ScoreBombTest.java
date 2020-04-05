@@ -36,14 +36,11 @@ public class ScoreBombTest {
         hit.collideContent(dx, dy);
         Assert.assertFalse(Main.getBomb().contains(sb));
         Assert.assertEquals(-200, Player.getScore());
-
-
-
-
     }
 
     @Test
     public void update() {
     }
 }
+
 

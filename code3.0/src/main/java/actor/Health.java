@@ -18,6 +18,8 @@ public class Health{
         bar.add(new HealthBar(64, 0));   // player has 3 life
     }
 
+    /*---------------------------------getter setter---------------------------------*/
+
     public static float getHp() { return hp; }
 
     public static ArrayList<HealthBar> getBar() { return bar; }
@@ -30,11 +32,13 @@ public class Health{
 
     public static void decreaseHeartLeft() { heartsLeft--; }
 
+    /*-------------------------------------------------------------------------------*/
+
     public static void update(Graphics2D g){
-            heartsLeft = bar.size();
-            index = heartsLeft - 1; // last index
-            if (g != null)
-                bar.forEach((h) -> h.update(g));
+        heartsLeft = bar.size();
+        index = heartsLeft - 1; // last index
+        if (g != null)
+            bar.forEach((h) -> h.update(g));
     }
 }
 

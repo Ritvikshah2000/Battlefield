@@ -32,3 +32,4 @@ public class KeyReward extends Reward {
         g.drawImage(Images.testKeys,x,y, 32, 32, null);
     }
 }
+
