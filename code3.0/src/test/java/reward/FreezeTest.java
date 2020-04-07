@@ -2,11 +2,9 @@ package reward;
 
 import actor.Player;
 import board.TestLevel;
-import hazard.ScoreBomb;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class FreezeTest {
     @Test
@@ -33,9 +31,6 @@ public class FreezeTest {
 
     }
 
-    @Test
-    public void update() {
-    }
 }
 
 

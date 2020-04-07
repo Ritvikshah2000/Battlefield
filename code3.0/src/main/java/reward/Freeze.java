@@ -38,6 +38,4 @@ public class Freeze extends Reward
             TestLevel.addGrass(getX(), getY());
         }
     }
-
-
 }

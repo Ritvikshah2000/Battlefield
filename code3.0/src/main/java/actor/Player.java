@@ -68,6 +68,14 @@ public class Player {
 
     public static void setMovingDown(boolean b) { movingDown = b; }
 
+    public static boolean getMovingLeft() { return movingLeft; }
+
+    public static boolean getMovingRight() { return movingRight; }
+
+    public static boolean getMovingUp() { return movingUp; }
+
+    public static boolean getMovingDown() { return movingDown; }
+
     /*-------------------------------------------------------------------------------*/
 
 
