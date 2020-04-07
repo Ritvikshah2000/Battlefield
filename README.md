@@ -1,27 +1,27 @@
-*********************************************************
-*	      	        DEPENDENCIES	 	   	            *
+
+	      	        DEPENDENCIES	 	   	            
 *********************************************************
 Required for building, running and testing:
 -[Apache Maven 3.6.3](https://maven.apache.org/download.cgi) 
 -[Mockito Framework](https://search.maven.org/search?q=g:org.mockito%20AND%20a:mockito-core&core=gav)
 -[Java 13.0.2](https://www.java.com/en/download/)
 
-*********************************************************
-*	      	       BUILD AND RUN	 	   	            *
+
+	      	       BUILD AND RUN	 	   	            
 *********************************************************
 To build and run BATTLEFIELD:
 	- mvn compile
 	- mvn exec:java -Dexec.mainClass="playgame.Main"
 
-*********************************************************
-*	      	          TESTING		 	   	            *
+
+	      	          TESTING		 	   	            
 *********************************************************
 To run the testing suite:
 	- mvn compile
 	- mvn test
 
-*********************************************************
-*	      	          GAMEPLAY		 	   	            *
+
+	      	          GAMEPLAY		 	   	            
 *********************************************************
 Play as the hero and collect keys to unlock the exit
 and escape the pursuing enemies!
