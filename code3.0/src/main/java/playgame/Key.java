@@ -8,9 +8,7 @@ import java.awt.event.KeyListener;
 
 public class Key implements KeyListener {
 
-    public Key() {
-
-    }
+    public Key() {}
 
     //pretty self explanatory
 
@@ -22,9 +20,7 @@ public class Key implements KeyListener {
             if (k == e.VK_RIGHT) Player.setMovingRight(true);
             if (k == e.VK_UP) Player.setMovingUp(true);
             if (k == e.VK_DOWN) Player.setMovingDown(true);
-            if (k == e.VK_P) {
-                new PauseMenu();
-            }
+            if (k == e.VK_P) new PauseMenu();
         }
     }
 

@@ -13,7 +13,7 @@ public class GameOverMenu extends JFrame
     {
         Main.getBgm().stop();
 
-        setTitle("Pause Menu");
+        setTitle("Game Over Menu");
         setBounds(500, 200, 500, 500);
         //setResizable(false);
         setVisible(true);
