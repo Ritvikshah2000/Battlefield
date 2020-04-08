@@ -26,6 +26,10 @@ public class MapChoice extends JFrame
     private int BUTTON_INT_PADDING = 50;
 
 
+    /**
+     * Initializes and displays a new MapChoice menu for the game
+     * @see board.Map
+     */
     public MapChoice()
     {
         setTitle("Map Choice");
