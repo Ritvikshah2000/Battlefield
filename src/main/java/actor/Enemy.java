@@ -23,6 +23,13 @@ public final class Enemy {
 
     private static float damage = 0.5f;
 
+    /**
+     * Initializes Enemy instance at positions x, y, with sprite corresponding to imageId
+     * @param x x position real pixel value
+     * @param y y position real pixel value
+     * @param imageId ID of which sprite to load from Images
+     * @see Images
+     */
     public Enemy(final int x, final int y, final int imageId) {
         this.x = x;
         this.y = y;
@@ -35,47 +42,97 @@ public final class Enemy {
         frozenTimer = 0;
     }
 
+    /**
+     * Returns x position real pixel value
+     * @return x position real pixel value
+     */
     public int getX(){
         return x;
     }
 
+    /**
+     * Returns y position real pixel value
+     * @return y position real pixel value
+     */
     public int getY(){
         return y;
     }
 
+    /**
+     * Returns whether this Enemy can move up on the board
+     * @return boolean value determining this Enemy's ability to move up
+     */
     public boolean getCanUp(){
         return canUp;
     }
+    /**
+     * Returns whether this Enemy can move down on the board
+     * @return boolean value determining this Enemy's ability to move down
+     */
     public boolean getCanDown(){
         return canDown;
     }
+
+    /**
+     * Returns whether this Enemy can move left on the board
+     * @return boolean value determining this Enemy's ability to move left
+     */
     public boolean getCanLeft(){
         return canLeft;
     }
+
+    /**
+     * Returns whether this Enemy can move right on the board
+     * @return boolean value determining this Enemy's ability to move right
+     */
     public boolean getCanRight(){
         return canRight;
     }
 
+    /**
+     * Returns amount of damage enemies deals as a float
+     * @return amount of damage enemies deals as a float
+     */
     public static float getDamage(){
         return damage;
     }
 
+    /**
+     * Returns amount of time this Enemy will be frozen for as an int
+     * @return amount of time this Enemy will be frozen for as an int
+     */
     public int getFrozenTimer(){
         return frozenTimer;
     }
 
+    /**
+     * Sets the amount of time this Enemy will be frozen for
+     * @param time integer value for amount of time this Enemy will be frozen for
+     */
     public void setFrozenTimer(int time){
         frozenTimer = time;
     }
 
+    /**
+     * Returns whether or not Enemies are frozen
+     * @return boolean value isFrozen
+     */
     public static boolean getIsFrozen(){
         return isFrozen;
     }
 
+    /**
+     * Returns this Enemy's bounding Rectangle
+     * @return this Enemy's bounding Rectangle
+     * @see Rectangle
+     */
     public Rectangle getBounds(){
         return new Rectangle(x, y, SIZE, SIZE);
     }
 
+    /**
+     * Checks whtether or not enemies are frozen and sets them accordingly
+     */
     public void checkFrozen()
     {
         if(frozenTimer != 0){
@@ -86,6 +143,10 @@ public final class Enemy {
         }
     }
 
+    /**
+     * Moves this Enemy towards the Player and redraws it's graphics accordingly
+     * @param g Graphics2D instance used to redraw graphics
+     */
     public void chasingHero(Graphics2D g)
     {
         if(!isFrozen){  // chasing hero
@@ -121,6 +182,9 @@ public final class Enemy {
         }
     }
 
+    /**
+     * Checks if this Enemy has collided with a barrier and stops it's movement accordingly
+     */
     public void collision(){
 
         Rectangle enemyrect = this.getBounds();
@@ -175,6 +239,10 @@ public final class Enemy {
         }
     }
 
+    /**
+     * Composite function which checks for collision(), checkFrozen() and calls chasingHero(Graohics2D)
+     * @param g Graphics2D instance used to redraw graphics
+     */
     public void update(final Graphics2D g) {
         collision();
         checkFrozen();
