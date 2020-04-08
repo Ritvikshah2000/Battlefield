@@ -13,14 +13,13 @@ public final class FreezeSound {
 
     /**
      * Loads the audio clip to be played when the Player collects a FreezeReward
+     *
      * @see javax.sound.sampled
      * @see reward.Freeze
      * @see actor.Player
      */
-    public FreezeSound()
-    {
-        try
-        {
+    public FreezeSound() {
+        try {
             this.freezeSound = AudioSystem.getClip();
             InputStream is = FreezeSound.class.getClassLoader().getResourceAsStream("sound/freezeSound.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
@@ -37,12 +36,12 @@ public final class FreezeSound {
 
     /**
      * Terminates the audio clip played when the Player collects a FreezeReward
+     *
      * @see javax.sound.sampled.Clip
      * @see reward.Freeze
      * @see actor.Player
      */
-    public void stop()
-    {
+    public void stop() {
         this.freezeSound.close();
     }
 }
