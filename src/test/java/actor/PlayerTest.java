@@ -6,7 +6,6 @@ import org.junit.Test;
 import playgame.Main;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class PlayerTest {
     @Test
