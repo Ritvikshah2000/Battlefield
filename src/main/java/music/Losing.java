@@ -16,10 +16,8 @@ public final class Losing {
      *
      * @see javax.sound.sampled
      */
-    public Losing()
-    {
-        try
-        {
+    public Losing() {
+        try {
             this.losingSound = AudioSystem.getClip();
             InputStream is = Losing.class.getClassLoader().getResourceAsStream("sound/losegame.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
