@@ -1,6 +1,9 @@
 package playgame;
 
-import actor.*;
+import actor.Player;
+import actor.Enemy;
+import actor.Health;
+import actor.KeyBar;
 import board.TestLevel;
 import board.Tile;
 import hazard.Bomb;
@@ -21,43 +24,49 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
 
-
-public class Main extends Canvas implements Runnable {
+/**
+ * Driver class. Runs main thread of game.
+ */
+public final class Main extends Canvas implements Runnable {
     // size
-    public static final int WIDTH = Tile.TILESIZE;
-    public static final int HEIGHT = Tile.TILESIZE;
-    public static int HOR_SCALE = Tile.GRIDSIZE;
-    public static int VERT_SCALE = Tile.GRIDSIZE;
-    public static int width = WIDTH * HOR_SCALE;
-    public static int height = HEIGHT * VERT_SCALE;
-    public Dimension size = new Dimension(width, height);
+    private static final int WIDTH = Tile.TILESIZE;
+    private static final int HEIGHT = Tile.TILESIZE;
+    private static final int HOR_SCALE = Tile.GRIDSIZE;
+    private static final int VERT_SCALE = Tile.GRIDSIZE;
+    private static int width = WIDTH * HOR_SCALE;
+    private static int height = HEIGHT * VERT_SCALE;
+    private Dimension size = new Dimension(width, height);
 
     // functional
-    private static Thread mainThread; //thread object
+    //private static Thread mainThread; //thread object
     private static Window window;
     private static boolean running = false; //used for thread
     private static boolean pause = false;
-    private Images imgs; //image object
     private static Graphics2D g;
 
     // music
     private static BGM bgm;
-    private static Losing losingsound;
 
     // game component
-    private static Player player; //player object (can be reprogrammed to fit needs)
-    private static TestLevel level; //sample level (our game will only be a single level)
+    private static Player player;
+    private static TestLevel level;
     private static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     private static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
     private static ArrayList<Reward> rewards = new ArrayList<Reward>();
     private static Health health;
 
     // Constructor
-    public Main(int mapindex){
+
+    /**
+     * Creates an instance of the Main game, populating the map depending on
+     * the selected level
+     * @param mapindex The specified level
+     */
+    public Main(final int mapindex){
         if (mapindex == 1) {    // first map
-            player = new Player(1 * Tile.TILESIZE, 1 * Tile.TILESIZE); //starting position(x,y)
+            player = new Player(Tile.TILESIZE, Tile.TILESIZE); //starting position(x,y)
             level = new TestLevel(mapindex); //instantiate
-            imgs = new Images();
+            Images imgs = new Images();
 
             health = new Health();
 
@@ -71,9 +80,9 @@ public class Main extends Canvas implements Runnable {
         }
         else if(mapindex == 2)  // second map
         {
-            player = new Player(1 * Tile.TILESIZE, 1 * Tile.TILESIZE);
+            player = new Player(Tile.TILESIZE, Tile.TILESIZE);
             level = new TestLevel(mapindex); //instantiate
-            imgs = new Images();
+            Images imgs = new Images();
 
             health = new Health();
 
@@ -89,36 +98,100 @@ public class Main extends Canvas implements Runnable {
 
     /*---------------------------------getter setter---------------------------------*/
 
+    /**
+     * Returns the Window instance of this game
+     * @return the Window instance of this game
+     * @see Window
+     */
     public static  Window getWindow() { return window; }
 
+    /**
+     * Returns the Player instance of this game
+     * @return the Player instance of this game
+     * @see Player
+     */
     public static Player getPlayer() { return player; }
 
+    /**
+     * Returns an Arraylist of enemy instances in this game
+     * @return an Arraylist of enemy instances in this game
+     * @see Enemy
+     */
     public static ArrayList<Enemy> getEnemy() { return enemies; }
 
+    /**
+     * Returns the current running state of this game
+     * @return the running state of this game
+     */
     public static boolean getRunning() { return running; }
 
+    /**
+     * Returns an Arraylist of reward instances in this game
+     * @return an Arraylist of reward instances in this game
+     * @see Reward
+     * @see reward.Freeze
+     * @see reward.HealthReward
+     */
     public static ArrayList<Reward> getRewards() { return rewards; }
 
+    /**
+     * Returns the background music instance of this game
+     * @return the background music instance of this game
+     * @see BGM
+     */
     public static BGM getBgm() { return bgm; }
 
+    /**
+     * Returns the Health instance of this game
+     * @return the Health instance of this game
+     * @see Health
+     */
     public static Health getHealth() { return health; }
 
+    /**
+     * Returns the current pause state of this game
+     * @return the pause state of this game
+     */
     public static boolean getPause() { return pause; }
 
+    /**
+     * Returns an ArrayList of hazard instances in this game
+     * @return an ArrayList of hazard instances in this game
+     * @see Bomb
+     * @see hazard.HealthBomb
+     * @see hazard.ScoreBomb
+     */
     public static ArrayList<Bomb> getBomb() { return bombs; }
 
+    /**
+     * Sets the pause state of this game to the specified boolean value
+     * @param b the new pause state for this game
+     */
     public static void setPause(boolean b) { pause = b; }
 
+    /**
+     * Sets the running state of this game to the specified boolean value
+     * @param b the new running state for this game
+     */
     public static void setRunning(boolean b) { running = b; }
 
     /*-------------------------------------------------------------------------------*/
 
+    /**
+     * Starts the main game thread, sets running state to true
+     * @see Thread
+     */
     public synchronized void start() { //start thread
-        mainThread = new Thread(this);
+        Thread mainThread = new Thread(this);
         mainThread.start();
         running = true;
     }
 
+    /**
+     * Implements Runnable.run() method. Runs Main.update() method.
+     * Puts main game thread to sleep if pause state is true.
+     * @see Runnable
+     */
     public void run() { //when thread is running
         long timer = System.currentTimeMillis();
         while(running) {
@@ -145,16 +218,26 @@ public class Main extends Canvas implements Runnable {
         }
     }
 
-    public void update() { //this function basically upadtes all graphics of the game
-
-        if(Health.getBar().isEmpty())        // check the hero health is empty or not
-        {
+    /**
+     * Checks if Player has any health remaining. Launches new instance of GameOverMenu if Player has no health left.
+     * @see GameOverMenu
+     */
+    public void isHeroStillAlive(){
+        if(Health.getBar().isEmpty()){
             Main.getWindow().dispose();
             running = false;
-            losingsound = new Losing();
+            Losing losingsound = new Losing();
             new GameOverMenu();
         }
+    }
 
+    /**
+     * Updates this games graphics using a BufferStrategy. Passes graphics instance to all other components for
+     * redrawing
+     * @see BufferStrategy
+     */
+    public void update() {
+        isHeroStillAlive();
         BufferStrategy bs = this.getBufferStrategy(); //items are drawn to screen using buffer strategy
         if(bs == null) {
             createBufferStrategy(3); //prevents image tearing
@@ -176,7 +259,12 @@ public class Main extends Canvas implements Runnable {
         bs.show();
     }
 
-    public static void main(String[] args) {
+    /**
+     * Main driver method. Launches new instance of MainMenu
+     * @param args command line arguments
+     * @see MainMenu
+     */
+    public static void main(final String[] args) {
         new MainMenu();
     }
 

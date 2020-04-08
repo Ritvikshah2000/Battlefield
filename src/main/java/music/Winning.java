@@ -11,7 +11,7 @@ public class Winning {
     {
         try
         {
-            this.WinningSound = AudioSystem.getClip();   //音乐盒
+            this.WinningSound = AudioSystem.getClip();
             InputStream is = Winning.class.getClassLoader().getResourceAsStream("sound/wingame.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.WinningSound.open(ais);

@@ -11,7 +11,7 @@ public class KeySound {
     {
         try
         {
-            this.keysound = AudioSystem.getClip();   //音乐盒
+            this.keysound = AudioSystem.getClip();
             InputStream is = KeySound.class.getClassLoader().getResourceAsStream("sound/keysound.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.keysound.open(ais);
