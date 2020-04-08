@@ -5,18 +5,19 @@ import music.Winning;
 import playgame.Main;
 import window.GameOverMenu;
 
-public class EndPoint{
+public class EndPoint {
 
     private static final int REQUIRED_KEYS = 5;
 
     /**
      * If the Player has collected all KeyRewards, ends the game
+     *
      * @see Player
      * @see reward.KeyReward
      * @see GameOverMenu
      */
-    public void onHit(){
-        if(Player.getKeyCount() >= REQUIRED_KEYS){
+    public void onHit() {
+        if (Player.getKeyCount() >= REQUIRED_KEYS) {
             Main.getWindow().dispose();
             Main.setRunning(false);
             new Winning();
@@ -26,9 +27,12 @@ public class EndPoint{
 
     /**
      * Returns the required number of KeyRewards to win the game
+     *
      * @return the required number of KeyRewards to win the game, as an int
      * @see reward.KeyReward
      */
-    public static int getRequiredKeys(){ return REQUIRED_KEYS; }
+    public static int getRequiredKeys() {
+        return REQUIRED_KEYS;
+    }
 
 }
