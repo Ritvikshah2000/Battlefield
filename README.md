@@ -1,4 +1,3 @@
-
 **DEPENDENCIES**
 
 Required for building, running and testing:
@@ -10,14 +9,14 @@ Required for building, running and testing:
 **BUILD AND RUN**
 
 To build and run BATTLEFIELD:
-* mvn compile
+* mvn clean compile
 * mvn exec:java -Dexec.mainClass="playgame.Main"
 
 
 **TESTING**
 
 To run the testing suite:
-* mvn compile
+* mvn clean compile
 * mvn test
 
 
