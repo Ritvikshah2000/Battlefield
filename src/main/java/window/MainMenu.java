@@ -58,7 +58,7 @@ public class MainMenu extends JFrame {
         exit.setBounds(EXIT_BUTTON_X_POS, EXIT_BUTTON_Y_POS, BUTTON_WIDTH, BUTTON_HEIGHT);
         c.add(exit);
         exit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 System.exit(0);
             }
         });

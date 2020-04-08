@@ -1,65 +1,76 @@
 package window;
 
 import playgame.Main;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PauseMenu extends JFrame implements Runnable
 {
+    private final int MENU_SIZE = 500;
+    private final int MENU_X_POS = 500;
+    private final int MENU_Y_POS = 200;
+    private final int MENU_TITLE_X_POS = 140;
+    private final int MENU_TITLE_Y_POS = 50;
+    private final int MENU_TITLE_WIDTH = 250;
+    private final int MENU_TITLE_HEIGHT = 50;
+    private final int RESUME_BUTTON_WIDTH = 200;
+    private final int RESUME_BUTTON_HEIGHT = 50;
+    private final int RESUME_BUTTON_X_POS = 150;
+    private final int RESUME_BUTTON_Y_POS = 150;
+    private final int EXIT_BUTTON_X_POS = 200;
+    private final int EXIT_BUTTON_Y_POS = 300;
+    private final int EXIT_BUTTON_WIDTH = 100;
+    private final int EXIT_BUTTON_HEIGHT = 50;
+
+    private final int TITLE_FONT_SIZE = 32;
+    private final int BUTTON_FONT_SIZE = 18;
+
     public PauseMenu()
     {
         Main.setPause(true);
 
         setTitle("Pause Menu");
-        setBounds(500, 200, 500, 500);
-        //setResizable(false);
+        setBounds(MENU_X_POS, MENU_Y_POS, MENU_SIZE, MENU_SIZE);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
         setLayout(null);
         Container c = getContentPane();
-        Font font1 = new Font("宋体",Font.BOLD,32);
-        Font font2 = new Font("宋体",Font.BOLD,18);
+        Font titleFont = new Font("宋体",Font.BOLD,TITLE_FONT_SIZE);
+        Font buttonFont = new Font("宋体",Font.BOLD,BUTTON_FONT_SIZE);
 
         // title
         JLabel pause = new JLabel("Pause Menu");
-        pause.setFont(font1);
-        pause.setBounds(150, 50, 200, 50);
+        pause.setFont(titleFont);
+        pause.setBounds(MENU_TITLE_X_POS,MENU_TITLE_Y_POS,MENU_TITLE_WIDTH,MENU_TITLE_HEIGHT);
         c.add(pause);
 
         // resume
         JButton resume = new JButton("Resume");
-        resume.setFont(font2);
-        resume.setBounds(150,150,200,50);
+        resume.setFont(buttonFont);
+        resume.setBounds(RESUME_BUTTON_X_POS,RESUME_BUTTON_Y_POS,RESUME_BUTTON_WIDTH,RESUME_BUTTON_HEIGHT);
         c.add(resume);
         resume.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 dispose();
                 Main.setPause(false);
             }
         });
 
-        // restart
-        /*final JButton restart = new JButton("restart");
-        restart.setFont(font2);
-        restart.setBounds(150, 230, 200, 50);
-        c.add(restart);
-        restart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new Main();
-            }
-        });*/
 
         // exit
         JButton exit = new JButton("Exit");
-        exit.setFont(font2);
-        exit.setBounds(200,300,100,50);
+        exit.setFont(buttonFont);
+        exit.setBounds(EXIT_BUTTON_X_POS,EXIT_BUTTON_Y_POS,EXIT_BUTTON_WIDTH,EXIT_BUTTON_HEIGHT);
         c.add(exit);
         exit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 System.exit(0);
             }
         });
