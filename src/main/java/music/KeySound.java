@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public final class KeySound {
-    private Clip keysound;
+    private Clip keySound;
 
     /**
      * Laods the audio clip to be played when the Player collects a KeyReward
@@ -20,11 +20,11 @@ public final class KeySound {
      */
     public KeySound() {
         try {
-            this.keysound = AudioSystem.getClip();
-            InputStream is = KeySound.class.getClassLoader().getResourceAsStream("sound/keysound.wav");
+            this.keySound = AudioSystem.getClip();
+            InputStream is = KeySound.class.getClassLoader().getResourceAsStream("sound/keySound.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
-            this.keysound.open(ais);
-            this.keysound.start();
+            this.keySound.open(ais);
+            this.keySound.start();
         } catch (LineUnavailableException e) {
             e.printStackTrace();
         } catch (UnsupportedAudioFileException e) {
@@ -42,6 +42,6 @@ public final class KeySound {
      * @see reward.KeyReward
      */
     public void stop() {
-        this.keysound.close();
+        this.keySound.close();
     }
 }
