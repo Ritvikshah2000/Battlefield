@@ -30,6 +30,7 @@ public class HealthBomb extends Bomb {
     /**
      * Redraws this HealthBombs Graphics
      * @param g Graphics2D instance used for redrawing
+     * @see Graphics2D
      */
     @Override
     public void update(final Graphics2D g) {

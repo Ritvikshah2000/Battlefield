@@ -32,6 +32,7 @@ public class ScoreBomb extends Bomb{
     /**
      * Redraws this ScoreBombs graphics
      * @param g Graphics2D instance used for redrawing
+     * @see Graphics2D
      */
     @Override
     public void update(final Graphics2D g) {

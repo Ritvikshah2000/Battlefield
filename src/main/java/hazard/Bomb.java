@@ -45,6 +45,7 @@ public abstract class Bomb {
     /**
      * Redraws this Bombs Graphics
      * @param g Graphics2D instance used for redrawing
+     * @see Graphics2D
      */
     public abstract void update(final Graphics2D g);
 
