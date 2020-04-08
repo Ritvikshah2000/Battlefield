@@ -29,7 +29,7 @@ public class KeyReward extends Reward {
     }
 
     public void update(Graphics2D g) {
-        g.drawImage(Images.testKeys,x,y, 32, 32, null);
+        g.drawImage(Images.getKeysImage(),x,y, 32, 32, null);
     }
 }
 

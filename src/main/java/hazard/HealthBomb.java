@@ -27,7 +27,7 @@ public class HealthBomb extends Bomb {
 
     @Override
     public void update(Graphics2D g){
-        g.drawImage(Images.testHealthBomb, x, y, 32, 32, null);
+        g.drawImage(Images.getHealthBombImage(), x, y, 32, 32, null);
     }
 
 }

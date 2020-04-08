@@ -26,7 +26,7 @@ public class ScoreBomb extends Bomb{
     }
 
     public void update(Graphics2D g) {
-        g.drawImage(Images.testScoreBomb, x,y,32,32,null);
+        g.drawImage(Images.getScoreBombImage(), x,y,32,32,null);
     }
 
 }

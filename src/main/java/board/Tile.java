@@ -46,13 +46,13 @@ public class Tile<T> extends Rectangle {
                 g.fillRect(x, y, width, height);
                 break;
             case 0: // endpoint
-                g.drawImage(Images.testEndPoint,  x,  y,  width,  height,  null);
+                g.drawImage(Images.getEndPointImage(),  x,  y,  width,  height,  null);
                 break;
             case 1: //
-                g.drawImage(Images.testGrass,  x,  y,  width,  height,  null);
+                g.drawImage(Images.getGrassImage(),  x,  y,  width,  height,  null);
                 break;
             case 2:
-                g.drawImage(Images.testWall,  x,  y,  width,  height,  null);
+                g.drawImage(Images.getWallImage(),  x,  y,  width,  height,  null);
                 break;
         }
 

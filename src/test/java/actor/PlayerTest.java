@@ -64,7 +64,7 @@ public class PlayerTest {
     @Test
     public void testCollideEnemy() {
         new Main(1);
-        Main.getEnemy().add(new Enemy(32, 32));
+        Main.getEnemy().add(new Enemy(32, 32, 1));
         Player player = new Player(32, 32);
         Health health = new Health();
 

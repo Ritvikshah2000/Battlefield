@@ -19,7 +19,7 @@ public class HealthBar{
     public int getY() { return y; }
 
     public void update(Graphics2D g){
-        g.drawImage(Images.testHearts, x, y, 32, 32,null);
+        g.drawImage(Images.getHeartsImage(), x, y, 32, 32,null);
     }
 }
 

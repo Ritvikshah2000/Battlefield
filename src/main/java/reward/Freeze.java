@@ -32,7 +32,7 @@ public class Freeze extends Reward
 
     public void update(Graphics2D g){
         if(timeLeft > 0){
-            g.drawImage(Images.testFreeze, x, y, 32, 32, null);
+            g.drawImage(Images.getFreezeImage(), x, y, 32, 32, null);
             timeLeft -= 1;
         }else{
             TestLevel.addGrass(getX(), getY());

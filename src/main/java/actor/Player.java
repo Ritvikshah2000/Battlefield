@@ -205,7 +205,7 @@ public class Player {
     public void update(Graphics2D g) {
         collision();
         if (g != null)
-            g.drawImage(Images.testPlayer, (int)x, (int)y, SIZE, SIZE, null);
+            g.drawImage(Images.getPlayerImage(), (int)x, (int)y, SIZE, SIZE, null);
         //update player movement based on user input
         if(movingLeft && canLeft)
             x -= leftSpeed;

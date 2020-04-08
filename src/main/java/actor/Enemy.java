@@ -11,6 +11,7 @@ public class Enemy{
 
     public int x,y;
     public int speed = 1;
+    private int enemyImageId;
     public boolean canUp, canDown, canRight, canLeft;
     public static boolean isFrozen;
     public int frozenTimer;
@@ -18,9 +19,10 @@ public class Enemy{
 
     public static float damage = 0.5f;
 
-    public Enemy(int x, int y) {
+    public Enemy(int x, int y, int imageId) {
         this.x = x;
         this.y = y;
+        enemyImageId = imageId;
         canUp = true;
         canDown = true;
         canLeft = true;
@@ -47,7 +49,17 @@ public class Enemy{
     {
         if(!isFrozen){  // chasing hero
             if (g != null)
-                g.drawImage(Images.testEnemy, x, y, SIZE, SIZE, null);
+                switch(enemyImageId){
+                    case 1:
+                        g.drawImage(Images.getEnemyImage(), x, y, SIZE, SIZE, null);
+                        break;
+                    case 2:
+                        g.drawImage(Images.getEnemy2Image(), x, y, SIZE, SIZE, null);
+                        break;
+                    case 3:
+                        g.drawImage(Images.getEnemy3Image(), x, y, SIZE, SIZE, null);
+                        break;
+                }
             if(Player.x > this.x && canRight) {
                 x += speed;
             }
@@ -64,7 +76,7 @@ public class Enemy{
         else
         {
             if (g != null)
-                g.drawImage(Images.testEnemyFrozen, (int)x, (int)y, SIZE, SIZE, null);
+                g.drawImage(Images.getEnemyFrozenImage(), (int)x, (int)y, SIZE, SIZE, null);
         }
     }
 

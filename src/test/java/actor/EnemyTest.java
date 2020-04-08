@@ -13,7 +13,7 @@ public class EnemyTest {
     @Test
     public void testEnemyConstructor()
     {
-        Enemy enemy = new Enemy(32,16);
+        Enemy enemy = new Enemy(32,16, 1);
         Assert.assertEquals(32, enemy.x);
         Assert.assertEquals(16, enemy.y);
         Assert.assertEquals(0, enemy.frozenTimer);
@@ -26,7 +26,7 @@ public class EnemyTest {
     @Test
     public void testGetBounds()     // test getBounds return correct result.
     {
-        Enemy enemy = new Enemy(1,2);
+        Enemy enemy = new Enemy(1,2, 1);
         Rectangle rectangle = enemy.getBounds();
         Assert.assertEquals(1,rectangle.x);
         Assert.assertEquals(2,rectangle.y);
@@ -42,12 +42,12 @@ public class EnemyTest {
     {
         TestLevel level = new TestLevel(2);
 
-        Enemy enemy = new Enemy(32,32);
+        Enemy enemy = new Enemy(32,32, 1);
         Assert.assertTrue(enemy.canLeft);   // check initially canLeft is true
         enemy.collision();
         Assert.assertFalse(enemy.canLeft);  // in level there is barrier in the left hand side of enemy, canLeft become false
 
-        Enemy enemy2 = new Enemy(64,32);
+        Enemy enemy2 = new Enemy(64,32, 1);
         Assert.assertTrue(enemy2.canLeft);  // check initially canLeft is true
         enemy2.collision();
         Assert.assertTrue(enemy2.canLeft);  // in level there is no barrier in the left hand side of enemy2, canLeft should be true
@@ -58,12 +58,12 @@ public class EnemyTest {
     {
         TestLevel level = new TestLevel(2);
 
-        Enemy enemy = new Enemy(32,64);
+        Enemy enemy = new Enemy(32,64, 1);
         Assert.assertTrue(enemy.canRight);
         enemy.collision();
         Assert.assertFalse(enemy.canRight);
 
-        Enemy enemy2 = new Enemy(32,32);
+        Enemy enemy2 = new Enemy(32,32, 1);
         Assert.assertTrue(enemy2.canRight);
         enemy2.collision();
         Assert.assertTrue(enemy2.canRight);
@@ -74,12 +74,12 @@ public class EnemyTest {
     {
         TestLevel level = new TestLevel(2);
 
-        Enemy enemy = new Enemy(32,32);
+        Enemy enemy = new Enemy(32,32, 1);
         Assert.assertTrue(enemy.canUp);
         enemy.collision();
         Assert.assertFalse(enemy.canUp);
 
-        Enemy enemy2 = new Enemy(32,64);
+        Enemy enemy2 = new Enemy(32,64, 1);
         Assert.assertTrue(enemy2.canUp);  // check initially canLeft is true
         enemy2.collision();
         Assert.assertTrue(enemy2.canUp);
@@ -90,12 +90,12 @@ public class EnemyTest {
     {
         TestLevel level = new TestLevel(2);
 
-        Enemy enemy = new Enemy(64,32);
+        Enemy enemy = new Enemy(64,32, 1);
         Assert.assertTrue(enemy.canDown);
         enemy.collision();
         Assert.assertFalse(enemy.canDown);
 
-        Enemy enemy2 = new Enemy(32,32);
+        Enemy enemy2 = new Enemy(32,32, 1);
         Assert.assertTrue(enemy2.canDown);  // check initially canLeft is true
         enemy2.collision();
         Assert.assertTrue(enemy2.canDown);
@@ -104,7 +104,7 @@ public class EnemyTest {
     @Test
     public void testCheckFrozen()
     {
-        Enemy enemy = new Enemy(64,32);
+        Enemy enemy = new Enemy(64,32, 1);
         enemy.checkFrozen();
         Assert.assertFalse(Enemy.isFrozen);
         Assert.assertEquals(0, enemy.frozenTimer);
@@ -127,7 +127,7 @@ public class EnemyTest {
     @Test
     public void testChasingHero()
     {
-        Enemy enemy = new Enemy(64, 128);
+        Enemy enemy = new Enemy(64, 128, 1);
         Player hero = new Player(32,32);
 
         enemy.frozenTimer = 0;

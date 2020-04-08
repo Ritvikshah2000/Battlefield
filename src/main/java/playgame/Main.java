@@ -66,13 +66,13 @@ public final class Main extends Canvas implements Runnable {
         if (mapindex == 1) {    // first map
             player = new Player(Tile.TILESIZE, Tile.TILESIZE); //starting position(x,y)
             level = new TestLevel(mapindex); //instantiate
-            Images imgs = new Images();
+            Images.loadImages();
 
             health = new Health();
 
-            enemies.add(new Enemy(2 * Tile.TILESIZE, 14 * Tile.TILESIZE));
-            enemies.add(new Enemy(7 * Tile.TILESIZE, 15 * Tile.TILESIZE));
-            enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE));  // 3 enemies on the board
+            enemies.add(new Enemy(2 * Tile.TILESIZE, 14 * Tile.TILESIZE, 1));
+            enemies.add(new Enemy(7 * Tile.TILESIZE, 15 * Tile.TILESIZE, 2));
+            enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE, 3));  // 3 enemies on the board
 
             window = new Window(size, this);
             bgm = new BGM();       // start bgm;
@@ -82,13 +82,13 @@ public final class Main extends Canvas implements Runnable {
         {
             player = new Player(Tile.TILESIZE, Tile.TILESIZE);
             level = new TestLevel(mapindex); //instantiate
-            Images imgs = new Images();
+            Images.loadImages();
 
             health = new Health();
 
-            enemies.add(new Enemy(18 * Tile.TILESIZE, 7 * Tile.TILESIZE));
-            enemies.add(new Enemy(9 * Tile.TILESIZE, 11 * Tile.TILESIZE));
-            enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE));
+            enemies.add(new Enemy(18 * Tile.TILESIZE, 7 * Tile.TILESIZE, 1));
+            enemies.add(new Enemy(9 * Tile.TILESIZE, 11 * Tile.TILESIZE, 2));
+            enemies.add(new Enemy(16 * Tile.TILESIZE, 3 * Tile.TILESIZE, 3));
 
             window = new Window(size, this);
             bgm = new BGM();       // start bgm;
