@@ -14,12 +14,26 @@ import java.awt.Graphics2D;
 public final class HealthReward extends Reward {
 
 
+    /**
+     * Initializes a HealthReward instance at position x, y
+     * @param x x index of Tile occupied by this HealthReward
+     * @param y y index of Tile occupied by this HealthReward
+     * @see Tile
+     * @see TestLevel
+     */
     public HealthReward(final int x, final int y) {
         super(x * Tile.TILESIZE, y * Tile.TILESIZE);
         value = 50;
     }
 
 
+    /**
+     * Increase Player Score, HP, HealthBar and removes this HealthReward instance from the game
+     * @see Player
+     * @see Score
+     * @see Health
+     * @see HealthBar
+     */
     public void onHit() {
         Health.increaseHp((Health.getHeartsLeft() + 1) * Health.getHeartHpThreshold());
         Health.getBar().add(new HealthBar((Tile.TILESIZE * Health.getHeartsLeft()), 0));
@@ -29,6 +43,10 @@ public final class HealthReward extends Reward {
         Main.getRewards().remove(this);
     }
 
+    /**
+     * Redraws this HealthRewards graphics
+     * @param g Graphics2D instance used to redraw graphics
+     */
     public void update(final Graphics2D g) {
         g.drawImage(Images.getHeartsImage(), getX(), getY(), Tile.TILESIZE, Tile.TILESIZE, null);
     }
