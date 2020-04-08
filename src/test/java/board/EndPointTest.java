@@ -19,7 +19,7 @@ public class EndPointTest {
     public void sufficientKeyCount(){
         new Main(1);
         EndPoint test = new EndPoint();
-        for(int i = 0; i < EndPoint.REQUIREDKEYS; i++) {
+        for(int i = 0; i < EndPoint.getRequiredKeys(); i++) {
             Player.IncreaseKeyCount();
         }
         test.onHit();

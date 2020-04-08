@@ -6,16 +6,18 @@ import playgame.Main;
 import window.GameOverMenu;
 
 public class EndPoint{
-    public static final int REQUIREDKEYS = 5;
-    public Winning winsound;
+
+    private static final int REQUIRED_KEYS = 5;
 
     public void onHit(){
-        if(Player.getKeyCount() >= REQUIREDKEYS){
+        if(Player.getKeyCount() >= REQUIRED_KEYS){
             Main.getWindow().dispose();
             Main.setRunning(false);
-            this.winsound = new Winning();
+            new Winning();
             new GameOverMenu();
         }
     }
+
+    public static int getRequiredKeys(){ return REQUIRED_KEYS; }
 
 }
