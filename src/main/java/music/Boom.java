@@ -1,12 +1,20 @@
 package music;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.Clip;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class Boom {
     private Clip boom;
 
+    /**
+     * Loads the audio clip to be played when the Player collides with a Bomb
+     * @see javax.sound.sampled
+     */
     public Boom()
     {
         try
@@ -25,6 +33,9 @@ public class Boom {
         }
     }
 
+    /**
+     * Terminates the audio clip played when the Player collides with a Bomb
+     */
     public void stop()
     {
         this.boom.close();

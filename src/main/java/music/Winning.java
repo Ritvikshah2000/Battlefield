@@ -33,7 +33,7 @@ public final class Winning {
     }
 
     /**
-     * Terminates the audio clipped played when the Player wins the game
+     * Terminates the audio clip played when the Player wins the game
      *
      * @see javax.sound.sampled.Clip
      */
