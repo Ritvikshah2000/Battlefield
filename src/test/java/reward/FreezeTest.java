@@ -10,8 +10,8 @@ public class FreezeTest {
     @Test
     public void testFreezeConstructor(){ //checks that ScoreBomb placement works as intended
         Freeze fr = new Freeze(32,32);
-        Assert.assertEquals(1024,(int)fr.x);
-        Assert.assertEquals(1024, (int)fr.y);
+        Assert.assertEquals(1024,(int)fr.getX());
+        Assert.assertEquals(1024, (int)fr.getY());
     }
 
     @Test

@@ -24,7 +24,7 @@ public final class Freeze extends Reward {
      */
     public Freeze(final int x, final int y) {
         super(x * Tile.TILESIZE, y * Tile.TILESIZE);
-        value = 150;
+        setValue(150);
     }
 
     /**
@@ -35,7 +35,7 @@ public final class Freeze extends Reward {
     public void onHit() {
         FreezeSound freezeSound = new FreezeSound();
         Main.getEnemy().forEach((e) -> e.setFrozenTimer(freezeTime));
-        Player.setScore(value);
+        Player.setScore(getValue());
         Score.update();
         TestLevel.addGrass(getXIndex(), getYIndex());
         Main.getRewards().remove(this);

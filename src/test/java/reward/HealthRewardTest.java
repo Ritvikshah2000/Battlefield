@@ -10,8 +10,8 @@ public class HealthRewardTest {
     @Test
     public void testHealthRewardConstructor(){ //checks that ScoreBomb placement works as intended
         HealthReward hr = new HealthReward(32,32);
-        Assert.assertEquals(1024,(int)hr.x);
-        Assert.assertEquals(1024, (int)hr.y);
+        Assert.assertEquals(1024,(int)hr.getX());
+        Assert.assertEquals(1024, (int)hr.getY());
     }
 
     @Test

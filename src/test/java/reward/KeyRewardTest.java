@@ -12,8 +12,8 @@ public class KeyRewardTest {
     @Test
     public void testKeyRewardConstructor(){ //checks that ScoreBomb placement works as intended
         KeyReward kr = new KeyReward(32,32);
-        Assert.assertEquals(1024,(int)kr.x);
-        Assert.assertEquals(1024, (int)kr.y);
+        Assert.assertEquals(1024,(int)kr.getX());
+        Assert.assertEquals(1024, (int)kr.getY());
     }
 
     @Test

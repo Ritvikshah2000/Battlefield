@@ -15,13 +15,13 @@ public class KeyReward extends Reward {
 
     public KeyReward(int x, int y) {
         super(x *32, y *32);
-        value = 100;
+        setValue(100);
     }
 
     public void onHit() {
         this.keysound = new KeySound();
         Player.IncreaseKeyCount();
-        Player.setScore(value);
+        Player.setScore(getValue());
         Score.update();
         TestLevel.addGrass(getXIndex(), getYIndex());
         Main.getRewards().remove(this);
@@ -29,7 +29,7 @@ public class KeyReward extends Reward {
     }
 
     public void update(Graphics2D g) {
-        g.drawImage(Images.getKeysImage(),x,y, 32, 32, null);
+        g.drawImage(Images.getKeysImage(), getX(), getY(), 32, 32, null);
     }
 }
 
