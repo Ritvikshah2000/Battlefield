@@ -11,6 +11,7 @@ public class Health{
     private static ArrayList<HealthBar> bar;
     private static int index;
     private static int heartsLeft;
+    private static int heartHpThreshold = 30;
 
     private Health()
     {
@@ -32,6 +33,12 @@ public class Health{
      * @return Players remaining health as a float
      */
     public static float getHp() { return hp; }
+
+    /**
+     * Returns amount of HP an individual HealthBar instance represents
+     * @return int value of HP an individual HealthBar instance represents
+     */
+    public static int getHeartHpThreshold() { return heartHpThreshold; }
 
     /**
      * Returns an ArrayList of this games HealthBar instances

@@ -26,7 +26,7 @@ public class Freeze extends Reward
         Main.getEnemy().forEach((e) -> e.setFrozenTimer(freezetime));
         Player.setScore(value);
         Score.update();
-        TestLevel.addGrass(getX(), getY());
+        TestLevel.addGrass(getXIndex(), getYIndex());
         Main.getRewards().remove(this);
     }
 
@@ -35,7 +35,7 @@ public class Freeze extends Reward
             g.drawImage(Images.getFreezeImage(), x, y, 32, 32, null);
             timeLeft -= 1;
         }else{
-            TestLevel.addGrass(getX(), getY());
+            TestLevel.addGrass(getXIndex(), getYIndex());
         }
     }
 }

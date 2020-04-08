@@ -21,6 +21,8 @@ public abstract class Reward
 
     };
 
-    public int getX(){ return (int)(x / 32); };
-    public int getY(){ return (int)(y / 32); };
+    public int getXIndex(){ return (int)(x / 32); };
+    public int getYIndex(){ return (int)(y / 32); };
+    public int getX(){ return x; };
+    public int getY(){ return y; };
 }

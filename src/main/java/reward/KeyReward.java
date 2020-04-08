@@ -23,7 +23,7 @@ public class KeyReward extends Reward {
         Player.IncreaseKeyCount();
         Player.setScore(value);
         Score.update();
-        TestLevel.addGrass(getX(), getY());
+        TestLevel.addGrass(getXIndex(), getYIndex());
         Main.getRewards().remove(this);
         KeyBar.getKbar().add(new KeyReward(15 + KeyBar.increaseCollected(), 0));
     }
