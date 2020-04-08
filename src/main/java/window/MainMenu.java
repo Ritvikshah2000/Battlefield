@@ -9,8 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainMenu extends JFrame
-{
+public class MainMenu extends JFrame {
     private final int MENU_SIZE = 500;
     private final int MENU_X_POS = 500;
     private final int MENU_Y_POS = 200;
@@ -30,8 +29,7 @@ public class MainMenu extends JFrame
     /**
      * Initializes and displays a new MainMenu for the game
      */
-    public MainMenu()
-    {
+    public MainMenu() {
         setTitle("Main Menu");
         setBounds(MENU_X_POS, MENU_Y_POS, MENU_SIZE, MENU_SIZE);
         setResizable(false);
@@ -39,13 +37,13 @@ public class MainMenu extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
         Container c = getContentPane();
-        Font titleFont = new Font("宋体",Font.BOLD,TITLE_FONT_SIZE);
-        Font buttonFont = new Font("宋体",Font.BOLD,BUTTON_FONT_SIZE);
+        Font titleFont = new Font("宋体", Font.BOLD, TITLE_FONT_SIZE);
+        Font buttonFont = new Font("宋体", Font.BOLD, BUTTON_FONT_SIZE);
 
         // play a new game button
         JButton playNewGame = new JButton("Play a new game");
         playNewGame.setFont(buttonFont);
-        playNewGame.setBounds(PLAY_BUTTON_X_POS,PLAY_BUTTON_Y_POS,BUTTON_WIDTH,BUTTON_HEIGHT);
+        playNewGame.setBounds(PLAY_BUTTON_X_POS, PLAY_BUTTON_Y_POS, BUTTON_WIDTH, BUTTON_HEIGHT);
         c.add(playNewGame);
         playNewGame.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
@@ -57,7 +55,7 @@ public class MainMenu extends JFrame
         // exit
         JButton exit = new JButton("Exit");
         exit.setFont(buttonFont);
-        exit.setBounds(EXIT_BUTTON_X_POS,EXIT_BUTTON_Y_POS,BUTTON_WIDTH,BUTTON_HEIGHT);
+        exit.setBounds(EXIT_BUTTON_X_POS, EXIT_BUTTON_Y_POS, BUTTON_WIDTH, BUTTON_HEIGHT);
         c.add(exit);
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +66,7 @@ public class MainMenu extends JFrame
         // Battle Field
         JLabel l = new JLabel("BATTLE FIELD");
         l.setFont(titleFont);
-        l.setBounds(BATTLEFIELD_LABEL_X_POS, BATTLEFIELD_LABEL_Y_POS, BATTLEFIELD_LABEL_WIDTH,  BATTLEFIELD_LABEL_HEIGHT);
+        l.setBounds(BATTLEFIELD_LABEL_X_POS, BATTLEFIELD_LABEL_Y_POS, BATTLEFIELD_LABEL_WIDTH, BATTLEFIELD_LABEL_HEIGHT);
         c.add(l);
     }
 }
