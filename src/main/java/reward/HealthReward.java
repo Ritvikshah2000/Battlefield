@@ -8,6 +8,7 @@ import board.TestLevel;
 import board.Tile;
 import image.Images;
 import playgame.Main;
+
 import java.awt.Graphics2D;
 
 
@@ -16,6 +17,7 @@ public final class HealthReward extends Reward {
 
     /**
      * Initializes a HealthReward instance at position x, y
+     *
      * @param x x index of Tile occupied by this HealthReward
      * @param y y index of Tile occupied by this HealthReward
      * @see Tile
@@ -29,6 +31,7 @@ public final class HealthReward extends Reward {
 
     /**
      * Increase Player Score, HP, HealthBar and removes this HealthReward instance from the game
+     *
      * @see Player
      * @see Score
      * @see Health
@@ -45,6 +48,7 @@ public final class HealthReward extends Reward {
 
     /**
      * Redraws this HealthRewards graphics
+     *
      * @param g Graphics2D instance used to redraw graphics
      */
     public void update(final Graphics2D g) {
