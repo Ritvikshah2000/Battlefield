@@ -1,33 +1,54 @@
 package window;
 
-import playgame.Main;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainMenu extends JFrame
 {
+    private final int MENU_SIZE = 500;
+    private final int MENU_X_POS = 500;
+    private final int MENU_Y_POS = 200;
+    private final int BATTLEFIELD_LABEL_X_POS = 140;
+    private final int BATTLEFIELD_LABEL_Y_POS = 50;
+    private final int BATTLEFIELD_LABEL_WIDTH = 250;
+    private final int BATTLEFIELD_LABEL_HEIGHT = 50;
+    private final int BUTTON_WIDTH = 200;
+    private final int BUTTON_HEIGHT = 50;
+    private final int PLAY_BUTTON_X_POS = 150;
+    private final int PLAY_BUTTON_Y_POS = 130;
+    private final int EXIT_BUTTON_X_POS = 150;
+    private final int EXIT_BUTTON_Y_POS = 260;
+    private final int TITLE_FONT_SIZE = 32;
+    private final int BUTTON_FONT_SIZE = 18;
 
+    /**
+     * Initializes and displays a new MainMenu for the game
+     */
     public MainMenu()
     {
         setTitle("Main Menu");
-        setBounds(500, 200, 500, 500);
+        setBounds(MENU_X_POS, MENU_Y_POS, MENU_SIZE, MENU_SIZE);
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
         Container c = getContentPane();
-        Font font1 = new Font("宋体",Font.BOLD,32);
-        Font font2 = new Font("宋体",Font.BOLD,18);
+        Font titleFont = new Font("宋体",Font.BOLD,TITLE_FONT_SIZE);
+        Font buttonFont = new Font("宋体",Font.BOLD,BUTTON_FONT_SIZE);
 
         // play a new game button
-        JButton playnewgame = new JButton("Play a new game");
-        playnewgame.setFont(font2);
-        playnewgame.setBounds(150,130,200,50);
-        c.add(playnewgame);
-        playnewgame.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        JButton playNewGame = new JButton("Play a new game");
+        playNewGame.setFont(buttonFont);
+        playNewGame.setBounds(PLAY_BUTTON_X_POS,PLAY_BUTTON_Y_POS,BUTTON_WIDTH,BUTTON_HEIGHT);
+        c.add(playNewGame);
+        playNewGame.addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
                 dispose();
                 new MapChoice();
             }
@@ -35,8 +56,8 @@ public class MainMenu extends JFrame
 
         // exit
         JButton exit = new JButton("Exit");
-        exit.setFont(font2);
-        exit.setBounds(150,260,200,50);
+        exit.setFont(buttonFont);
+        exit.setBounds(EXIT_BUTTON_X_POS,EXIT_BUTTON_Y_POS,BUTTON_WIDTH,BUTTON_HEIGHT);
         c.add(exit);
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -44,18 +65,10 @@ public class MainMenu extends JFrame
             }
         });
 
-        // record
-        /*JLabel record = new JLabel("Record: 0");
-        record.setFont(font2);
-        record.setBounds(200, 200, 200, 50);
-        //String newrecord = "0";                                     //renew the higest score
-        //record.setText(newrecord);
-        c.add(record);*/
-
         // Battle Field
         JLabel l = new JLabel("BATTLE FIELD");
-        l.setFont(font1);
-        l.setBounds(140, 50, 250, 50);
+        l.setFont(titleFont);
+        l.setBounds(BATTLEFIELD_LABEL_X_POS, BATTLEFIELD_LABEL_Y_POS, BATTLEFIELD_LABEL_WIDTH,  BATTLEFIELD_LABEL_HEIGHT);
         c.add(l);
     }
 }
