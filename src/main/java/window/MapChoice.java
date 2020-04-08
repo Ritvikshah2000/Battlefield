@@ -1,6 +1,7 @@
 package window;
 
 import playgame.Main;
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -11,8 +12,7 @@ import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MapChoice extends JFrame
-{
+public class MapChoice extends JFrame {
 
     private int MENU_SIZE = 500;
     private int MENU_X_POS = 500;
@@ -28,10 +28,10 @@ public class MapChoice extends JFrame
 
     /**
      * Initializes and displays a new MapChoice menu for the game
+     *
      * @see board.Map
      */
-    public MapChoice()
-    {
+    public MapChoice() {
         setTitle("Map Choice");
         setBounds(MENU_X_POS, MENU_Y_POS, MENU_SIZE, MENU_SIZE);
         setResizable(false);
@@ -41,7 +41,7 @@ public class MapChoice extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
         Container c = getContentPane();
-        Font font = new Font("宋体",Font.BOLD,FONT_SIZE);
+        Font font = new Font("宋体", Font.BOLD, FONT_SIZE);
 
         // map 1
         JButton map1 = new JButton("Map 1");
