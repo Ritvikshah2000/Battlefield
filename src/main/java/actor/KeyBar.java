@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 public class KeyBar {
     private static ArrayList<KeyReward> kBar = new ArrayList<>();
     private static int collected = 0;
+    private static int intialTile = 14;
 
     /**
      * Returns list of collected KeyReward instances
@@ -29,6 +30,14 @@ public class KeyBar {
         collected++;
         return collected;
     }
+
+    /**
+     * Returns the x index of the initial Tile the KeyBar occupies
+     * @return x index of the initial Tile the KeyBar occupies
+     * @see board.Tile
+     * @see board.TestLevel
+     */
+    public static int getInitialTile(){ return intialTile; }
 
     /**
      * Redraws the KeyBar graphics

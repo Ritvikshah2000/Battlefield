@@ -4,32 +4,32 @@ import actor.KeyBar;
 import actor.Player;
 import actor.Score;
 import board.TestLevel;
+import board.Tile;
 import image.Images;
 import music.KeySound;
 import playgame.Main;
 
 import java.awt.Graphics2D;
 
-public class KeyReward extends Reward {
-    private KeySound keysound;
+public final class KeyReward extends Reward {
 
-    public KeyReward(int x, int y) {
-        super(x *32, y *32);
+    public KeyReward(final int x, final int y) {
+        super(x * Tile.TILESIZE, y *Tile.TILESIZE);
         setValue(100);
     }
 
     public void onHit() {
-        this.keysound = new KeySound();
+        KeySound keysound = new KeySound();
         Player.IncreaseKeyCount();
         Player.setScore(getValue());
         Score.update();
         TestLevel.addGrass(getXIndex(), getYIndex());
         Main.getRewards().remove(this);
-        KeyBar.getKbar().add(new KeyReward(15 + KeyBar.increaseCollected(), 0));
+        KeyBar.getKbar().add(new KeyReward(KeyBar.getInitialTile() + KeyBar.increaseCollected(), 0));
     }
 
-    public void update(Graphics2D g) {
-        g.drawImage(Images.getKeysImage(), getX(), getY(), 32, 32, null);
+    public void update(final Graphics2D g) {
+        g.drawImage(Images.getKeysImage(), getX(), getY(), Tile.TILESIZE, Tile.TILESIZE, null);
     }
 }
 
