@@ -203,8 +203,8 @@ public final class Enemy {
 
         // check can left
         canLeft = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX() + 1, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canLeft = false;
@@ -214,8 +214,8 @@ public final class Enemy {
 
         // check can right
         canRight = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX() - 1, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canRight = false;
@@ -225,8 +225,8 @@ public final class Enemy {
 
         // check can up
         canUp = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() + 1, barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canUp = false;
@@ -236,8 +236,8 @@ public final class Enemy {
 
         // check can down
         canDown = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() - 1, barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canDown = false;

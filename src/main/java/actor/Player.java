@@ -301,21 +301,21 @@ public final class Player {
      */
     public void collideContent(final int dx, final int dy)      // hit a content
     {
-        if (TestLevel.tiles[dx][dy].hasContents()) {
-            if (TestLevel.tiles[dx][dy].getContents() instanceof Bomb) {
-                Bomb b = (Bomb) TestLevel.tiles[dx][dy].getContents();
+        if (TestLevel.getTiles()[dx][dy].hasContents()) {
+            if (TestLevel.getTiles()[dx][dy].getContents() instanceof Bomb) {
+                Bomb b = (Bomb) TestLevel.getTiles()[dx][dy].getContents();
                 b.onHit();
-            } else if (TestLevel.tiles[dx][dy].getContents() instanceof Freeze) {
-                Freeze f = (Freeze) TestLevel.tiles[dx][dy].getContents();
+            } else if (TestLevel.getTiles()[dx][dy].getContents() instanceof Freeze) {
+                Freeze f = (Freeze) TestLevel.getTiles()[dx][dy].getContents();
                 f.onHit();
-            } else if (TestLevel.tiles[dx][dy].getContents() instanceof HealthReward) {
-                HealthReward hr = (HealthReward) TestLevel.tiles[dx][dy].getContents();
+            } else if (TestLevel.getTiles()[dx][dy].getContents() instanceof HealthReward) {
+                HealthReward hr = (HealthReward) TestLevel.getTiles()[dx][dy].getContents();
                 hr.onHit();
-            } else if (TestLevel.tiles[dx][dy].getContents() instanceof KeyReward) {
-                KeyReward kr = (KeyReward) TestLevel.tiles[dx][dy].getContents();
+            } else if (TestLevel.getTiles()[dx][dy].getContents() instanceof KeyReward) {
+                KeyReward kr = (KeyReward) TestLevel.getTiles()[dx][dy].getContents();
                 kr.onHit();
-            } else if (TestLevel.tiles[dx][dy].getContents() instanceof EndPoint) {
-                EndPoint e = (EndPoint) TestLevel.tiles[dx][dy].getContents();
+            } else if (TestLevel.getTiles()[dx][dy].getContents() instanceof EndPoint) {
+                EndPoint e = (EndPoint) TestLevel.getTiles()[dx][dy].getContents();
                 e.onHit();
             }
         }
@@ -329,8 +329,8 @@ public final class Player {
         Rectangle barrierrect = null;
         // check can left
         canLeft = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX() + 2, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canLeft = false;
@@ -340,8 +340,8 @@ public final class Player {
 
         // check can right
         canRight = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX() - 2, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canRight = false;
@@ -351,8 +351,8 @@ public final class Player {
 
         // check can up
         canUp = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() + 2, barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canUp = false;
@@ -362,8 +362,8 @@ public final class Player {
 
         // check can down
         canDown = true;
-        for (int i = 0; i < TestLevel.barrierList.size(); i++) {
-            Tile barrier = TestLevel.barrierList.get(i);
+        for (int i = 0; i < TestLevel.getBarriers().size(); i++) {
+            Tile barrier = TestLevel.getBarriers().get(i);
             barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() - 2, barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canDown = false;
