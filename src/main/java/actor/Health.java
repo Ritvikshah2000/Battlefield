@@ -1,5 +1,7 @@
 package actor;
 
+import board.Tile;
+
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
@@ -14,8 +16,8 @@ public class Health{
     {
         bar = new ArrayList<HealthBar>();
         bar.add(new HealthBar(0, 0));
-        bar.add(new HealthBar(32, 0));
-        bar.add(new HealthBar(64, 0));   // player has 3 life
+        bar.add(new HealthBar(Tile.TILESIZE, 0));
+        bar.add(new HealthBar(Tile.TILESIZE * 2, 0));   // player has 3 life
     }
 
     /*---------------------------------getter setter---------------------------------*/

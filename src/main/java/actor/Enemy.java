@@ -7,19 +7,23 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 
-public class Enemy{
+public final class Enemy {
 
-    public int x,y;
-    public int speed = 1;
+    private int x;
+    private int y;
+    private int speed = 1;
     private int enemyImageId;
-    public boolean canUp, canDown, canRight, canLeft;
-    public static boolean isFrozen;
-    public int frozenTimer;
-    public static final int SIZE = 32;
+    private boolean canUp;
+    private boolean canDown;
+    private boolean canRight;
+    private boolean canLeft;
+    private static boolean isFrozen;
+    private int frozenTimer;
+    private static final int SIZE = 32;
 
-    public static float damage = 0.5f;
+    private static float damage = 0.5f;
 
-    public Enemy(int x, int y, int imageId) {
+    public Enemy(final int x, final int y, final int imageId) {
         this.x = x;
         this.y = y;
         enemyImageId = imageId;
@@ -29,6 +33,43 @@ public class Enemy{
         canRight = true;
         isFrozen = false;
         frozenTimer = 0;
+    }
+
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public boolean getCanUp(){
+        return canUp;
+    }
+    public boolean getCanDown(){
+        return canDown;
+    }
+    public boolean getCanLeft(){
+        return canLeft;
+    }
+    public boolean getCanRight(){
+        return canRight;
+    }
+
+    public static float getDamage(){
+        return damage;
+    }
+
+    public int getFrozenTimer(){
+        return frozenTimer;
+    }
+
+    public void setFrozenTimer(int time){
+        frozenTimer = time;
+    }
+
+    public static boolean getIsFrozen(){
+        return isFrozen;
     }
 
     public Rectangle getBounds(){
@@ -134,7 +175,7 @@ public class Enemy{
         }
     }
 
-    public void update(Graphics2D g) {
+    public void update(final Graphics2D g) {
         collision();
         checkFrozen();
         chasingHero(g);

@@ -105,10 +105,10 @@ public class Player {
             if(Main.getEnemy().get(i).getBounds().intersects(this.getBounds())){
                 if(/*Main.getHealth()*/Health.getHp() % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
                     /*Main.getHealth().*/Health.getBar().remove(Health.getIndex());
-                    /*Main.getHealth()*/Health.increaseHp(-Enemy.damage);
+                    /*Main.getHealth()*/Health.increaseHp(-Enemy.getDamage());
                     /*Main.getHealth()*/Health.decreaseHeartLeft();    // heart bar index -1
                 }else {
-                    Health.increaseHp(-Enemy.damage);
+                    Health.increaseHp(-Enemy.getDamage());
                 }
             }
     }
