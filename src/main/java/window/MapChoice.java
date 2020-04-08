@@ -1,34 +1,54 @@
 package window;
 
 import playgame.Main;
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Container;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MapChoice extends JFrame
 {
 
+    private int MENU_SIZE = 500;
+    private int MENU_X_POS = 500;
+    private int MENU_Y_POS = 200;
+    private int FONT_SIZE = 18;
+    private int MAP_BUTTON_ROW = 0;
+    private int MAP_BUTTON_COL = 0;
+    private int EXIT_BUTTON_ROW = 1;
+    private int EXIT_BUTTON_COL = 0;
+    private int EXIT_BUTTON_WIDTH = 2;
+    private int BUTTON_INT_PADDING = 50;
+
+
     public MapChoice()
     {
         setTitle("Map Choice");
-        setBounds(500, 200, 500, 500);
+        setBounds(MENU_X_POS, MENU_Y_POS, MENU_SIZE, MENU_SIZE);
         setResizable(false);
         setVisible(true);
-        setLayout(new BorderLayout(10, 10));
+        setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
         Container c = getContentPane();
-        Font font2 = new Font("宋体",Font.BOLD,18);
+        Font font = new Font("宋体",Font.BOLD,FONT_SIZE);
 
         // map 1
-        JButton map1 = new JButton("map 1");
-        map1.setFont(font2);
-        //map1.setBounds(150,100,200,50);
-        c.add(map1, BorderLayout.WEST);
+        JButton map1 = new JButton("Map 1");
+        map1.setFont(font);
+        constraints.gridx = MAP_BUTTON_COL;
+        constraints.gridy = MAP_BUTTON_ROW;
+        constraints.ipadx = BUTTON_INT_PADDING;
+        constraints.ipady = BUTTON_INT_PADDING;
+        c.add(map1, constraints);
         map1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 dispose();
                 try {
                     new Main(1);
@@ -38,13 +58,16 @@ public class MapChoice extends JFrame
             }
         });
 
-        // map 1
-        JButton map2 = new JButton("map 2");
-        map2.setFont(font2);
-        //map2.setBounds(150,400,200,50);
-        c.add(map2, BorderLayout.EAST);
+        // map 2
+        JButton map2 = new JButton("Map 2");
+        map2.setFont(font);
+        constraints.gridx = MAP_BUTTON_COL + 1;
+        constraints.gridy = MAP_BUTTON_ROW;
+        constraints.ipadx = BUTTON_INT_PADDING;
+        constraints.ipady = BUTTON_INT_PADDING;
+        c.add(map2, constraints);
         map2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 dispose();
                 try {
                     new Main(2);
@@ -56,10 +79,16 @@ public class MapChoice extends JFrame
 
         // exit
         JButton exit = new JButton("Exit");
-        exit.setFont(font2);
-        c.add(exit, BorderLayout.CENTER);
+        exit.setFont(font);
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.gridx = EXIT_BUTTON_COL;
+        constraints.gridwidth = EXIT_BUTTON_WIDTH;
+        constraints.gridy = EXIT_BUTTON_ROW;
+        constraints.ipadx = BUTTON_INT_PADDING;
+        constraints.ipady = BUTTON_INT_PADDING;
+        c.add(exit, constraints);
         exit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 System.exit(0);
             }
         });
