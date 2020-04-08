@@ -3,6 +3,7 @@ package hazard;
 import actor.Player;
 import actor.Score;
 import board.TestLevel;
+import board.Tile;
 import image.Images;
 import music.Boom;
 import playgame.Main;
@@ -12,19 +13,19 @@ public class ScoreBomb extends Bomb{
 
     private final int scoreDamage = 200;
 
-    public ScoreBomb(int x, int y) {
-        super(x * 32, y * 32);
+    public ScoreBomb(final int x, final int y) {
+        super(x * Tile.TILESIZE , y * Tile.TILESIZE );
     }
 
     /**
-     * Decreases Players score upon collision, the nremoves this Bomb
+     * Decreases Players score upon collision, then removes this Bomb
      */
     @Override
     public void onHit() {
         Boom boom = new Boom();
         Player.setScore(-scoreDamage);
         Score.update();
-        TestLevel.addGrass(getX(), getY());
+        TestLevel.addGrass(getIndexX(), getIndexY());
         Main.getBomb().remove(this);
     }
 
@@ -33,8 +34,8 @@ public class ScoreBomb extends Bomb{
      * @param g Graphics2D instance used for redrawing
      */
     @Override
-    public void update(Graphics2D g) {
-        g.drawImage(Images.getScoreBombImage(), getX(), getY(),32,32,null);
+    public void update(final Graphics2D g) {
+        g.drawImage(Images.getScoreBombImage(), getX(), getY(), Tile.TILESIZE, Tile.TILESIZE,null);
     }
 
 }

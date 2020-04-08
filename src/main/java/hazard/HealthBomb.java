@@ -2,6 +2,7 @@ package hazard;
 
 import actor.Health;
 import board.TestLevel;
+import board.Tile;
 import image.Images;
 import music.Boom;
 import playgame.Main;
@@ -9,8 +10,8 @@ import java.awt.Graphics2D;
 
 public class HealthBomb extends Bomb {
 
-    public HealthBomb(int x, int y) {
-        super(x * 32, y * 32);
+    public HealthBomb(final int x, final int y) {
+        super(x * Tile.TILESIZE , y * Tile.TILESIZE);
     }
 
 
@@ -22,7 +23,7 @@ public class HealthBomb extends Bomb {
         Boom boom = new Boom();
         Health.getBar().remove(Health.getIndex());//health minus
         Health.decreaseHeartLeft();
-        TestLevel.addGrass(getX(), getY());
+        TestLevel.addGrass(getIndexX(), getIndexY());
         Main.getBomb().remove(this);
     }
 
@@ -31,7 +32,7 @@ public class HealthBomb extends Bomb {
      * @param g Graphics2D instance used for redrawing
      */
     @Override
-    public void update(Graphics2D g){
+    public void update(final Graphics2D g) {
         g.drawImage(Images.getHealthBombImage(), getX(), getY(), 32, 32, null);
     }
 

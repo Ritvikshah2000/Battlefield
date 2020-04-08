@@ -11,8 +11,11 @@ public class ScoreBombTest {
     @Test
     public void testScoreBombConstructor(){ //checks that ScoreBomb placement works as intended
         ScoreBomb sb = new ScoreBomb(32,32);
-        Assert.assertEquals(1024,(int)sb.x);
-        Assert.assertEquals(1024, (int)sb.y);
+        Assert.assertEquals(1024, (int)sb.getX());
+        Assert.assertEquals(1024, (int)sb.getY());
+        Assert.assertEquals(32, (int)sb.getIndexX());
+        Assert.assertEquals(32, (int)sb.getIndexY());
+
     }
 
 

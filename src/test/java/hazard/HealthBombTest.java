@@ -12,8 +12,10 @@ public class HealthBombTest {
     @Test
     public void testHealthBombConstructor(){ //checks that placement of healthbomb works properly
         HealthBomb hb = new HealthBomb(32,32);
-        Assert.assertEquals(1024,(int)hb.x);
-        Assert.assertEquals(1024, (int)hb.y);
+        Assert.assertEquals(1024, (int)hb.getX());
+        Assert.assertEquals(1024, (int)hb.getY());
+        Assert.assertEquals(32, (int)hb.getIndexX());
+        Assert.assertEquals(32, (int)hb.getIndexY());
     }
 
     @Test
