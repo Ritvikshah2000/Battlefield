@@ -8,7 +8,7 @@ import javax.sound.sampled.Clip;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Boom {
+public final class Boom {
     private Clip boom;
 
     /**
