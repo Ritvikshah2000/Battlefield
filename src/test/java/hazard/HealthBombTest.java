@@ -21,7 +21,8 @@ public class HealthBombTest {
     @Test
     public void onHit() {
         HealthBomb hb = new HealthBomb(8,10);
-        Health h = new Health();
+        //Health h = new Health();
+        Health.initializeHealth();
         Health.update(null);
         TestLevel tl = new TestLevel(1);
         tl.addBomb(8, 10, hb);

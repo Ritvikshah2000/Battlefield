@@ -66,7 +66,8 @@ public class PlayerTest {
         new Main(1);
         Main.getEnemy().add(new Enemy(32, 32, 1));
         Player player = new Player(32, 32);
-        Health health = new Health();
+        //Health health = new Health();
+        Health.initializeHealth();
 
         Health.update(null);
         player.collideEnemy();

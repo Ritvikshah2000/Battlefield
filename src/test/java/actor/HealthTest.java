@@ -11,7 +11,8 @@ public class HealthTest {
     @Test
     public void testHealthConstructor()
     {
-        Health health = new Health();
-        Assert.assertEquals(3, health.getBar().size());
+        //Health health = new Health();
+        Health.initializeHealth();
+        Assert.assertEquals(3, Health.getBar().size());
     }
 }

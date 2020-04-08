@@ -68,7 +68,8 @@ public final class Main extends Canvas implements Runnable {
             level = new TestLevel(mapindex); //instantiate
             Images.loadImages();
 
-            health = new Health();
+            //health = new Health();
+            Health.initializeHealth();
 
             enemies.add(new Enemy(2 * Tile.TILESIZE, 14 * Tile.TILESIZE, 1));
             enemies.add(new Enemy(7 * Tile.TILESIZE, 15 * Tile.TILESIZE, 2));
@@ -84,7 +85,8 @@ public final class Main extends Canvas implements Runnable {
             level = new TestLevel(mapindex); //instantiate
             Images.loadImages();
 
-            health = new Health();
+            //health = new Health();
+            Health.initializeHealth();
 
             enemies.add(new Enemy(18 * Tile.TILESIZE, 7 * Tile.TILESIZE, 1));
             enemies.add(new Enemy(9 * Tile.TILESIZE, 11 * Tile.TILESIZE, 2));
@@ -226,7 +228,7 @@ public final class Main extends Canvas implements Runnable {
         if(Health.getBar().isEmpty()){
             Main.getWindow().dispose();
             running = false;
-            Losing losingsound = new Losing();
+            new Losing();
             new GameOverMenu();
         }
     }
