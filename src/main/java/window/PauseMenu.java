@@ -31,6 +31,9 @@ public class PauseMenu extends JFrame implements Runnable {
     private final int TITLE_FONT_SIZE = 32;
     private final int BUTTON_FONT_SIZE = 18;
 
+    /**
+     * Initializes and displays a new PauseMenu for the game, placing the main game in a pause state
+     */
     public PauseMenu() {
         Main.setPause(true);
 
