@@ -13,7 +13,7 @@ public class TileTest {
 
         Assert.assertEquals(-1, test.getId());
         Assert.assertFalse(test.isBarrier());
-        Assert.assertEquals(Boolean.FALSE, test.getItem());
+        Assert.assertEquals(Boolean.FALSE, test.getContents());
         Assert.assertEquals(10, test.getTileX());
         Assert.assertEquals(20, test.getTileY());
         Assert.assertEquals(30, test.getTileWidth());
