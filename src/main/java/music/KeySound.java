@@ -18,10 +18,8 @@ public final class KeySound {
      * @see actor.Player
      * @see reward.KeyReward
      */
-    public KeySound()
-    {
-        try
-        {
+    public KeySound() {
+        try {
             this.keysound = AudioSystem.getClip();
             InputStream is = KeySound.class.getClassLoader().getResourceAsStream("sound/keysound.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
@@ -43,8 +41,7 @@ public final class KeySound {
      * @see actor.Player
      * @see reward.KeyReward
      */
-    public void stop()
-    {
+    public void stop() {
         this.keysound.close();
     }
 }
