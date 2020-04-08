@@ -29,13 +29,13 @@ public abstract class Bomb {
      * Returns this Bombs x position pixel value
      * @return this Bombs x position pixel value
      */
-    public int getX(){ return x; }
+    public final int getX(){ return x; }
 
     /**
      * Returns this Bombs y position pixel value
      * @return this Bombs y position pixel value
      */
-    public int getY(){ return y; }
+    public final int getY(){ return y; }
 
     /**
      * Defines action to take upon collision with Player
