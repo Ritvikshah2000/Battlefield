@@ -4,10 +4,20 @@ import actor.Score;
 import playgame.Main;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 
 public class Window extends JFrame{
-    //all general window details
+
+    /**
+     * Initializes the main game window according to the size Dimensions
+     * @param size Window size parameters as specified by the Dimension object
+     * @param main intance of the main game thread
+     *
+     * @see Dimension
+     * @see Main
+     */
     public Window(Dimension size, Main main) {
         main.setPreferredSize(size);
         main.setMinimumSize(size);
@@ -21,14 +31,8 @@ public class Window extends JFrame{
         panel.add(Score.getComponent(), BorderLayout.NORTH);
 
         setVisible(true);
-        //frame.setLayout(new BorderLayout());
         setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-
-        //frame.add(Score.getPanel().add(Score.getComponent()));
-        //frame.add(main, BorderLayout.CENTER);
-        //frame.addKeyListener(new Key());
         add(panel);
 
         pack();
