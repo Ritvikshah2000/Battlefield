@@ -1,6 +1,7 @@
 package board;
 
 import image.Images;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -28,10 +29,11 @@ public final class Tile<T> extends Rectangle {
 
     /**
      * Initializes a new Tile instance with it's id and contents
-     * @param id Image resource file id
+     *
+     * @param id         Image resource file id
      * @param boundaries Rectangle that bounds this Tile
-     * @param barrier boolean value of whether or not this Tile is a barrier
-     * @param contents item of type T occupying this Tile
+     * @param barrier    boolean value of whether or not this Tile is a barrier
+     * @param contents   item of type T occupying this Tile
      * @see Rectangle
      * @see Images
      */
@@ -48,43 +50,62 @@ public final class Tile<T> extends Rectangle {
 
     /**
      * Returns this Tile's x index
+     *
      * @return this Tile's x index
      */
-    public int getTileX() { return x; }
+    public int getTileX() {
+        return x;
+    }
 
     /**
      * Returns this Tile's y index
+     *
      * @return this Tile's y index
      */
-    public int getTileY() { return y; }
+    public int getTileY() {
+        return y;
+    }
 
     /**
      * Returns this Tile's height in pixels
+     *
      * @return this Tile's height in pixels
      */
-    public int getTileHeight() { return height; }
+    public int getTileHeight() {
+        return height;
+    }
 
     /**
      * Returns this Tile's width in pixels
+     *
      * @return this Tile's width in pixels
      */
-    public int getTileWidth() { return width; }
+    public int getTileWidth() {
+        return width;
+    }
 
     /**
      * Returns this Tile's Image resource file Id as an int
+     *
      * @return this Tile's Image resource file Id as an int
      * @see Images
      */
-    public int getId(){ return id; }
+    public int getId() {
+        return id;
+    }
 
     /**
      * Returns whether of not this Tile is a barrier
+     *
      * @return boolean value of whether or not this Tile is a barrier
      */
-    public boolean isBarrier(){ return barrier; }
+    public boolean isBarrier() {
+        return barrier;
+    }
 
     /**
      * Returns the Rectangle that bounds this Tile
+     *
      * @return the Rectangle that bounds this Tile as a Rectangle
      * @see Rectangle
      */
@@ -94,21 +115,26 @@ public final class Tile<T> extends Rectangle {
 
     /**
      * Returns whether or not this Tile is occupied
+     *
      * @return boolean value of whether or not this Tile is occupied
      */
-    public boolean hasContents(){ return item != null; }
+    public boolean hasContents() {
+        return item != null;
+    }
 
     /**
      * Returns the contents occupying this Tile
+     *
      * @return object instance of type T that is occupying this Tile
      */
-    public T getContents(){
+    public T getContents() {
         return item;
     }
 
 
     /**
      * Redraws this Tile's graphics
+     *
      * @param g Graphics2D instance used to redraw the graphics
      * @see Graphics2D
      */
@@ -116,15 +142,15 @@ public final class Tile<T> extends Rectangle {
         final int RED = 243;
         final int GREEN = 184;
         final int BLUE = 122;
-        switch(id) {
+        switch (id) {
             case 0: // endpoint
-                g.drawImage(Images.getEndPointImage(),  x,  y,  width,  height,  null);
+                g.drawImage(Images.getEndPointImage(), x, y, width, height, null);
                 break;
             case 1: //
-                g.drawImage(Images.getGrassImage(),  x,  y,  width,  height,  null);
+                g.drawImage(Images.getGrassImage(), x, y, width, height, null);
                 break;
             case 2:
-                g.drawImage(Images.getWallImage(),  x,  y,  width,  height,  null);
+                g.drawImage(Images.getWallImage(), x, y, width, height, null);
                 break;
             default: //without any textures
                 g.setColor(new Color(RED, GREEN, BLUE));
