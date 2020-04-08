@@ -331,7 +331,7 @@ public final class Player {
         canLeft = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x + 2, barrier.y, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX() + 2, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canLeft = false;
                 break;
@@ -342,7 +342,7 @@ public final class Player {
         canRight = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x - 2, barrier.y, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX() - 2, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canRight = false;
                 break;
@@ -353,7 +353,7 @@ public final class Player {
         canUp = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x, barrier.y + 2, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() + 2, barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canUp = false;
                 break;
@@ -364,7 +364,7 @@ public final class Player {
         canDown = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x, barrier.y - 2, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() - 2, barrier.getTileWidth(), barrier.getTileHeight());
             if (herorect.intersects(barrierrect)) {
                 canDown = false;
                 break;

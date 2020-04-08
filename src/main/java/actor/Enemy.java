@@ -205,7 +205,7 @@ public final class Enemy {
         canLeft = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x + 1, barrier.y, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX() + 1, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canLeft = false;
                 break;
@@ -216,7 +216,7 @@ public final class Enemy {
         canRight = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x - 1, barrier.y, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX() - 1, barrier.getTileY(), barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canRight = false;
                 break;
@@ -227,7 +227,7 @@ public final class Enemy {
         canUp = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x, barrier.y + 1, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() + 1, barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canUp = false;
                 break;
@@ -238,7 +238,7 @@ public final class Enemy {
         canDown = true;
         for (int i = 0; i < TestLevel.barrierList.size(); i++) {
             Tile barrier = TestLevel.barrierList.get(i);
-            barrierrect = new Rectangle(barrier.x, barrier.y - 1, barrier.width, barrier.height);
+            barrierrect = new Rectangle(barrier.getTileX(), barrier.getTileY() - 1, barrier.getTileWidth(), barrier.getTileHeight());
             if (enemyrect.intersects(barrierrect)) {
                 canDown = false;
                 break;

@@ -11,13 +11,13 @@ public class TileTest {
         Rectangle rec = new Rectangle(10, 20, 30, 35);
         Tile<Boolean> test = new Tile<>(-1, rec, false, Boolean.FALSE);
 
-        Assert.assertEquals(-1, test.id);
-        Assert.assertFalse(test.barrier);
-        Assert.assertEquals(Boolean.FALSE, test.item);
-        Assert.assertEquals(10, test.x);
-        Assert.assertEquals(20, test.y);
-        Assert.assertEquals(30, test.width);
-        Assert.assertEquals(35, test.height);
+        Assert.assertEquals(-1, test.getId());
+        Assert.assertFalse(test.isBarrier());
+        Assert.assertEquals(Boolean.FALSE, test.getItem());
+        Assert.assertEquals(10, test.getTileX());
+        Assert.assertEquals(20, test.getTileY());
+        Assert.assertEquals(30, test.getTileWidth());
+        Assert.assertEquals(35, test.getTileHeight());
 
     }
 

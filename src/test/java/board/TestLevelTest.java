@@ -18,8 +18,8 @@ public class TestLevelTest {
 
         Assert.assertFalse(TestLevel.tiles[1][1].hasContents());
         Assert.assertNull(TestLevel.tiles[1][1].getContents());
-        Assert.assertFalse(TestLevel.tiles[1][1].barrier);
-        Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
+        Assert.assertFalse(TestLevel.tiles[1][1].isBarrier());
+        Assert.assertEquals( 1, TestLevel.tiles[1][1].getId());
 
     }
 
@@ -33,13 +33,13 @@ public class TestLevelTest {
 
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(hb,TestLevel.tiles[1][1].getContents());
-        Assert.assertFalse(TestLevel.tiles[1][1].barrier);
-        Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
+        Assert.assertFalse(TestLevel.tiles[1][1].isBarrier());
+        Assert.assertEquals( 1, TestLevel.tiles[1][1].getId());
 
         Assert.assertTrue(TestLevel.tiles[16][4].hasContents());
         Assert.assertEquals(sb, TestLevel.tiles[16][4].getContents());
-        Assert.assertFalse(TestLevel.tiles[16][4].barrier);
-        Assert.assertEquals( 1, TestLevel.tiles[16][4].id);
+        Assert.assertFalse(TestLevel.tiles[16][4].isBarrier());
+        Assert.assertEquals( 1, TestLevel.tiles[16][4].getId());
 
         Assert.assertTrue(Main.getBomb().contains(hb));
         Assert.assertTrue(Main.getBomb().contains(sb));
@@ -57,18 +57,18 @@ public class TestLevelTest {
 
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(key,TestLevel.tiles[1][1].getContents());
-        Assert.assertFalse(TestLevel.tiles[1][1].barrier);
-        Assert.assertEquals( 1, TestLevel.tiles[1][1].id);
+        Assert.assertFalse(TestLevel.tiles[1][1].isBarrier());
+        Assert.assertEquals( 1, TestLevel.tiles[1][1].getId());
 
         Assert.assertTrue(TestLevel.tiles[3][4].hasContents());
         Assert.assertEquals(fz, TestLevel.tiles[3][4].getContents());
-        Assert.assertFalse(TestLevel.tiles[3][4].barrier);
-        Assert.assertEquals( 1, TestLevel.tiles[3][4].id);
+        Assert.assertFalse(TestLevel.tiles[3][4].isBarrier());
+        Assert.assertEquals( 1, TestLevel.tiles[3][4].getId());
 
         Assert.assertTrue(TestLevel.tiles[5][10].hasContents());
         Assert.assertEquals(hp, TestLevel.tiles[5][10].getContents());
-        Assert.assertFalse(TestLevel.tiles[5][10].barrier);
-        Assert.assertEquals( 1, TestLevel.tiles[5][10].id);
+        Assert.assertFalse(TestLevel.tiles[5][10].isBarrier());
+        Assert.assertEquals( 1, TestLevel.tiles[5][10].getId());
 
 
         Assert.assertTrue(Main.getRewards().contains(key));
@@ -84,8 +84,8 @@ public class TestLevelTest {
 
         Assert.assertTrue(TestLevel.tiles[1][1].hasContents());
         Assert.assertEquals(end,TestLevel.tiles[1][1].getContents());
-        Assert.assertFalse(TestLevel.tiles[1][1].barrier);
-        Assert.assertEquals( 0, TestLevel.tiles[1][1].id);
+        Assert.assertFalse(TestLevel.tiles[1][1].isBarrier());
+        Assert.assertEquals( 0, TestLevel.tiles[1][1].getId());
     }
 
 
