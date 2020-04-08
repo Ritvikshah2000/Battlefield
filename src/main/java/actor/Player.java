@@ -14,24 +14,27 @@ import java.awt.Rectangle;
 
 import static board.Tile.TILESIZE;
 
-public class Player {
-    public static float x; //position
-    public static float y;
+public final class Player {
+    private static float x; //position
+    private static float y;
 
-    // Fix speeds, only need just one.
-    public static final int SIZE = 32;
+    private static final int SIZE = 32;
     private static int score;
     private static int keyCount;
-    private int leftSpeed = 2;
-    private int rightSpeed = 2;
-    private int upSpeed = 2;
-    private int downSpeed = 2; //rate at which player moves
+    private int speed = 2;
 
-    private static boolean movingLeft, movingRight, movingUp, movingDown, canUp, canDown, canRight, canLeft;
+    private static boolean movingLeft;
+    private static boolean movingRight;
+    private static boolean movingUp;
+    private static boolean movingDown;
+    private static boolean canUp;
+    private static boolean canDown;
+    private static boolean canRight;
+    private static boolean canLeft;
 
-    public Player(float x, float y) {
-        this.x = x;
-        this.y = y;
+    public Player(final float dx, final float dy) {
+        x = dx;
+        y = dy;
         canUp = true;
         canDown = true;
         canLeft = true;
@@ -41,6 +44,11 @@ public class Player {
     }
 
     /*---------------------------------getter setter---------------------------------*/
+
+    public static float getX() { return x; }
+    public static float getY() { return y; }
+    public static void setX(final float dx) {  x = dx; }
+    public static void setY(final float dy) { y = dy; }
 
     public Rectangle getBounds(){ return new Rectangle((int)x, (int)y, SIZE, SIZE); }
 
@@ -83,16 +91,17 @@ public class Player {
     {
         int[] currentTile = new int[2];
         int dx;
-        if (x - (int)(x/ TILESIZE)*TILESIZE >= 16)
+        if (x - (int)(x/ TILESIZE)*TILESIZE >= (Tile.TILESIZE / 2))
             dx = (int)(x/ TILESIZE)+1;
-        else
-            dx = (int)(x/ TILESIZE);
-
+        else {
+            dx = (int) (x / TILESIZE);
+        }
         int dy;
-        if (y - (int)(y/ TILESIZE)*TILESIZE >= 16)
+        if (y - (int)(y/ TILESIZE)*TILESIZE >= (Tile.TILESIZE / 2))
             dy = (int)(y/ TILESIZE)+1;
-        else
-            dy = (int)(y/ TILESIZE);
+        else {
+            dy = (int) (y / TILESIZE);
+        }
 
         currentTile[0] = dx;
         currentTile[1] = dy;
@@ -103,7 +112,7 @@ public class Player {
     {
         for(int i = 0; i < Main.getEnemy().size(); i++)
             if(Main.getEnemy().get(i).getBounds().intersects(this.getBounds())){
-                if(/*Main.getHealth()*/Health.getHp() % 30 == 0){    //have an hp value and only remove if the value drops to a certain amount
+                if(/*Main.getHealth()*/Health.getHp() % 30 == 0){   //Each Heart is equal to 1/3 of player h[
                     /*Main.getHealth().*/Health.getBar().remove(Health.getIndex());
                     /*Main.getHealth()*/Health.increaseHp(-Enemy.getDamage());
                     /*Main.getHealth()*/Health.decreaseHeartLeft();    // heart bar index -1
@@ -113,7 +122,7 @@ public class Player {
             }
     }
 
-    public void collideContent(int dx, int dy)      // hit a content
+    public void collideContent(final int dx, final int dy)      // hit a content
     {
         if(TestLevel.tiles[dx][dy].hasContents())
         {
@@ -202,19 +211,19 @@ public class Player {
         checkMove();
     }
 
-    public void update(Graphics2D g) {
+    public void update(final Graphics2D g) {
         collision();
         if (g != null)
             g.drawImage(Images.getPlayerImage(), (int)x, (int)y, SIZE, SIZE, null);
         //update player movement based on user input
         if(movingLeft && canLeft)
-            x -= leftSpeed;
+            x -= speed;
         if(movingRight && canRight)
-            x += rightSpeed;
+            x += speed;
         if(movingUp && canUp)
-            y -= upSpeed;
+            y -= speed;
         if(movingDown && canDown)
-            y += downSpeed;
+            y += speed;
     }
 }
 

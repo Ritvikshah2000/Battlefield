@@ -175,16 +175,16 @@ public final class Enemy {
                         g.drawImage(Images.getEnemy3Image(), x, y, SIZE, SIZE, null);
                         break;
                 }
-            if (Player.x > this.x && canRight) {
+            if (Player.getX() > this.x && canRight) {
                 x += speed;
             }
-            if (Player.y > this.y && canDown) {
+            if (Player.getY() > this.y && canDown) {
                 y += speed;
             }
-            if (Player.x < this.x && canLeft) {
+            if (Player.getX() < this.x && canLeft) {
                 x -= speed;
             }
-            if (Player.y < this.y && canUp) {
+            if (Player.getY() < this.y && canUp) {
                 y -= speed;
             }
         } else {

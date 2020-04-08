@@ -13,12 +13,12 @@ public class PlayerTest {
     public void testPlayerConstructor()
     {
         Player player = new Player(32,16);
-        Assert.assertEquals(32,  (int)player.x);
-        Assert.assertEquals(16,  (int)player.y);
-        Assert.assertTrue(player.getCanLeft());
-        Assert.assertTrue(player.getCanRight());
-        Assert.assertTrue(player.getCanUp());
-        Assert.assertTrue(player.getCanDown());
+        Assert.assertEquals(32,  (int) Player.getX());
+        Assert.assertEquals(16,  (int) Player.getY());
+        Assert.assertTrue(Player.getCanLeft());
+        Assert.assertTrue(Player.getCanRight());
+        Assert.assertTrue(Player.getCanUp());
+        Assert.assertTrue(Player.getCanDown());
     }
 
     @Test
@@ -42,20 +42,20 @@ public class PlayerTest {
         Assert.assertEquals(1, currentTile[0]);
         Assert.assertEquals(2, currentTile[1]);
 
-        player.x = 47;
-        player.y = 79;
+        Player.setX(47);
+        Player.setY(79);
         currentTile = player.currentTile();
         Assert.assertEquals(1, currentTile[0]);
         Assert.assertEquals(2, currentTile[1]);
 
-        player.x = 48;
-        player.y = 80;
+        Player.setX(48);
+        Player.setY(80);
         currentTile = player.currentTile();
         Assert.assertEquals(2, currentTile[0]);
         Assert.assertEquals(3, currentTile[1]);
 
-        player.x = 49;
-        player.y = 81;
+        Player.setX(49);
+        Player.setY(81);
         currentTile = player.currentTile();
         Assert.assertEquals(2, currentTile[0]);
         Assert.assertEquals(3, currentTile[1]);
@@ -66,7 +66,6 @@ public class PlayerTest {
         new Main(1);
         Main.getEnemy().add(new Enemy(32, 32, 1));
         Player player = new Player(32, 32);
-        //Health health = new Health();
         Health.initializeHealth();
 
         Health.update(null);
@@ -108,14 +107,14 @@ public class PlayerTest {
         TestLevel level = new TestLevel(2);
 
         Player player = new Player(32,32);
-        Assert.assertTrue(player.getCanLeft());   // check initially canLeft is true
+        Assert.assertTrue(Player.getCanLeft());   // check initially canLeft is true
         player.checkMove();
-        Assert.assertFalse(player.getCanLeft());  // in level there is barrier in the left hand side of enemy, canLeft become false
+        Assert.assertFalse(Player.getCanLeft());  // in level there is barrier in the left hand side of enemy, canLeft become false
 
         Player player2 = new Player(64,32);
-        Assert.assertTrue(player2.getCanLeft());  // check initially canLeft is true
+        Assert.assertTrue(Player.getCanLeft());  // check initially canLeft is true
         player2.collision();
-        Assert.assertTrue(player2.getCanLeft());  // in level there is no barrier in the left hand side of enemy2, canLeft should be true
+        Assert.assertTrue(Player.getCanLeft());  // in level there is no barrier in the left hand side of enemy2, canLeft should be true
     }
 
     @Test
@@ -124,14 +123,14 @@ public class PlayerTest {
         TestLevel level = new TestLevel(2);
 
         Player player = new Player(32,64);
-        Assert.assertTrue(player.getCanRight());
+        Assert.assertTrue(Player.getCanRight());
         player.collision();
-        Assert.assertFalse(player.getCanRight());
+        Assert.assertFalse(Player.getCanRight());
 
         Player player2 = new Player(32,32);
-        Assert.assertTrue(player2.getCanRight());
+        Assert.assertTrue(Player.getCanRight());
         player2.collision();
-        Assert.assertTrue(player2.getCanRight());
+        Assert.assertTrue(Player.getCanRight());
     }
 
     @Test
@@ -140,14 +139,14 @@ public class PlayerTest {
         TestLevel level = new TestLevel(2);
 
         Player player = new Player(32,32);
-        Assert.assertTrue(player.getCanUp());
+        Assert.assertTrue(Player.getCanUp());
         player.collision();
-        Assert.assertFalse(player.getCanUp());
+        Assert.assertFalse(Player.getCanUp());
 
         Player player2 = new Player(32,64);
-        Assert.assertTrue(player2.getCanUp());  // check initially canLeft is true
+        Assert.assertTrue(Player.getCanUp());  // check initially canLeft is true
         player2.collision();
-        Assert.assertTrue(player2.getCanUp());
+        Assert.assertTrue(Player.getCanUp());
     }
 
     @Test
@@ -156,14 +155,14 @@ public class PlayerTest {
         TestLevel level = new TestLevel(2);
 
         Player player = new Player(64,32);
-        Assert.assertTrue(player.getCanDown());
+        Assert.assertTrue(Player.getCanDown());
         player.collision();
-        Assert.assertFalse(player.getCanDown());
+        Assert.assertFalse(Player.getCanDown());
 
         Player player2 = new Player(32,32);
-        Assert.assertTrue(player2.getCanDown());  // check initially canLeft is true
+        Assert.assertTrue(Player.getCanDown());  // check initially canLeft is true
         player2.collision();
-        Assert.assertTrue(player2.getCanDown());
+        Assert.assertTrue(Player.getCanDown());
     }
 }
 

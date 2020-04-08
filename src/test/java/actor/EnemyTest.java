@@ -135,8 +135,8 @@ public class EnemyTest {
         Assert.assertEquals(63, enemy.getX());
         Assert.assertEquals(127, enemy.getY());
 
-        hero.x = 256;   // change hero position
-        hero.y = 300;
+        Player.setX(256);   // change hero position
+        Player.setY(300);
 
         enemy.chasingHero(null);          // enemy will chasing hero by right and down direction
         Assert.assertEquals(64, enemy.getX());
