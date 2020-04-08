@@ -13,12 +13,11 @@ public class Boom {
 
     /**
      * Loads the audio clip to be played when the Player collides with a Bomb
+     *
      * @see javax.sound.sampled
      */
-    public Boom()
-    {
-        try
-        {
+    public Boom() {
+        try {
             this.boom = AudioSystem.getClip();
             InputStream is = Boom.class.getClassLoader().getResourceAsStream("sound/boom.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
@@ -36,8 +35,7 @@ public class Boom {
     /**
      * Terminates the audio clip played when the Player collides with a Bomb
      */
-    public void stop()
-    {
+    public void stop() {
         this.boom.close();
     }
 }
