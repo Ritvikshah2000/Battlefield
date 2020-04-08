@@ -1,28 +1,32 @@
 package reward;
 
-import java.awt.*;
+import board.Tile;
+
+import java.awt.Graphics2D;
 
 
 public abstract class Reward
 {
-    public int x, y, value;     // position
+    private int x;
+    private int y;
+    private int value;
 
-    public Reward(int x, int y)
+    public Reward(final int dx, final int dy)
     {
-        this.x = x;
-        this.y = y;
+        x = dx;
+        y = dy;
     }
 
     public void onHit(){
 
     };
 
-    public void update(Graphics2D g){
+    public void update(final Graphics2D g){
 
     };
 
-    public int getXIndex(){ return (int)(x / 32); };
-    public int getYIndex(){ return (int)(y / 32); };
-    public int getX(){ return x; };
-    public int getY(){ return y; };
+    public final int getXIndex(){ return (int)(x / Tile.TILESIZE); };
+    public final int getYIndex(){ return (int)(y / Tile.TILESIZE); };
+    public final int getX(){ return x; };
+    public final int getY(){ return y; };
 }
