@@ -33,11 +33,14 @@ public class KeyBar {
 
     /**
      * Returns the x index of the initial Tile the KeyBar occupies
+     *
      * @return x index of the initial Tile the KeyBar occupies
      * @see board.Tile
      * @see board.TestLevel
      */
-    public static int getInitialTile(){ return intialTile; }
+    public static int getInitialTile() {
+        return intialTile;
+    }
 
     /**
      * Redraws the KeyBar graphics
