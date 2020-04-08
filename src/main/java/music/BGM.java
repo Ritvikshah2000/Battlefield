@@ -1,17 +1,25 @@
 package music;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.Clip;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class BGM {
+public final class BGM {
     private Clip bgm;
 
+    /**
+     * Loads the audio clip to be played as the background music of the game
+     * @see javax.sound.sampled
+     */
     public BGM()
     {
         try
         {
-            this.bgm = AudioSystem.getClip();   //music box
+            this.bgm = AudioSystem.getClip();
             InputStream is = Losing.class.getClassLoader().getResourceAsStream("sound/bgm.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
             this.bgm.open(ais);
@@ -25,6 +33,10 @@ public class BGM {
         }
     }
 
+    /**
+     * Terminates the audio clip playing as the background music of the game
+     * @see javax.sound.sampled.Clip
+     */
     public void stop()
     {
         this.bgm.close();
