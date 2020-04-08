@@ -13,12 +13,11 @@ public final class BGM {
 
     /**
      * Loads the audio clip to be played as the background music of the game
+     *
      * @see javax.sound.sampled
      */
-    public BGM()
-    {
-        try
-        {
+    public BGM() {
+        try {
             this.bgm = AudioSystem.getClip();
             InputStream is = Losing.class.getClassLoader().getResourceAsStream("sound/bgm.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
@@ -35,10 +34,10 @@ public final class BGM {
 
     /**
      * Terminates the audio clip playing as the background music of the game
+     *
      * @see javax.sound.sampled.Clip
      */
-    public void stop()
-    {
+    public void stop() {
         this.bgm.close();
     }
 }
