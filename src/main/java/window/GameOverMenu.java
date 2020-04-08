@@ -2,6 +2,7 @@ package window;
 
 import actor.Player;
 import playgame.Main;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -11,8 +12,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameOverMenu extends JFrame
-{
+public class GameOverMenu extends JFrame {
     private final int MENU_SIZE = 500;
     private final int MENU_X_POS = 500;
     private final int MENU_Y_POS = 200;
@@ -35,8 +35,7 @@ public class GameOverMenu extends JFrame
     /**
      * Initializes and displays a new GameOverMenu if the player losses the game
      */
-    public GameOverMenu()
-    {
+    public GameOverMenu() {
         Main.getBgm().stop();
 
         setTitle("Game Over Menu");
@@ -46,8 +45,8 @@ public class GameOverMenu extends JFrame
         setBackground(Color.WHITE);
         Container c = getContentPane();
         setLayout(null);
-        Font titleFont = new Font("宋体",Font.BOLD,TITLE_FONT_SIZE);
-        Font buttonFont = new Font("宋体",Font.BOLD,BUTTON_FONT_SIZE);
+        Font titleFont = new Font("宋体", Font.BOLD, TITLE_FONT_SIZE);
+        Font buttonFont = new Font("宋体", Font.BOLD, BUTTON_FONT_SIZE);
 
         // title
         JLabel gameOver = new JLabel("Game Over");
