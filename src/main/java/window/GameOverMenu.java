@@ -32,6 +32,9 @@ public class GameOverMenu extends JFrame
     private final int TITLE_FONT_SIZE = 32;
     private final int BUTTON_FONT_SIZE = 18;
 
+    /**
+     * Initializes and displays a new GameOverMenu if the player losses the game
+     */
     public GameOverMenu()
     {
         Main.getBgm().stop();
