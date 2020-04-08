@@ -34,6 +34,8 @@ public final class Losing {
 
     /**
      * Terminates the audio clip played when the Player losses the game
+     *
+     * @see javax.sound.sampled.Clip
      */
     public void stop() {
         this.losingSound.close();

@@ -15,6 +15,10 @@ public final class Boom {
      * Loads the audio clip to be played when the Player collides with a Bomb
      *
      * @see javax.sound.sampled
+     * @see hazard.Bomb
+     * @see hazard.ScoreBomb
+     * @see hazard.HealthBomb
+     * @see actor.Player
      */
     public Boom() {
         try {
@@ -34,6 +38,12 @@ public final class Boom {
 
     /**
      * Terminates the audio clip played when the Player collides with a Bomb
+     *
+     * @see javax.sound.sampled.Clip
+     * @see hazard.Bomb
+     * @see hazard.ScoreBomb
+     * @see hazard.HealthBomb
+     * @see actor.Player
      */
     public void stop() {
         this.boom.close();
