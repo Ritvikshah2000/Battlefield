@@ -25,7 +25,7 @@ public final class HealthReward extends Reward {
      */
     public HealthReward(final int x, final int y) {
         super(x * Tile.TILESIZE, y * Tile.TILESIZE);
-        value = 50;
+        setValue(50);
     }
 
 
@@ -40,7 +40,7 @@ public final class HealthReward extends Reward {
     public void onHit() {
         Health.increaseHp((Health.getHeartsLeft() + 1) * Health.getHeartHpThreshold());
         Health.getBar().add(new HealthBar((Tile.TILESIZE * Health.getHeartsLeft()), 0));
-        Player.setScore(value);
+        Player.setScore(getValue());
         Score.update();
         TestLevel.addGrass(getXIndex(), getYIndex());
         Main.getRewards().remove(this);
