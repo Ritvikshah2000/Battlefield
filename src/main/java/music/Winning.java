@@ -13,12 +13,11 @@ public final class Winning {
 
     /**
      * Loads the audio clip to be played when the Player wins the game
+     *
      * @see javax.sound.sampled
      */
-    public Winning()
-    {
-        try
-        {
+    public Winning() {
+        try {
             this.winningSound = AudioSystem.getClip();
             InputStream is = Winning.class.getClassLoader().getResourceAsStream("sound/wingame.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(is);
@@ -35,6 +34,7 @@ public final class Winning {
 
     /**
      * Terminates the audio clipped played when the Player wins the game
+     *
      * @see javax.sound.sampled.Clip
      */
     public void stop() {
