@@ -2,19 +2,20 @@ package window;
 
 import actor.Score;
 import playgame.Main;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class Window extends JFrame{
+public class Window extends JFrame {
 
     /**
      * Initializes the main game window according to the size Dimensions
-     * @param size Window size parameters as specified by the Dimension object
-     * @param main intance of the main game thread
      *
+     * @param size Window size parameters as specified by the Dimension object
+     * @param main instance of the main game thread
      * @see Dimension
      * @see Main
      */
