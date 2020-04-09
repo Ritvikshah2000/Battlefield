@@ -18,11 +18,11 @@ public final class Enemy {
     private boolean canDown;
     private boolean canRight;
     private boolean canLeft;
-    private static boolean isFrozen;
+    private static boolean isFrozen = false;
     private int frozenTimer;
     private static final int SIZE = 32;
 
-    private static float damage = 0.5f;
+    private static final float DAMAGE = 0.5f;
 
     /**
      * Initializes Enemy instance at positions x, y, with sprite corresponding to imageId
@@ -40,7 +40,6 @@ public final class Enemy {
         canDown = true;
         canLeft = true;
         canRight = true;
-        isFrozen = false;
         frozenTimer = 0;
     }
 
@@ -104,7 +103,7 @@ public final class Enemy {
      * @return amount of damage enemies deals as a float
      */
     public static float getDamage() {
-        return damage;
+        return DAMAGE;
     }
 
     /**
@@ -135,6 +134,14 @@ public final class Enemy {
     }
 
     /**
+     * Sets whteher or not enemies are frozen
+     * @param b new boolean value for whether enemies are frozen or not
+     */
+    public static void setIsFrozen(boolean b){
+        isFrozen = b;
+    }
+
+    /**
      * Returns this Enemy's bounding Rectangle
      *
      * @return this Enemy's bounding Rectangle
@@ -149,10 +156,10 @@ public final class Enemy {
      */
     public void checkFrozen() {
         if (frozenTimer != 0) {
-            isFrozen = true;
+            setIsFrozen(true);
             frozenTimer -= 1;
         } else {
-            isFrozen = false;
+            setIsFrozen(false);
         }
     }
 

@@ -283,7 +283,7 @@ public final class Player {
     {
         for (int i = 0; i < Main.getEnemy().size(); i++)
             if (Main.getEnemy().get(i).getBounds().intersects(this.getBounds())) {
-                if (Health.getHp() % Health.getHeartHpThreshold() == 0) {   //Each Heart is equal to 1/3 of player h[
+                if (Health.getHp() % Health.getHeartHpThreshold() == 0) {
                     Health.getBar().remove(Health.getIndex());
                     Health.increaseHp(-Enemy.getDamage());
                     Health.decreaseHeartLeft();    // heart bar index -1
