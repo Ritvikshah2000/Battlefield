@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PauseMenu extends JFrame implements Runnable {
+public class PauseMenu extends JFrame {
     private final int MENU_SIZE = 500;
     private final int MENU_X_POS = 500;
     private final int MENU_Y_POS = 200;
@@ -65,7 +65,6 @@ public class PauseMenu extends JFrame implements Runnable {
             }
         });
 
-
         // exit
         JButton exit = new JButton("Exit");
         exit.setFont(buttonFont);
@@ -76,9 +75,5 @@ public class PauseMenu extends JFrame implements Runnable {
                 System.exit(0);
             }
         });
-    }
-
-    public void run() {
-
     }
 }

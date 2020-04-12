@@ -134,7 +134,7 @@ public final class Enemy {
     }
 
     /**
-     * Sets whteher or not enemies are frozen
+     * Sets whether or not enemies are frozen
      * @param b new boolean value for whether enemies are frozen or not
      */
     public static void setIsFrozen(boolean b){
