@@ -80,21 +80,5 @@ public class MapChoice extends JFrame {
                 }
             }
         });
-
-        // exit
-        JButton exit = new JButton("Exit");
-        exit.setFont(font);
-        constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = EXIT_BUTTON_COL;
-        constraints.gridwidth = EXIT_BUTTON_WIDTH;
-        constraints.gridy = EXIT_BUTTON_ROW;
-        constraints.ipadx = BUTTON_INT_PADDING;
-        constraints.ipady = BUTTON_INT_PADDING;
-        c.add(exit, constraints);
-        exit.addActionListener(new ActionListener() {
-            public void actionPerformed(final ActionEvent e) {
-                System.exit(0);
-            }
-        });
     }
 }

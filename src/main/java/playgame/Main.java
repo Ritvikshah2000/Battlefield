@@ -53,7 +53,6 @@ public final class Main extends Canvas implements Runnable {
     private static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     private static ArrayList<Bomb> bombs = new ArrayList<Bomb>();
     private static ArrayList<Reward> rewards = new ArrayList<Reward>();
-    private static Health health;
 
     // Constructor
 
@@ -142,13 +141,6 @@ public final class Main extends Canvas implements Runnable {
      * @see BGM
      */
     public static BGM getBgm() { return bgm; }
-
-    /**
-     * Returns the Health instance of this game
-     * @return the Health instance of this game
-     * @see Health
-     */
-    public static Health getHealth() { return health; }
 
     /**
      * Returns the current pause state of this game
