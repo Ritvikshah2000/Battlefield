@@ -20,6 +20,15 @@ To run the testing suite:
 * mvn test
 
 
+**ARTIFACTS**
+
+To build the JAR executable:
+* mvn clean package
+
+To generate the Javadocs:
+* mvn javadoc:javadoc
+
+
 **GAMEPLAY**
 
 Play as the hero and collect keys to unlock the exit and escape the pursuing enemies!
