@@ -19,7 +19,6 @@ public class HealthRewardTest {
         Player player = new Player(15*32,4*32);
         HealthReward hr = new HealthReward(15*32,4*32);
         TestLevel testLevel = new TestLevel(1);
-        //Health health = new Health();
         Health.initializeHealth();
         int[] currentTile = player.currentTile();
         int dx = currentTile[0];

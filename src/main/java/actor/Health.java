@@ -15,10 +15,10 @@ public class Health{
 
     private Health()
     {
-        bar = new ArrayList<HealthBar>();
+        bar = new ArrayList<>();
         bar.add(new HealthBar(0, 0));
         bar.add(new HealthBar(Tile.TILESIZE, 0));
-        bar.add(new HealthBar(Tile.TILESIZE * 2, 0));   // player has 3 life
+        bar.add(new HealthBar(Tile.TILESIZE * 2, 0));
     }
 
     /*---------------------------------getter setter---------------------------------*/
