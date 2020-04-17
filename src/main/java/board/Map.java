@@ -1,5 +1,8 @@
 package board;
 
+/**
+ * Integer mapping of the game board design
+ */
 public final class Map {
     private int[][] map;
 
@@ -69,6 +72,7 @@ public final class Map {
 
     /**
      * Returns the int mapping of the game level design
+     *
      * @return the int mapping of the game level design as an int[][]
      */
     public int[][] getMap() {

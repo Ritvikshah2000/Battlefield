@@ -12,6 +12,9 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * GUI component that displays upon game over
+ */
 public class GameOverMenu extends JFrame {
     private final int MENU_SIZE = 500;
     private final int MENU_X_POS = 500;

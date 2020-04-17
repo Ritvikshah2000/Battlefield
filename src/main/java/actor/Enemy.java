@@ -7,7 +7,9 @@ import image.Images;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-
+/**
+ * Represents an Enemy
+ */
 public final class Enemy {
 
     private int x;
@@ -135,9 +137,10 @@ public final class Enemy {
 
     /**
      * Sets whether or not enemies are frozen
+     *
      * @param b new boolean value for whether enemies are frozen or not
      */
-    public static void setIsFrozen(boolean b){
+    public static void setIsFrozen(boolean b) {
         isFrozen = b;
     }
 

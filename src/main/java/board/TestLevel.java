@@ -13,6 +13,9 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+/**
+ * Represents an entire game level
+ */
 public final class TestLevel {
     private enum MappedAs {BARRIER, GRASS, KEY_REWARD, FREEZE, HEALTH_REWARD, HEALTH_BOMB, SCORE_BOMB, END_POINT}
 

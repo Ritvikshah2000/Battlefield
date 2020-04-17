@@ -7,14 +7,18 @@ import board.Tile;
 import image.Images;
 import music.Boom;
 import playgame.Main;
+
 import java.awt.Graphics2D;
 
-public class ScoreBomb extends Bomb{
+/**
+ * Represents a ScoreBomb hazard
+ */
+public class ScoreBomb extends Bomb {
 
     private final int scoreDamage = 200;
 
     public ScoreBomb(final int x, final int y) {
-        super(x * Tile.TILESIZE , y * Tile.TILESIZE );
+        super(x * Tile.TILESIZE, y * Tile.TILESIZE);
     }
 
     /**
@@ -31,12 +35,13 @@ public class ScoreBomb extends Bomb{
 
     /**
      * Redraws this ScoreBombs graphics
+     *
      * @param g Graphics2D instance used for redrawing
      * @see Graphics2D
      */
     @Override
     public void update(final Graphics2D g) {
-        g.drawImage(Images.getScoreBombImage(), getX(), getY(), Tile.TILESIZE, Tile.TILESIZE,null);
+        g.drawImage(Images.getScoreBombImage(), getX(), getY(), Tile.TILESIZE, Tile.TILESIZE, null);
     }
 
 }

@@ -9,6 +9,9 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * GUI component that displays on game launch
+ */
 public class MainMenu extends JFrame {
     private final int MENU_SIZE = 500;
     private final int MENU_X_POS = 500;

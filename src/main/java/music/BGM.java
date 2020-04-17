@@ -8,6 +8,9 @@ import javax.sound.sampled.Clip;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Utility class used to load Background Music
+ */
 public final class BGM {
     private Clip bgm;
 

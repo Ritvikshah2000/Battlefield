@@ -6,12 +6,16 @@ import board.Tile;
 import image.Images;
 import music.Boom;
 import playgame.Main;
+
 import java.awt.Graphics2D;
 
+/**
+ * Represents a HealthBomb hazard
+ */
 public class HealthBomb extends Bomb {
 
     public HealthBomb(final int x, final int y) {
-        super(x * Tile.TILESIZE , y * Tile.TILESIZE);
+        super(x * Tile.TILESIZE, y * Tile.TILESIZE);
     }
 
 
@@ -29,6 +33,7 @@ public class HealthBomb extends Bomb {
 
     /**
      * Redraws this HealthBombs Graphics
+     *
      * @param g Graphics2D instance used for redrawing
      * @see Graphics2D
      */

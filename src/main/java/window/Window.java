@@ -8,7 +8,9 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
+/**
+ * Represents the main game Window as a JFrame
+ */
 public class Window extends JFrame {
 
     /**

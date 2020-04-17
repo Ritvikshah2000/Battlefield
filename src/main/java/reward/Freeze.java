@@ -10,6 +10,9 @@ import playgame.Main;
 
 import java.awt.Graphics2D;
 
+/**
+ * Represents a Freeze reward
+ */
 public final class Freeze extends Reward {
     private int freezeTime = 180;
     private int timeLeft = 750;

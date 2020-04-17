@@ -4,7 +4,9 @@ import board.Tile;
 
 import java.awt.Graphics2D;
 
-
+/**
+ * Abstract class representing a Reward component
+ */
 public abstract class Reward {
     private int x;
     private int y;

@@ -11,6 +11,9 @@ import playgame.Main;
 
 import java.awt.Graphics2D;
 
+/**
+ * Represents a KeyReward
+ */
 public final class KeyReward extends Reward {
 
     /**

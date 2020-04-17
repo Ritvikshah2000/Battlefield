@@ -12,6 +12,9 @@ import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * GUI component that displays for game map selection
+ */
 public class MapChoice extends JFrame {
 
     private int MENU_SIZE = 500;

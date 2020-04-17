@@ -5,6 +5,9 @@ import music.Winning;
 import playgame.Main;
 import window.GameOverMenu;
 
+/**
+ * Represents the exit point on the game map
+ */
 public class EndPoint {
 
     private static final int REQUIRED_KEYS = 5;

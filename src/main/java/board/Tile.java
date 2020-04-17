@@ -6,6 +6,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+/**
+ * Represents an individual board tile
+ *
+ * @param <T> The game component contained within this particular tile
+ */
 public final class Tile<T> extends Rectangle {
 
     private int id;

@@ -11,7 +11,9 @@ import playgame.Main;
 
 import java.awt.Graphics2D;
 
-
+/**
+ * Represents a HealthReward
+ */
 public final class HealthReward extends Reward {
 
 

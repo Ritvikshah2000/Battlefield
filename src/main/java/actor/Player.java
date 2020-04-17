@@ -15,6 +15,9 @@ import java.awt.Rectangle;
 
 import static board.Tile.TILESIZE;
 
+/**
+ * Represents a Player
+ */
 public final class Player {
     private static float x; //position
     private static float y;

@@ -5,7 +5,9 @@ import reward.KeyReward;
 import java.util.ArrayList;
 import java.awt.Graphics2D;
 
-
+/**
+ * Holds the keys that the Player has collected
+ */
 public class KeyBar {
     private static ArrayList<KeyReward> kBar = new ArrayList<>();
     private static int collected = 0;
