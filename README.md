@@ -22,8 +22,9 @@ To run the testing suite:
 
 **ARTIFACTS**
 
-To build the JAR executable:
+To build and run the JAR executable:
 * mvn clean package
+* java -jar target/BATTLEFIELD-1.0.jar
 
 To generate the Javadocs:
 * mvn javadoc:javadoc
