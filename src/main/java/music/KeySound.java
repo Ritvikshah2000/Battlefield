@@ -7,6 +7,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.sound.sampled.Clip;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Utility class used to load KeyReward onHit sound effect
