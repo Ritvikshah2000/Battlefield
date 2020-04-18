@@ -20,6 +20,15 @@ To run the testing suite:
 * mvn test
 
 
+**ARTIFACTS**
+
+To build the JAR executable:
+* mvn clean package
+
+To generate the Javadocs:
+* mvn javadoc:javadoc
+
+
 **GAMEPLAY**
 
 Play as the hero and collect keys to unlock the exit and escape the pursuing enemies!
@@ -27,8 +36,11 @@ Play as the hero and collect keys to unlock the exit and escape the pursuing ene
 * Collect all the keys to unlock the endpoint to beat the game
 * Avoid pursuing enemies which deplete your health bar
 * Avoid red and black bombs which reduce your health and total score respectively
-* Collect bonus rewards to help you along the way:
+* Collect bonus rewards to increase your score and help you along the way:
 	* Hearts will restore your health bar
 	* Ice will freeze enemies in place for a short duration
 
 Have fun!!!
+
+[GAMEPLAY TRAILER](https://vimeo.com/408712691?fbclid=IwAR3qDD7wGLnzpigiy82DPTWqjJMJoqnjkij8jbERg4gvE46f9FBhPyB6-ug)
+
